@@ -16,3 +16,16 @@
     height: 750px;
     width: ;
 }*/
+
+.container{
+    border: none;
+}
+.linea-superior {
+    position: absolute;
+    
+    top: -5px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: #8a8a8a;
+}
