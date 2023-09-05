@@ -23,9 +23,27 @@
 .linea-superior {
     position: absolute;
     
-    top: -5px;
+    top: -12px;
     left: 0;
     right: 0;
     height: 1px;
     background-color: #8a8a8a;
+}
+
+.no-deco{
+    text-decoration: none;
+    color: black;
+}
+
+.no-deco:hover{
+    text-decoration: underline;
+}
+
+.centrar-boton {
+    text-align: center;
+}
+
+/* Agrega un margen superior e inferior para centrar verticalmente el botón */
+.btn {
+    margin: 10px auto;
 }
