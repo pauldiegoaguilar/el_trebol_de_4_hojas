@@ -56,38 +56,42 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-3 " style="margin-top: 90px;">
-                    <div class="contact-form-area fix mtb-30">
+                    <div class="contact-form-area fix mtb-30 d-none d-md-block">
                         <h4 style="font-weight: 700;">Categorias principales</h4>
                         <p style="text-decoration: none;">
-                            <a style="text-decoration: none; color: black; font-size: 18px; font-weight: 300;"
-                                href="#">Arte Original</a> <br>
-                            <a style="text-decoration: none; color: black; font-size: 18px; font-weight: 300;"
-                                href="#">Gift Card</a> <br>
-                            <a style="text-decoration: none; color: black; font-size: 18px; font-weight: 300;"
-                                href="#">DC Comics</a> <br>
-                            <a style="text-decoration: none; color: black; font-size: 18px; font-weight: 300;"
-                                href="#">Historieta</a> <br>
-                            <a style="text-decoration: none; color: black; font-size: 18px; font-weight: 300;"
-                                href="#">Manga</a> <br>
-                            <a style="text-decoration: none; color: black; font-size: 18px; font-weight: 300;"
-                                href="#">Marvel</a> <br>
-                            <a style="text-decoration: none; color: black; font-size: 18px; font-weight: 300;"
-                                href="#">ArtToys MacPulenta</a> <br>
-                            <a style="text-decoration: none; color: black; font-size: 18px; font-weight: 300;"
-                                href="#">Merchandising</a> <br>
-                            <a style="text-decoration: none; color: black; font-size: 18px; font-weight: 300;"
-                                href="#">Bolsas</a> <br>
-                            <a style="text-decoration: none; color: black; font-size: 18px; font-weight: 300;"
-                                href="#">Exclusivo Capitan Barato</a> <br>
-                            <a style="text-decoration: none; color: black; font-size: 18px; font-weight: 300;"
-                                href="#">Pre Ventas</a> <br>
-                            <a style="text-decoration: none; color: black; font-size: 18px; font-weight: 300;"
-                                href="#">Trading cards</a> <br>
-                            <a style="text-decoration: none; color: black; font-size: 18px; font-weight: 300;"
-                                href="#">Figuras</a> <br>
-                            <a style="text-decoration: none; color: black; font-size: 18px; font-weight: 300;"
-                                href="#">Peluches</a> <br>
+                            <a class="anchor_links2" href="#">Arte Original</a>
+                            <a class="anchor_links2" href="#">Gift Card</a> 
+                            <a class="anchor_links2" href="#">DC Comics</a>
+                            <a class="anchor_links2" href="#">Historieta</a>
+                            <a class="anchor_links2" href="#">Manga</a> 
+                            <a class="anchor_links2" href="#">Marvel</a> 
+                            <a class="anchor_links2" href="#">ArtToys MacPulenta</a> 
+                            <a class="anchor_links2" href="#">Merchandising</a>
+                            <a class="anchor_links2" href="#">Bolsas</a> 
+                            <a class="anchor_links2" href="#">Exclusivo Capitan Barato</a> 
+                            <a class="anchor_links2" href="#">Pre Ventas</a>
+                            <a class="anchor_links2" href="#">Trading cards</a>
+                            <a class="anchor_links2" href="#">Figuras</a>
+                            <a class="anchor_links2" href="#">Peluches</a> 
                         </p>
+                    </div>
+                    <div class="d-block d-md-none d-flex">
+                        
+                        <div class="d-block d-md-none d-flex cuadrado"><a class="anchor_links" href="#">Arte Original</a> </div>
+                        <div class="d-block d-md-none d-flex cuadrado"><a class="anchor_links" href="#">Gift Card</a> </div>
+                        <div class="d-block d-md-none d-flex cuadrado"><a class="anchor_links" href="#">DC Comics</a></div>
+                        <div class="d-block d-md-none d-flex cuadrado"><a class="anchor_links" href="#">Historieta</a></div>
+                        <div class="d-block d-md-none d-flex cuadrado"><a class="anchor_links" href="#">Manga</a> </div>
+                        <div class="d-block d-md-none d-flex cuadrado"><a class="anchor_links" href="#">Marvel</a> </div>
+                        <div class="d-block d-md-none d-flex cuadrado"><a class="anchor_links" href="#">ArtToys MacPulenta</a> </div>
+                        <div class="d-block d-md-none d-flex cuadrado"><a class="anchor_links" href="#">Merchandising</a></div>
+                        <div class="d-block d-md-none d-flex cuadrado"><a class="anchor_links" href="#">Bolsas</a> </div>
+                        <div class="d-block d-md-none d-flex cuadrado"><a class="anchor_links" href="#">Exclusivo Capitan Barato</a> </div>
+                        <div class="d-block d-md-none d-flex cuadrado"><a class="anchor_links" href="#">Pre Ventas</a></div>
+                        <div class="d-block d-md-none d-flex cuadrado"><a class="anchor_links" href="#">Trading cards</a></div>
+                        <div class="d-block d-md-none d-flex cuadrado"><a class="anchor_links" href="#">Figuras</a></div>
+                        <div class="d-block d-md-none d-flex cuadrado"><a class="anchor_links" href="#">Peluches</a> </div>
+                        
                     </div>
                 </div>
 

@@ -8,10 +8,78 @@
     }
 
 
-.px-45 {
-    padding-right: 2rem !important;
-    padding-left: 2rem !important;
+.form-check-input {
+    background-image: url("../img/brightness-high.svg");
+    transition: transform 1s ease;  
+    background-color: transparent;
+    border-color: black;
 }
+.form-check-input:focus{
+    box-shadow: none;
+    border-color: black;
+}
+.form-check-input:checked{
+    background-color: transparent;
+    border-color: black;
+}
+
+
+/*---------- Nav-Bar ------------*/
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    padding: 10px;
+    /* Añadimos espacio entre las opciones */
+    display: block;
+    /* Hacemos que ocupen todo el ancho */
+    text-decoration: none;
+    /* Quitamos la subraya en los enlaces */
+}
+
+.sub-dropdown {
+    display: none;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    top: 0;
+    left: 100%;
+    min-width: 160px;
+    padding: 10px;
+    /* Añadimos espacio entre las sub-opciones */
+}
+
+.dropdown-content .sub-dropdown:hover {
+    display: block;
+}
+
+.sub-dropdown-active:hover .sub-dropdown {
+    display: block;
+    top: 0;
+    left: 100%;
+    /* Ajustamos la posición a la derecha */
+    margin-top: -10px;
+    /* Ajustamos la posición para que aparezca alineado con la opción */
+}
+
+
 
 /*------- Pagina Principal -----------
 
@@ -22,13 +90,37 @@
     height: 750px;
     width: ;
 }*/
+.anchor_links2{
+    text-decoration: none; 
+    color: black; 
+    font-size: 18px; 
+    font-weight: 300;
+    display: block;
+}
 
-.container{
+.anchor_links {
+    text-decoration: none;
+    color: black;
+    font-size: 12px;
+    font-weight: 300;
+    background-color: blanchedalmond;
+    margin-right: 10px;
+}
+
+.cuadrado{
+    width: auto;
+    height: auto;
+    background-color: antiquewhite;
+    margin-right: 10px;
+}
+
+.container {
     border: none;
 }
+
 .linea-superior {
     position: absolute;
-    
+
     top: -12px;
     left: 0;
     right: 0;
@@ -36,12 +128,12 @@
     background-color: #8a8a8a;
 }
 
-.no-deco{
+.no-deco {
     text-decoration: none;
     color: black;
 }
 
-.no-deco:hover{
+.no-deco:hover {
     text-decoration: underline;
 }
 
@@ -97,3 +189,5 @@
 .carousel-button.next {
     right: 0;
 }
+
+
