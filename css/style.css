@@ -1,6 +1,12 @@
-* {
-    font-family: 'Chau Philomene One', sans-serif;
-}
+
+    
+    *{
+        margin: 0;
+        padding: 0;
+        font-family: 'Chau Philomene One', sans-serif;
+        
+    }
+
 
 .px-45 {
     padding-right: 2rem !important;
