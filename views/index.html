@@ -36,9 +36,8 @@
                     <!--
                         <a class="blog-header-logo text-body-emphasis text-decoration-none" href="#">Large</a>
                     -->
-                    <svg  xmlns="http://www.w3.org/2000/svg" width="200"
-                        height="200" fill="none" viewBox="0 0 479.000000 440.000000"
-                        preserveAspectRatio="xMidYMid meet">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" fill="none"
+                        viewBox="0 0 479.000000 440.000000" preserveAspectRatio="xMidYMid meet">
 
                         <g transform="translate(0.000000,440.000000) scale(0.100000,-0.100000)" fill="#000000"
                             stroke="none">
@@ -138,7 +137,19 @@
         <div class="nav-scroller py-1 mb-3 border-bottom">
             <nav class="nav nav-underline justify-content-center">
                 <a class="nav-item nav-link link-body-emphasis mx-5 active" href="#">INICIO</a>
-                <a class="nav-item nav-link link-body-emphasis mx-5" href="#">PRODUCTOS</a>
+                <div class="dropdown">
+                    <a class="nav-item nav-link link-body-emphasis mx-5" href="#">PRODUCTOS</a>
+                    <div class="dropdown-content">
+                        <a href="#">Opción 1</a>
+                        <div class="sub-dropdown-active">
+                            <a href="#">Opción 2</a>
+                            <div class="sub-dropdown">
+                                <a href="#">Sub-Opción 1</a>
+                                <a href="#">Sub-Opción 2</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <a class="nav-item nav-link link-body-emphasis mx-5" href="#">LOCAL</a>
             </nav>
         </div>
@@ -188,35 +199,44 @@
                         <h5>Section</h5>
                         <ul class="nav flex-column">
                             <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
+                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a>
+                            </li>
+                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a>
+                            </li>
                             <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
+                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a>
+                            </li>
                         </ul>
                     </div>
-    
+
                     <div class="col-6 col-md-2 mb-3">
                         <h5>Section</h5>
                         <ul class="nav flex-column">
                             <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
+                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a>
+                            </li>
+                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a>
+                            </li>
                             <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
+                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a>
+                            </li>
                         </ul>
                     </div>
-    
+
                     <div class="col-6 col-md-2 mb-3">
                         <h5>Section</h5>
                         <ul class="nav flex-column">
                             <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
+                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a>
+                            </li>
+                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a>
+                            </li>
                             <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
+                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a>
+                            </li>
                         </ul>
                     </div>
-    
+
                     <div class="col-md-5 offset-md-1 mb-3">
                         <form>
                             <h5>Subscribe to our newsletter</h5>
@@ -229,7 +249,7 @@
                         </form>
                     </div>
                 </div>
-    
+
                 <div class="d-flex flex-column flex-sm-row justify-content-between pt-4 mt-4 border-top">
                     <p>© 2023 Company, Inc. All rights reserved.</p>
                     <ul class="list-unstyled d-flex">
