@@ -73,6 +73,29 @@
     height: 750px;
     width: ;
 }*/
+.anchor_links2{
+    text-decoration: none; 
+    color: black; 
+    font-size: 18px; 
+    font-weight: 300;
+    display: block;
+}
+
+.anchor_links {
+    text-decoration: none;
+    color: black;
+    font-size: 12px;
+    font-weight: 300;
+    background-color: blanchedalmond;
+    margin-right: 10px;
+}
+
+.cuadrado{
+    width: auto;
+    height: auto;
+    background-color: antiquewhite;
+    margin-right: 10px;
+}
 
 .container{
     border: none;
