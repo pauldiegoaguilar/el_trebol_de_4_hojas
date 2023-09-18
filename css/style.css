@@ -2,10 +2,21 @@
     font-family: 'Chau Philomene One', sans-serif;
 }
 
-.px-45 {
-    padding-right: 2rem !important;
-    padding-left: 2rem !important;
+.form-check-input {
+    background-image: url("../img/brightness-high.svg");
+    transition: transform 1s ease;  
+    background-color: transparent;
+    border-color: black;
 }
+.form-check-input:focus{
+    box-shadow: none;
+    border-color: black;
+}
+.form-check-input:checked{
+    background-color: transparent;
+    border-color: black;
+}
+
 
 /*------- Pagina Principal -----------
 
@@ -17,12 +28,13 @@
     width: ;
 }*/
 
-.container{
+.container {
     border: none;
 }
+
 .linea-superior {
     position: absolute;
-    
+
     top: -12px;
     left: 0;
     right: 0;
@@ -30,12 +42,12 @@
     background-color: #8a8a8a;
 }
 
-.no-deco{
+.no-deco {
     text-decoration: none;
     color: black;
 }
 
-.no-deco:hover{
+.no-deco:hover {
     text-decoration: underline;
 }
 
