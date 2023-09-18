@@ -18,6 +18,63 @@
 }
 
 
+/*---------- Nav-Bar ------------*/
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    padding: 10px;
+    /* Añadimos espacio entre las opciones */
+    display: block;
+    /* Hacemos que ocupen todo el ancho */
+    text-decoration: none;
+    /* Quitamos la subraya en los enlaces */
+}
+
+.sub-dropdown {
+    display: none;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    top: 0;
+    left: 100%;
+    min-width: 160px;
+    padding: 10px;
+    /* Añadimos espacio entre las sub-opciones */
+}
+
+.dropdown-content .sub-dropdown:hover {
+    display: block;
+}
+
+.sub-dropdown-active:hover .sub-dropdown {
+    display: block;
+    top: 0;
+    left: 100%;
+    /* Ajustamos la posición a la derecha */
+    margin-top: -10px;
+    /* Ajustamos la posición para que aparezca alineado con la opción */
+}
+
+
+
 /*------- Pagina Principal -----------
 
 .contenedorC {
@@ -103,3 +160,5 @@
 .carousel-button.next {
     right: 0;
 }
+
+
