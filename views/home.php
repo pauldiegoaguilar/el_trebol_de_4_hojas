@@ -75,7 +75,7 @@
                             <a class="anchor_links2" href="#">Peluches</a> 
                         </p>
                     </div>
-                    <div class="d-block d-md-none d-flex">
+                    <div class="d-block d-md-none d-flex slider-container">
                         
                         <div class="d-block d-md-none d-flex cuadrado"><a class="anchor_links" href="#">Arte Original</a> </div>
                         <div class="d-block d-md-none d-flex cuadrado"><a class="anchor_links" href="#">Gift Card</a> </div>
@@ -341,6 +341,7 @@
             </div>
         </div>
     </div>
+    
 
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"

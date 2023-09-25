@@ -110,8 +110,17 @@
 .cuadrado{
     width: auto;
     height: auto;
+    border-radius: 3px;
+    text-align: center;
     background-color: antiquewhite;
     margin-right: 10px;
+}
+
+.slider-container {
+    display: flex;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch; 
+    white-space: nowrap;
 }
 
 .container {
@@ -189,5 +198,6 @@
 .carousel-button.next {
     right: 0;
 }
+
 
 
