@@ -7,22 +7,13 @@
         
     }
 
-
-.form-check-input {
-    background-image: url("../img/brightness-high.svg");
-    transition: transform 1s ease;  
-    background-color: transparent;
-    border-color: black;
-}
-.form-check-input:focus{
-    box-shadow: none;
-    border-color: black;
-}
-.form-check-input:checked{
-    background-color: transparent;
-    border-color: black;
-}
-
+    .svg-icon-sm{
+        transform: scale(1.75);
+    }
+    .btn-transparent {
+        background-color: transparent !important; 
+        border: none;
+    }
 
 /*---------- Nav-Bar ------------*/
 
