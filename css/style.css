@@ -115,6 +115,9 @@
 .slider-container {
     text-align: center; 
     white-space: nowrap;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    
 }
 
 .container {
