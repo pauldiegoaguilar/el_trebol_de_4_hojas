@@ -1,6 +1,75 @@
-* {
-    font-family: 'Chau Philomene One', sans-serif;
+
+    
+    *{
+        margin: 0;
+        padding: 0;
+        font-family: 'Chau Philomene One', sans-serif;
+        
+    }
+
+    .svg-icon-sm{
+        transform: scale(1.75);
+    }
+    .btn-transparent {
+        background-color: transparent !important; 
+        border: none;
+    }
+
+/*---------- Nav-Bar ------------*/
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
 }
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    padding: 10px;
+    /* Añadimos espacio entre las opciones */
+    display: block;
+    /* Hacemos que ocupen todo el ancho */
+    text-decoration: none;
+    /* Quitamos la subraya en los enlaces */
+}
+
+.sub-dropdown {
+    display: none;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    top: 0;
+    left: 100%;
+    min-width: 160px;
+    padding: 10px;
+    /* Añadimos espacio entre las sub-opciones */
+}
+
+.dropdown-content .sub-dropdown:hover {
+    display: block;
+}
+
+.sub-dropdown-active:hover .sub-dropdown {
+    display: block;
+    top: 0;
+    left: 100%;
+    /* Ajustamos la posición a la derecha */
+    margin-top: -10px;
+    /* Ajustamos la posición para que aparezca alineado con la opción */
+}
+
 
 
 /*------- Pagina Principal -----------
@@ -12,3 +81,114 @@
     height: 750px;
     width: ;
 }*/
+.anchor_links2{
+    text-decoration: none; 
+    color: black; 
+    font-size: 18px; 
+    font-weight: 300;
+    display: block;
+}
+
+.anchor_links {
+    text-decoration: none;
+    color: black;
+    font-size: 12px;
+    font-weight: 300;
+    background-color: blanchedalmond;
+    margin-right: 10px;
+}
+
+.cuadrado{
+    width: auto;
+    height: auto;
+    border-radius: 3px;
+    text-align: center;
+    background-color: antiquewhite;
+    margin-right: 10px;
+}
+
+.slider-container {
+    display: flex;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch; 
+    white-space: nowrap;
+}
+
+.container {
+    border: none;
+}
+
+.linea-superior {
+    position: absolute;
+
+    top: -12px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: #8a8a8a;
+}
+
+.no-deco {
+    text-decoration: none;
+    color: black;
+}
+
+.no-deco:hover {
+    text-decoration: underline;
+}
+
+.centrar-boton {
+    text-align: center;
+}
+
+
+.btn {
+    margin: 10px auto;
+}
+
+/*-----------------*/
+
+.carousel-container {
+    width: 80%;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.column {
+    flex: 1;
+    min-width: 300px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    margin: 10px;
+    text-align: center;
+    background-color: #f7f7f7;
+}
+
+.carousel-button {
+    cursor: pointer;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.carousel-button.prev {
+    left: 0;
+}
+
+.carousel-button.next {
+    right: 0;
+}
+
+
+
