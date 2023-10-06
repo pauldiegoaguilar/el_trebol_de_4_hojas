@@ -26,13 +26,13 @@
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="../img/WhatsApp Image 2023-04-27 at 10.50.30 AM.jpeg" class="d-block w-100" alt="...">
+                    <img src="img/WhatsApp Image 2023-04-27 at 10.50.30 AM.jpeg" class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="../img/WhatsApp Image 2023-04-27 at 10.50.30 AM.jpeg" class="d-block w-100" alt="...">
+                    <img src="img/WhatsApp Image 2023-04-27 at 10.50.30 AM.jpeg" class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="../img/WhatsApp Image 2023-04-27 at 10.50.30 AM.jpeg" class="d-block w-100" alt="...">
+                    <img src="img/WhatsApp Image 2023-04-27 at 10.50.30 AM.jpeg" class="d-block w-100" alt="...">
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
@@ -59,39 +59,22 @@
                     <div class="contact-form-area fix mtb-30 d-none d-md-block">
                         <h4 style="font-weight: 700;">Categorias principales</h4>
                         <p style="text-decoration: none;">
-                            <a class="anchor_links2" href="#">Arte Original</a>
                             <a class="anchor_links2" href="#">Gift Card</a> 
                             <a class="anchor_links2" href="#">DC Comics</a>
                             <a class="anchor_links2" href="#">Historieta</a>
                             <a class="anchor_links2" href="#">Manga</a> 
-                            <a class="anchor_links2" href="#">Marvel</a> 
-                            <a class="anchor_links2" href="#">ArtToys MacPulenta</a> 
-                            <a class="anchor_links2" href="#">Merchandising</a>
-                            <a class="anchor_links2" href="#">Bolsas</a> 
-                            <a class="anchor_links2" href="#">Exclusivo Capitan Barato</a> 
+                            <a class="anchor_links2" href="#">Marvel</a>
                             <a class="anchor_links2" href="#">Pre Ventas</a>
-                            <a class="anchor_links2" href="#">Trading cards</a>
-                            <a class="anchor_links2" href="#">Figuras</a>
-                            <a class="anchor_links2" href="#">Peluches</a> 
                         </p>
                     </div>
-                    <div class="d-block d-md-none d-flex slider-container">
-                        
-                        <div class="d-block d-md-none d-flex cuadrado"><a class="anchor_links" href="#">Arte Original</a> </div>
-                        <div class="d-block d-md-none d-flex cuadrado"><a class="anchor_links" href="#">Gift Card</a> </div>
-                        <div class="d-block d-md-none d-flex cuadrado"><a class="anchor_links" href="#">DC Comics</a></div>
-                        <div class="d-block d-md-none d-flex cuadrado"><a class="anchor_links" href="#">Historieta</a></div>
-                        <div class="d-block d-md-none d-flex cuadrado"><a class="anchor_links" href="#">Manga</a> </div>
-                        <div class="d-block d-md-none d-flex cuadrado"><a class="anchor_links" href="#">Marvel</a> </div>
-                        <div class="d-block d-md-none d-flex cuadrado"><a class="anchor_links" href="#">ArtToys MacPulenta</a> </div>
-                        <div class="d-block d-md-none d-flex cuadrado"><a class="anchor_links" href="#">Merchandising</a></div>
-                        <div class="d-block d-md-none d-flex cuadrado"><a class="anchor_links" href="#">Bolsas</a> </div>
-                        <div class="d-block d-md-none d-flex cuadrado"><a class="anchor_links" href="#">Exclusivo Capitan Barato</a> </div>
-                        <div class="d-block d-md-none d-flex cuadrado"><a class="anchor_links" href="#">Pre Ventas</a></div>
-                        <div class="d-block d-md-none d-flex cuadrado"><a class="anchor_links" href="#">Trading cards</a></div>
-                        <div class="d-block d-md-none d-flex cuadrado"><a class="anchor_links" href="#">Figuras</a></div>
-                        <div class="d-block d-md-none d-flex cuadrado"><a class="anchor_links" href="#">Peluches</a> </div>
-                        
+                    <div class="d-md-none d-flex slider-container">
+                        <div class="d-md-none d-flex cuadrado"><a class="anchor_links" href="#">DC Comics</a></div>
+                        <div class="d-md-none d-flex cuadrado"><a class="anchor_links" href="#">Gift Card</a> </div>
+                        <div class="d-md-none d-flex cuadrado"><a class="anchor_links" href="#">Historieta</a></div>
+                        <div class="d-md-none d-flex cuadrado"><a class="anchor_links" href="#">Manga</a> </div>
+                        <div class="d-md-none d-flex cuadrado"><a class="anchor_links" href="#">Marvel</a> </div>
+                        <div class="d-md-none d-flex cuadrado"><a class="anchor_links" href="#">Pre Ventas</a></div>
+                        <div class="d-md-none d-flex cuadrado"><a class="anchor_links" href="#">Trading cards</a></div>
                     </div>
                 </div>
 
@@ -108,7 +91,7 @@
                                         <div class="linea-superior"></div>
                                         <a href="#">
                                             <img class="bd-placeholder-img card-img-top img-fluid"
-                                                src="../img/demon10.png" alt="manga">
+                                                src="img/demon10.png" alt="manga">
                                         </a>
                                         <div class="card-body">
                                             <p class="card-text text-center">
@@ -128,7 +111,7 @@
                                         <div class="linea-superior"></div>
                                         <a href="#">
                                             <img class="bd-placeholder-img card-img-top img-fluid"
-                                                src="../img/demon10.png" alt="manga">
+                                                src="img/demon10.png" alt="manga">
                                         </a>
                                         <div class="card-body">
                                             <p class="card-text text-center">
@@ -147,7 +130,7 @@
                                         <div class="linea-superior"></div>
                                         <a href="#">
                                             <img class="bd-placeholder-img card-img-top img-fluid"
-                                                src="../img/demon10.png" alt="manga">
+                                                src="img/demon10.png" alt="manga">
                                         </a>
                                         <div class="card-body">
                                             <p class="card-text text-center">
@@ -166,7 +149,7 @@
                                         <div class="linea-superior"></div>
                                         <a href="#">
                                             <img class="bd-placeholder-img card-img-top img-fluid"
-                                                src="../img/demon10.png" alt="manga">
+                                                src="img/demon10.png" alt="manga">
                                         </a>
                                         <div class="card-body">
                                             <p class="card-text text-center">
@@ -185,7 +168,7 @@
                                         <div class="linea-superior"></div>
                                         <a href="#">
                                             <img class="bd-placeholder-img card-img-top img-fluid"
-                                                src="../img/demon10.png" alt="manga">
+                                                src="img/demon10.png" alt="manga">
                                         </a>
                                         <div class="card-body">
                                             <p class="card-text text-center">
@@ -204,7 +187,7 @@
                                         <div class="linea-superior"></div>
                                         <a href="#">
                                             <img class="bd-placeholder-img card-img-top img-fluid"
-                                                src="../img/demon10.png" alt="manga">
+                                                src="img/demon10.png" alt="manga">
                                         </a>
                                         <div class="card-body">
                                             <p class="card-text text-center">
@@ -223,7 +206,7 @@
                                         <div class="linea-superior"></div>
                                         <a href="#">
                                             <img class="bd-placeholder-img card-img-top img-fluid"
-                                                src="../img/demon10.png" alt="manga">
+                                                src="img/demon10.png" alt="manga">
                                         </a>
                                         <div class="card-body">
                                             <p class="card-text text-center">
@@ -242,7 +225,7 @@
                                         <div class="linea-superior"></div>
                                         <a href="#">
                                             <img class="bd-placeholder-img card-img-top img-fluid"
-                                                src="../img/demon10.png" alt="manga">
+                                                src="img/demon10.png" alt="manga">
                                         </a>
                                         <div class="card-body">
                                             <p class="card-text text-center">
@@ -282,7 +265,7 @@
                             <div class="card border-0">
                                 <div class="linea-superior"></div>
                                 <a href="#">
-                                    <img class="bd-placeholder-img card-img-top img-fluid" src="../img/demon10.png"
+                                    <img class="bd-placeholder-img card-img-top img-fluid" src="img/demon10.png"
                                         alt="manga">
                                 </a>
                                 <div class="card-body">
@@ -302,7 +285,7 @@
                             <div class="card border-0">
                                 <div class="linea-superior"></div>
                                 <a href="#">
-                                    <img class="bd-placeholder-img card-img-top img-fluid" src="../img/demon10.png"
+                                    <img class="bd-placeholder-img card-img-top img-fluid" src="img/demon10.png"
                                         alt="manga">
                                 </a>
                                 <div class="card-body">
@@ -321,7 +304,7 @@
                             <div class="card border-0">
                                 <div class="linea-superior"></div>
                                 <a href="#">
-                                    <img class="bd-placeholder-img card-img-top img-fluid" src="../img/demon10.png"
+                                    <img class="bd-placeholder-img card-img-top img-fluid" src="img/demon10.png"
                                         alt="manga">
                                 </a>
                                 <div class="card-body">
