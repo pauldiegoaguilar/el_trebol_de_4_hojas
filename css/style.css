@@ -113,9 +113,7 @@
 }
 
 .slider-container {
-    display: flex;
-    overflow-x: scroll;
-    -webkit-overflow-scrolling: touch; 
+    text-align: center; 
     white-space: nowrap;
 }
 
