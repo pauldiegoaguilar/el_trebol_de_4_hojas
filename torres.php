@@ -131,8 +131,8 @@
                 </div>
 
                 <div class="col-md-4 d-flex justify-content-center align-items-center">
-                    <a class="btn btn btn-outline-secondary mx-2" href="#">Sign up</a>
-                    <a class="btn btn btn-outline-success mx-2" href="#">Log in</a>
+                    <a class="btn btn btn-outline-secondary mx-2" href="?sec=sing-up">Sign up</a>
+                    <a class="btn btn btn-outline-success mx-2" href="?sec=login">Log in</a>
                 </div>
 
                 <div class="d-md-none col-md-4 justify-content-center mt-2">
