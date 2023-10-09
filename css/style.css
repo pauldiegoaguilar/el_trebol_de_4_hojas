@@ -201,4 +201,16 @@
 }
 
 
+/*--------- Apartado de todo el logeo ------------*/
+
+.delate-a{
+    text-decoration: underline;
+    color: black;
+}
+
+input::placeholder {
+    color: #808080c2 !important;
+  }
+  
+
 
