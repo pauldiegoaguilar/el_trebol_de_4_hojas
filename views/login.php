@@ -9,7 +9,7 @@
                 <div class="form-group text-start">
                     <label for="password">Contraseña</label>
                     <input type="password" class="form-control" id="password" required>
-                    <a href="#" class="delate-a">¿Olvidaste tu Contraseña?</a>
+                    <a href="?sec=rec_cuenta" class="delate-a">¿Olvidaste tu Contraseña?</a>
                 </div>
                 <button class="btn btn-dark " type="button" aria-expanded="false">INICIA SESION</button>
                 <p class="mt-3">¿No tenés cuenta? <a href="#" class="delate-a">Crear cuenta</a></p>
