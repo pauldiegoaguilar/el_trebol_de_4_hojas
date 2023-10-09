@@ -166,7 +166,7 @@
                         </div>
                     </div>
                 </div>
-                <a class="nav-item nav-link link-body-emphasis mx-5" href="#">LOCAL</a>
+                <a class="nav-item nav-link link-body-emphasis mx-5" href="?sec=local">LOCAL</a>
             </nav>
         </div>
     </div>
