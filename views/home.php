@@ -59,7 +59,7 @@
                     <div class="d-md-none d-flex cuadrado"><a class="anchor_links" href="#">Manga</a> </div>
                     <div class="d-md-none d-flex cuadrado"><a class="anchor_links" href="#">Marvel</a> </div>
                     <div class="d-md-none d-flex cuadrado"><a class="anchor_links" href="#">Pre Ventas</a></div>
-                    <div class="d-md-none d-flex cuadrado"><a class="anchor_links" href="#">Trading cards</a></div>
+                    <div class="d-md-none d-flex cuadrado my-4"><a class="anchor_links" href="#">Trading cards</a></div>
                 </div>
             </div>
 
