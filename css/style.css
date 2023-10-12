@@ -209,5 +209,13 @@ input::placeholder {
     color: #808080c2 !important;
   }
   
+/*-----Footer------*/
 
+.icono-personalizado{
+    background-color: #2b2b2b; 
+    padding: 7px; 
+    border-radius: 50%;
+    user-select: none;
+    cursor: pointer;
+}
 
