@@ -213,9 +213,11 @@ input::placeholder {
 
 .icono-personalizado{
     background-color: #2b2b2b; 
-    padding: 7px; 
+    padding: 10px; 
     border-radius: 50%;
     user-select: none;
     cursor: pointer;
+    
+    
 }
 

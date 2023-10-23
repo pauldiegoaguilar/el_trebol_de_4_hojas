@@ -88,7 +88,7 @@
             <hr>
             <div class="row">
                 <!-- <div class="col-md-6">.col-md-8</div> -->
-                <div class="col-md-6">                
+                <div class="col-md-6">
                     <div class="dropdown w-100">
                         <button type="button" class="w-100 btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
                             ORDEN #20087
@@ -104,7 +104,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">                
+                <div class="col-md-6">
                     <div class="dropdown w-100">
                         <button type="button" class="w-100 btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
                             ORDEN #20087
@@ -120,7 +120,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">                
+                <div class="col-md-6">
                     <div class="dropdown w-100">
                         <button type="button" class="w-100 btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
                             ORDEN #20087
@@ -141,6 +141,8 @@
     </div>
 </div>
 
+
+<!--
 <br>
 <br>
 <br>
@@ -199,7 +201,7 @@
 
 
 <div class="container">
-    <!-- <h2 class="pb-2 border-bottom">Features with title</h2> -->
+    ***<h2 class="pb-2 border-bottom">Features with title</h2>**** 
 
     <div class="row row-cols-1 row-cols-md-2 align-items-md-center g-5">
         <div class="d-flex flex-column align-items-start">
@@ -275,4 +277,5 @@
                 </div>
         </div>
     </div>
-</div>
+</div> 
+-->

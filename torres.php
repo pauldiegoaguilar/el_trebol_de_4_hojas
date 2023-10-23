@@ -11,6 +11,8 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link href="https://fonts.googleapis.com/css2?family=Chau+Philomene+One&display=swap" rel="stylesheet">
+    <!-- Option 1: Include in HTML -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/style.css">
     <title>
         <?php echo ucwords(str_replace("_", " ", $_GET['sec'])); ?> - El Trebol de 4 Hojas
@@ -218,14 +220,10 @@
                     <div class="col-6 col-md-2 mb-3">
                         <form>
                             <h5>Redes Sociales</h5>
-                            <div>
-                                <span class="material-symbols-outlined icono-personalizado">tv</span>
-                                <span class="material-symbols-outlined icono-personalizado">wifi</span>
-                                <span class="material-symbols-outlined icono-personalizado">ac_unit</span>
-                                <span class="material-symbols-outlined icono-personalizado my-2">lock</span>
-                                <span class="material-symbols-outlined icono-personalizado my-2">hot_tub</span>
-                                <span class="material-symbols-outlined icono-personalizado my-2">local_bar</span>
-                                <span class="material-symbols-outlined icono-personalizado my-2">dry</span>
+                            <div class="my-3 ">
+                                <i class="bi bi-instagram icono-personalizado"></i>
+                                <i class="bi bi-facebook icono-personalizado"></i>
+                                <i class="bi bi-twitch icono-personalizado"></i>
                             </div>
                             <div class="d-flex flex-column flex-sm-row w-100 gap-2">
                                 <label for="newsletter1" class="visually-hidden">Email address</label>
