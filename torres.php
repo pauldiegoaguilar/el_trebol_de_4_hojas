@@ -156,7 +156,7 @@
             <nav class="nav flex-column flex-sm-row align-items-center nav-underline justify-content-center">
                 <a class="nav-item nav-link link-body-emphasis mx-5 active <?php if($_GET["sec"] == "home"){ echo "text-success";} ?>" href="?sec=home">INICIO</a>
                 <div class="dropdown">
-                    <a class="nav-item nav-link link-body-emphasis mx-5" href="#">PRODUCTOS</a>
+                    <a class="nav-item nav-link link-body-emphasis mx-5" href="?sec=productos">PRODUCTOS</a>
                     <div class="dropdown-content">
                         <a href="#">Opción 1</a>
                         <div class="sub-dropdown-active">
