@@ -53,12 +53,14 @@
 .sub-dropdown {
     display: none;
     background-color: #f9f9f9;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 8px 8px 16px 8px rgba(0, 0, 0, 0.2);
     position: absolute;
     top: 0;
     left: 100%;
     min-width: 160px;
-    padding: 10px;
+    height: 85px; 
+    padding: 0px;
+    transform: translateY(65%);
 }
 
 .dropdown-content .sub-dropdown:hover {
@@ -76,6 +78,69 @@
 .form-control:focus {
     border-color: #28a745;
     box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+/**sub opcion 3 y 4**/
+
+.sub-dropdown4 {
+    display: none;
+    background-color: #f9f9f9;
+    box-shadow: 8px 8px 16px 8px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    top: 0;
+    left: 100%;
+    min-width: 160px;
+    height: 85px; 
+    padding: 0px;
+    transform: translateY(170%);
+}
+.sub-dropdown-active4:hover .sub-dropdown4 {
+    display: block;
+    top: 0;
+    left: 100%;
+
+    margin-top: -10px;
+}
+
+.dropdown-content .sub-dropdown4:hover {
+    display: block;
+}
+
+.sub-dropdown-active4:hover .sub-dropdown4 {
+    display: block;
+    top: 0;
+    left: 100%;
+}
+
+/*option 3*/
+
+.sub-dropdown3 {
+    display: none;
+    background-color: #f9f9f9;
+    box-shadow: 8px 8px 16px 8px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    top: 0;
+    left: 100%;
+    min-width: 160px;
+    height: 85px; 
+    padding: 0px;
+    transform: translateY(119%);
+}
+.sub-dropdown-active3:hover .sub-dropdown3 {
+    display: block;
+    top: 0;
+    left: 100%;
+    margin-top: -10px;
+}
+
+.dropdown-content .sub-dropdown3:hover {
+    display: block;
+}
+
+.sub-dropdown-active3:hover .sub-dropdown3 {
+    display: block;
+    top: 0;
+    left: 100%;
+    margin-top: -10px;
 }
 
 
@@ -99,11 +164,10 @@
 .anchor_links {
     text-decoration: none;
     color: black;
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 300;
     background-color: blanchedalmond;
-    margin-right: 10px;
-
+    padding: 5px;
 }
 
 .cuadrado {
@@ -198,6 +262,10 @@
     right: 0;
 }
 
+.mainContenedor{
+    max-width: 960px;
+    margin: auto;
+}
 
 /*--------- Apartado de todo el logeo ------------*/
 
