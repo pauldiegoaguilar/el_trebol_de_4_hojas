@@ -1,6 +1,6 @@
 <?php
 
-    $sql = "SELECT * FROM productos ORDER BY id DESC;";
+    $sql = "SELECT *, productos.id AS 'prodId' FROM productos ORDER BY id DESC;";
 
     $query = mysqli_query($conn, $sql);
 

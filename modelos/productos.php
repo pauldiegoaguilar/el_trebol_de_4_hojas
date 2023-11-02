@@ -1,7 +1,7 @@
 <?php
     /* --------- PENDIENTE: FUNCIONALIDAD DE "ORDENAR POR:" ---------- */
 
-    $sql = "SELECT * FROM productos ORDER BY RAND() LIMIT 15";
+    $sql = "SELECT *, productos.id AS 'prodId' FROM productos ORDER BY RAND() LIMIT 15";
     
     $query = mysqli_query($conn, $sql);
     
