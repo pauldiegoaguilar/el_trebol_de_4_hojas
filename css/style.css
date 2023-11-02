@@ -1,24 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Chau Philomene One', sans-serif;
 
-    
-    *{
-        margin: 0;
-        padding: 0;
-        font-family: 'Chau Philomene One', sans-serif;
-        
-    }
-    #miDiv {
-        width: 100%;
-        height: 100vh; /* 100% del viewport height (altura de la ventana) */
-        background-color: lightblue; /* Color de fondo para visualización */
-    }
+}
 
-    .svg-icon-sm{
-        transform: scale(1.75);
-    }
-    .btn-transparent {
-        background-color: transparent !important; 
-        border: none;
-    }
+#miDiv {
+    width: 100%;
+    height: 100vh;
+    /* 100% del viewport height (altura de la ventana) */
+    background-color: lightblue;
+    /* Color de fondo para visualización */
+}
+
+.svg-icon-sm {
+    transform: scale(1.75);
+}
+
+.btn-transparent {
+    background-color: transparent !important;
+    border: none;
+}
 
 /*---------- Nav-Bar ------------*/
 
@@ -51,12 +53,14 @@
 .sub-dropdown {
     display: none;
     background-color: #f9f9f9;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 8px 8px 16px 8px rgba(0, 0, 0, 0.2);
     position: absolute;
     top: 0;
     left: 100%;
     min-width: 160px;
-    padding: 10px;
+    height: 85px; 
+    padding: 0px;
+    transform: translateY(65%);
 }
 
 .dropdown-content .sub-dropdown:hover {
@@ -67,7 +71,7 @@
     display: block;
     top: 0;
     left: 100%;
-    
+
     margin-top: -10px;
 }
 
@@ -75,7 +79,85 @@
     border-color: #28a745;
     box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
 }
+/**sub opcion 3 y 4**/
 
+.sub-dropdown4 {
+    display: none;
+    background-color: #f9f9f9;
+    box-shadow: 8px 8px 16px 8px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    top: 0;
+    left: 100%;
+    min-width: 160px;
+    height: 85px; 
+    padding: 0px;
+    transform: translateY(170%);
+}
+.sub-dropdown-active4:hover .sub-dropdown4 {
+    display: block;
+    top: 0;
+    left: 100%;
+
+    margin-top: -10px;
+}
+
+.dropdown-content .sub-dropdown4:hover {
+    display: block;
+}
+
+.sub-dropdown-active4:hover .sub-dropdown4 {
+    display: block;
+    top: 0;
+    left: 100%;
+}
+
+/*option 3*/
+
+.sub-dropdown3 {
+    display: none;
+    background-color: #f9f9f9;
+    box-shadow: 8px 8px 16px 8px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    top: 0;
+    left: 100%;
+    min-width: 160px;
+    height: 85px; 
+    padding: 0px;
+    transform: translateY(119%);
+}
+.sub-dropdown-active3:hover .sub-dropdown3 {
+    display: block;
+    top: 0;
+    left: 100%;
+    margin-top: -10px;
+}
+
+.dropdown-content .sub-dropdown3:hover {
+    display: block;
+}
+
+.sub-dropdown-active3:hover .sub-dropdown3 {
+    display: block;
+    top: 0;
+    left: 100%;
+    margin-top: -10px;
+}
+
+hr.h-color{
+    background: #eee;
+  }
+
+.hola{
+    margin-top: 1px;
+}
+
+.persona{
+    width: 50px;
+    height: 50px;
+    font-size: 50px;
+    margin-bottom: 15px;
+    margin-right: 20px;
+}
 
 /*------- Pagina Principal -----------
 
@@ -86,10 +168,10 @@
     height: 750px;
     width: ;
 }*/
-.anchor_links2{
-    text-decoration: none; 
-    color: black; 
-    font-size: 18px; 
+.anchor_links2 {
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
     font-weight: 300;
     display: block;
 }
@@ -103,7 +185,7 @@
     padding: 5px;
 }
 
-.cuadrado{
+.cuadrado {
     width: auto;
     height: auto;
     border-radius: 3px;
@@ -112,7 +194,7 @@
 }
 
 .slider-container {
-    text-align: center; 
+    text-align: center;
     white-space: nowrap;
     justify-content: space-evenly;
     flex-wrap: wrap;
@@ -125,7 +207,6 @@
 
 .linea-superior {
     position: absolute;
-
     top: -12px;
     left: 0;
     right: 0;
@@ -202,24 +283,50 @@
 
 /*--------- Apartado de todo el logeo ------------*/
 
-.delate-a{
+.delate-a {
     text-decoration: underline;
     color: black;
 }
 
 input::placeholder {
     color: #808080c2 !important;
-  }
-  
+}
+
+
+/*-----Productos------*/
+
+.select-peque {
+    height: 44px;
+    font-size: 16px;
+}
+
+.linea-in {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-top: 1px solid #000;
+    width: 230px;
+}
+
+#size-input{
+    width: 80px;
+    height: 30px;
+}
+
+.size-button{
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+
 /*-----Footer------*/
 
-.icono-personalizado{
-    background-color: #2b2b2b; 
-    padding: 10px; 
+.icono-personalizado {
+    background-color: #2b2b2b;
+    padding: 10px;
     border-radius: 50%;
     user-select: none;
     cursor: pointer;
-    
-    
-}
 
+
+}
