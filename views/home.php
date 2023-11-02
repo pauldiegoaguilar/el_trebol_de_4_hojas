@@ -1,5 +1,9 @@
+<?php
+    require_once "modelos/home.php";
+?>
+
 <!-- Carrusel -->
-<div class="container">
+<div class="">
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
@@ -40,26 +44,28 @@
 <div class="album py-5 ">
     <div class="container">
         <div class="row">
-            <div class="col-md-3 " style="margin-top: 90px;">
+            <h1 class="text-center pb-md-5"> NUESTRAS PUBLICACIONES </h1>
+            <div class="col-md-3">
                 <div class="contact-form-area fix mtb-30 d-none d-md-block">
-                    <h4 style="font-weight: 700;">Categorias principales</h4>
+                    <h4 class="mb-4" style="font-weight: 700;">Categorias principales</h4>
                     <p style="text-decoration: none;">
-                        <a class="anchor_links2" href="#">Gift Card</a>
-                        <a class="anchor_links2" href="#">DC Comics</a>
-                        <a class="anchor_links2" href="#">Historieta</a>
-                        <a class="anchor_links2" href="#">Manga</a>
-                        <a class="anchor_links2" href="#">Marvel</a>
-                        <a class="anchor_links2" href="#">Pre Ventas</a>
+                        <a class="anchor_links2" href="?sec=categorias&categ=dc_comics">DC Comics</a>
+                        <a class="anchor_links2" href="?sec=categorias&categ=gift_cards">Gift Card</a>
+                        <a class="anchor_links2" href="?sec=categorias&categ=historietas">Historieta</a>
+                        <a class="anchor_links2" href="?sec=categorias&categ=manga">Manga</a>
+                        <a class="anchor_links2" href="?sec=categorias&categ=marvel">Marvel</a>
+                        <a class="anchor_links2" href="?sec=categorias&categ=pre_ventas">Pre Ventas</a>
+                        <a class="anchor_links2" href="?sec=categorias&categ=trading_cards">Trading cards</a>
                     </p>
                 </div>
-                <div class="d-md-none d-flex slider-container">
-                    <div class="d-md-none d-flex cuadrado"><a class="anchor_links" href="#">DC Comics</a></div>
-                    <div class="d-md-none d-flex cuadrado"><a class="anchor_links" href="#">Gift Card</a> </div>
-                    <div class="d-md-none d-flex cuadrado"><a class="anchor_links" href="#">Historieta</a></div>
-                    <div class="d-md-none d-flex cuadrado"><a class="anchor_links" href="#">Manga</a> </div>
-                    <div class="d-md-none d-flex cuadrado"><a class="anchor_links" href="#">Marvel</a> </div>
-                    <div class="d-md-none d-flex cuadrado"><a class="anchor_links" href="#">Pre Ventas</a></div>
-                    <div class="d-md-none d-flex cuadrado my-4"><a class="anchor_links" href="#">Trading cards</a></div>
+                <div class="d-md-none d-flex slider-container mb-4">
+                    <div class="d-md-none d-flex cuadrado my-2"><a class="anchor_links" href="?sec=categorias&categ=dc_comics">DC Comics</a></div>
+                    <div class="d-md-none d-flex cuadrado my-2"><a class="anchor_links" href="?sec=categorias&categ=gift_cards">Gift Card</a> </div>
+                    <div class="d-md-none d-flex cuadrado my-2"><a class="anchor_links" href="?sec=categorias&categ=historietas">Historieta</a></div>
+                    <div class="d-md-none d-flex cuadrado my-2"><a class="anchor_links" href="?sec=categorias&categ=manga">Manga</a> </div>
+                    <div class="d-md-none d-flex cuadrado my-2"><a class="anchor_links" href="?sec=categorias&categ=marvel">Marvel</a> </div>
+                    <div class="d-md-none d-flex cuadrado my-2"><a class="anchor_links" href="?sec=categorias&categ=pre_ventas">Pre Ventas</a></div>
+                    <div class="d-md-none d-flex cuadrado my-2"><a class="anchor_links" href="?sec=categorias&categ=trading_cards">Trading cards</a></div>
                 </div>
             </div>
 
@@ -67,164 +73,31 @@
             <!-- Publicaciones -->
 
             <div class="col-md-9">
-                <h1 class="text-center"> NUESTRAS PUBLICACIONES </h1>
-                <div class="album py-5">
+                <div class="album">
                     <div class="container">
-                        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
-                            <div class="col">
-                                <div class="card border-0">
-                                    <div class="linea-superior"></div>
-                                    <a href="#">
-                                        <img class="bd-placeholder-img card-img-top img-fluid" src="img/demon10.png"
-                                            alt="manga">
-                                    </a>
-                                    <div class="card-body">
-                                        <p class="card-text text-center">
-                                            <a href="#" class="no-deco"> KAKETSU NO MIERDA VOL.10 </a><br>
-                                            $2.500 <br>
-                                            <button class="btn btn-dark btn-block">Agregar al Carrito</button>
-
-                                        </p>
-                                        <div class="d-flex justify-content-between align-items-center">
+                        <div class="row row-cols-2 row-cols-sm-3 row-cols-lg-4 g-3">
+                            <?php foreach($productos as $producto){ ?>
+                                <div class="col">
+                                    <div class="card border-0">
+                                        <div class="linea-superior"></div>
+                                        <a href="#">
+                                            <img class="bd-placeholder-img  img-fluid" src="<?php echo $producto["portada"] . "1.png"; ?>"
+                                                alt="manga">
+                                        </a>
+                                        <div class="card-body">
+                                            <p class="card-text text-center">
+                                                <a href="?sec=producto&prodId=<?php echo $producto["id"] ?>" class="no-deco"><?php echo $producto["titulo"]; ?></a>
+                                                <br>
+                                                <?php echo "$" . $producto["precio"]; ?>
+                                                <br>
+                                                <button class="btn btn-success btn-block">AGREGAR AL CARRITO</button>
+                                            </p>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-
-                            <div class="col">
-                                <div class="card border-0">
-                                    <div class="linea-superior"></div>
-                                    <a href="#">
-                                        <img class="bd-placeholder-img card-img-top img-fluid" src="img/demon10.png"
-                                            alt="manga">
-                                    </a>
-                                    <div class="card-body">
-                                        <p class="card-text text-center">
-                                            <a href="#" class="no-deco"> KAKETSU NO MIERDA VOL.10 </a><br>
-                                            $2.500 <br>
-                                            <button class="btn btn-dark btn-block">Agregar al Carrito</button>
-
-                                        </p>
-                                        <div class="d-flex justify-content-between align-items-center">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="card border-0">
-                                    <div class="linea-superior"></div>
-                                    <a href="#">
-                                        <img class="bd-placeholder-img card-img-top img-fluid" src="img/demon10.png"
-                                            alt="manga">
-                                    </a>
-                                    <div class="card-body">
-                                        <p class="card-text text-center">
-                                            <a href="#" class="no-deco"> KAKETSU NO MIERDA VOL.10 </a><br>
-                                            $2.500 <br>
-                                            <button class="btn btn-dark btn-block">Agregar al Carrito</button>
-
-                                        </p>
-                                        <div class="d-flex justify-content-between align-items-center">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="card border-0">
-                                    <div class="linea-superior"></div>
-                                    <a href="#">
-                                        <img class="bd-placeholder-img card-img-top img-fluid" src="img/demon10.png"
-                                            alt="manga">
-                                    </a>
-                                    <div class="card-body">
-                                        <p class="card-text text-center">
-                                            <a href="#" class="no-deco"> KAKETSU NO MIERDA VOL.10 </a><br>
-                                            $2.500 <br>
-                                            <button class="btn btn-dark btn-block">Agregar al Carrito</button>
-
-                                        </p>
-                                        <div class="d-flex justify-content-between align-items-center">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="card border-0">
-                                    <div class="linea-superior"></div>
-                                    <a href="#">
-                                        <img class="bd-placeholder-img card-img-top img-fluid" src="img/demon10.png"
-                                            alt="manga">
-                                    </a>
-                                    <div class="card-body">
-                                        <p class="card-text text-center">
-                                            <a href="#" class="no-deco"> KAKETSU NO MIERDA VOL.10 </a><br>
-                                            $2.500 <br>
-                                            <button class="btn btn-dark btn-block">Agregar al Carrito</button>
-
-                                        </p>
-                                        <div class="d-flex justify-content-between align-items-center">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="card border-0">
-                                    <div class="linea-superior"></div>
-                                    <a href="#">
-                                        <img class="bd-placeholder-img card-img-top img-fluid" src="img/demon10.png"
-                                            alt="manga">
-                                    </a>
-                                    <div class="card-body">
-                                        <p class="card-text text-center">
-                                            <a href="#" class="no-deco"> KAKETSU NO MIERDA VOL.10 </a><br>
-                                            $2.500 <br>
-                                            <button class="btn btn-dark btn-block">Agregar al Carrito</button>
-
-                                        </p>
-                                        <div class="d-flex justify-content-between align-items-center">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="card border-0">
-                                    <div class="linea-superior"></div>
-                                    <a href="#">
-                                        <img class="bd-placeholder-img card-img-top img-fluid" src="img/demon10.png"
-                                            alt="manga">
-                                    </a>
-                                    <div class="card-body">
-                                        <p class="card-text text-center">
-                                            <a href="#" class="no-deco"> KAKETSU NO MIERDA VOL.10 </a><br>
-                                            $2.500 <br>
-                                            <button class="btn btn-dark btn-block">Agregar al Carrito</button>
-
-                                        </p>
-                                        <div class="d-flex justify-content-between align-items-center">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="card border-0">
-                                    <div class="linea-superior"></div>
-                                    <a href="#">
-                                        <img class="bd-placeholder-img card-img-top img-fluid" src="img/demon10.png"
-                                            alt="manga">
-                                    </a>
-                                    <div class="card-body">
-                                        <p class="card-text text-center">
-                                            <a href="#" class="no-deco"> KAKETSU NO MIERDA VOL.10 </a><br>
-                                            $2.500 <br>
-                                            <button class="btn btn-dark btn-block">Agregar al Carrito</button>
-
-                                        </p>
-                                        <div class="d-flex justify-content-between align-items-center">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
+                            <?php } ?>
                         </div>
                     </div>
                     <div class="row">
@@ -242,12 +115,12 @@
 <!-- OFERTAS  -->
 
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-7">
-            <h2 class="text-center "> OFERTAS </h2>
+    <div class="row ">
+        <div class="col">
+            <h2 class="text-center ">OFERTAS</h2>
             <div class="album py-5">
                 <div class="container">
-                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-5">
+                    <div class="row row-cols-2 row-cols-sm-2 row-cols-md-3 g-4">
                         <div class="col">
                             <div class="card border-0">
                                 <div class="linea-superior"></div>
