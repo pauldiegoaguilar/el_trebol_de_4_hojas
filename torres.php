@@ -210,13 +210,24 @@
                                     </span>
                                 </button>
                                 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-                                    <div class="offcanvas-header">
-                                        <h5 class="offcanvas-title" id="offcanvasRightLabel">Busqueda de Productos</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                                    </div>
                                     <div class="offcanvas-body">
-                                        ...
+                                        <div class="d-flex justify-content-start align-items-center ">
+
+                                            <button type="button" class="btn-close mx-2" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                            <input type="text" class="form-control mx-2" placeholder="Escribe aquí">
+                                            <div class="input-group-prepend mx-2">
+                                            <button class="border-0 bg-transparent m-0">
+                                                <span
+                                                    class="input-group-text material-symbols-outlined bg-success border-success text-white">
+                                                    search
+                                                </span>
+                                            </button>
+                                            </div>
+
+                                        </div>
+                                        
                                     </div>
+                                    
                                 </div>
 
                             </div>
