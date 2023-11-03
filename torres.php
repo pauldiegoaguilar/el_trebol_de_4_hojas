@@ -134,26 +134,26 @@
                 <div class="dropdown">
                     <a class="nav-item nav-link link-body-emphasis mx-5 <?php if($_GET["sec"] == "productos" || $_GET["sec"] == "producto" || $_GET["sec"] == "categorias"){ echo "active text-success";} ?>" href="?sec=productos">PRODUCTOS</a>
                     <div class="dropdown-content">
-                        <a href="#">Opción 1</a>
-                        <div class="sub-dropdown-active">
-                            <a href="#">Opción 2</a>
+                        <a class="no-deco" href="#">Hentai</a>
+                        <div class="sub-dropdown-active d-flex align-items-center justify-content-between">
+                            <a class="no-deco" href="#">Mangas</a><span class="material-symbols-outlined">keyboard_arrow_right</span>
                             <div class="sub-dropdown">
-                                <a href="#">Sub-Opción 2</a>
-                                <a href="#">Sub-Opción 2</a>
+                                <a class="no-deco" href="#">Ivrea</a>
+                                <a class="no-deco" href="#">Ovni press</a>
                             </div>
                         </div>
-                        <div class="sub-dropdown-active3">
-                            <a href="#">Opción 3</a>
+                        <div class="sub-dropdown-active3 d-flex align-items-center justify-content-between">
+                            <a class="no-deco" href="#">Comics</a><span class="material-symbols-outlined">keyboard_arrow_right</span>
                             <div class="sub-dropdown3">
-                                <a href="#">Sub-Opción 3</a>
-                                <a href="#">Sub-Opción 3</a>
+                                <a class="no-deco" href="#">Marvel</a>
+                                <a class="no-deco" href="#">DC</a>
                             </div>
                         </div>
-                        <div class="sub-dropdown-active4">
-                            <a href="#">Opción 4</a>
+                        <div class="sub-dropdown-active4 d-flex align-items-center justify-content-between">
+                            <a class="no-deco" href="#">Revistas</a><span class="material-symbols-outlined">keyboard_arrow_right</span>
                             <div class="sub-dropdown4">
-                                <a href="#">Sub-Opción 4</a>
-                                <a href="#">Sub-Opción 4</a>
+                                <a class="no-deco" href="#">Lugares</a>
+                                <a class="no-deco" href="#">Oh-La-LA</a>
                             </div>
                         </div>
                     </div>
