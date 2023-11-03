@@ -17,6 +17,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Chau+Philomene+One&display=swap" rel="stylesheet">
     <!-- Option 1: Include in HTML -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://drive.google.com/uc?export=view&id=1yTLwNiCZhIdCWolQldwq4spHQkgZDqkG">
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="img/logoTrebol.png" type="image/x-icon">
     <title>
@@ -45,7 +46,7 @@
 
                 <div class="col-md-4 text-center justify-content-center">
                     <a href="?sec=home" class="me-3">
-                        <svg class="w-50 bg-success rounded-circle" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="60 40 355 355" preserveAspectRatio="xMidYMid meet">
+                        <svg class="w-25 w-md-50 bg-success rounded-circle" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="60 40 355 355" preserveAspectRatio="xMidYMid meet">
                             <g transform="translate(58,38) scale(0.36,0.36)"><path style="opacity:1" fill="#23552f" d="M 463.5,9.5 C 612.534,1.88141 740.367,49.5481 847,152.5C 952.418,262.389 999.418,393.723 988,546.5C 970.274,699.368 898.774,819.535 773.5,907C 663.02,978.965 542.52,1004.13 412,982.5C 274.171,954.975 166.171,883.309 88,767.5C 18.9218,658.316 -4.91155,539.816 16.5,412C 47.1793,260.056 129.513,145.723 263.5,69C 326.115,35.1842 392.782,15.3508 463.5,9.5 Z"/></g>
                             <g transform="translate(58,38) scale(0.36,0.36)"><path style="opacity:1" fill="#1a8939" d="M 469.5,24.5 C 641.46,19.2454 779.626,84.2454 884,219.5C 968.733,340.876 994.067,473.876 960,618.5C 919.589,761.56 832.756,865.727 699.5,931C 580.19,983.582 458.856,988.582 335.5,946C 200.73,893.563 106.896,800.063 54,665.5C 3.82278,521.774 16.8228,384.107 93,252.5C 170.395,130.491 280.562,56.3242 423.5,30C 438.932,27.7381 454.266,25.9048 469.5,24.5 Z"/></g>
                             <g transform="translate(58,38) scale(0.36,0.36)"><path style="opacity:1" fill="#f8fcf9" d="M 494.5,139.5 C 492.393,138.532 490.059,138.198 487.5,138.5C 487.5,134.833 487.5,131.167 487.5,127.5C 488.352,104.16 489.352,80.8269 490.5,57.5C 501.858,57.4139 513.191,57.9139 524.5,59C 545.959,62.1226 557.292,74.4559 558.5,96C 559.044,111.569 553.377,124.236 541.5,134C 535.611,137.379 529.278,139.379 522.5,140C 513.16,140.402 503.827,140.235 494.5,139.5 Z"/></g>
