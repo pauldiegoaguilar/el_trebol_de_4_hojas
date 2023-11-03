@@ -157,10 +157,13 @@
                         </div>
                     </div>
                 </div>
-                <a class="nav-item nav-link link-body-emphasis <?php if($_GET["sec"] == "local"){ echo "active text-success";} ?>" href="?sec=local">CARRITO</a>
+                <a class="nav-item nav-link link-body-emphasis <?php if($_GET["sec"] == "local"){ echo "active text-success";} ?>" href="?sec=local">LOCAL</a>
             </nav>
         </div>
     </div>
+
+
+    <!-- Vista Celular -->
 
     <div id="navbar" class="mainContenedor px-3 px-lg-0 d-block d-sm-none">
         <header class="border-bottom lh-1 py-3">
@@ -198,14 +201,24 @@
                                 </div>
                             </div>
 
+                            <div>
+                                <button class="border-0 bg-transparent m-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                                    <span
+                                        class="input-group-text material-symbols-outlined bg-success border-success text-white">
+                                        search
+                                    </span>
+                                </button>
+                                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+                                    <div class="offcanvas-header">
+                                        <h5 class="offcanvas-title" id="offcanvasRightLabel">Busqueda de Productos</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                    </div>
+                                    <div class="offcanvas-body">
+                                        ...
+                                    </div>
+                                </div>
 
-                            <button class="border-0 bg-transparent m-0">
-                                <span
-                                    class="input-group-text material-symbols-outlined bg-success border-success text-white">
-                                    search
-                                </span>
-                            </button>
-                            
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -229,7 +242,7 @@
                             </div>
                         </div>
                     </div>
-                    <a class="nav-item nav-link link-body-emphasis  <?php if($_GET["sec"] == "local"){ echo "active text-success";} ?>" href="?sec=local">LOCAL</a>
+                    <a class="nav-item nav-link link-body-emphasis  <?php if($_GET["sec"] == "local"){ echo "active text-success";} ?>" href="?sec=local">CARRITO</a>
             </nav>
         </div>
     </div>
