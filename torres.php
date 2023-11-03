@@ -33,14 +33,14 @@
             <div class="row justify-content-between align-items-center">
                 <div class="d-none d-md-flex col-md-4 justify-content-start">
                     <div class="row">
-                        <div class="input-group">
-                            <span
-                                class="input-group-text material-symbols-outlined bg-success border-success text-white"
-                                id="inputGroup-sizing-sm">
-                                search
-                            </span>
-                            <input type="text" placeholder="Search" class="form-control border-3 border-success" autocomplete="off">
-                        </div>
+                            <div class="input-group">
+                                <span
+                                    style="cursor: pointer;" class="input-group-text material-symbols-outlined bg-success border-success p-2 px-3 text-white" onclick="buscar(0)"
+                                    id="inputGroup-sizing-sm">
+                                    search
+                                </span>
+                                <input type="text" id="buscador0" value="" onkeyup="enter(event)" placeholder="Search" class="form-control border-3 border-left-0 border-success" autocomplete="off">
+                            </div>
                     </div>
                 </div>
 
@@ -117,11 +117,11 @@
                     <div class="row">
                         <div class="input-group mb-3">
                             <span
-                                class="input-group-text material-symbols-outlined bg-success border-success text-white"
+                                class="input-group-text material-symbols-outlined bg-success border-success text-white" onclick="buscar(1)"
                                 id="inputGroup-sizing-sm">
                                 search
                             </span>
-                            <input type="text" placeholder="Search" class="form-control border-3 border-success" autocomplete="off">
+                            <input type="text" id="buscador1" value="" placeholder="Search" class="form-control border-3 border-success" autocomplete="off">
                         </div>
                     </div>
                 </div>
@@ -214,11 +214,11 @@
                                         <div class="d-flex justify-content-start align-items-center ">
 
                                             <button type="button" class="btn-close mx-2" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                                            <input type="text" class="form-control mx-2" placeholder="Escribe aquí">
+                                            <input type="text" id="buscador2" value="" class="form-control mx-2" placeholder="Escribe aquí">
                                             <div class="input-group-prepend mx-2">
                                             <button class="border-0 bg-transparent m-0">
                                                 <span
-                                                    class="input-group-text material-symbols-outlined bg-success border-success text-white">
+                                                    class="input-group-text material-symbols-outlined bg-success border-success text-white" onclick="buscar(2)">
                                                     search
                                                 </span>
                                             </button>
@@ -418,5 +418,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
     crossorigin="anonymous"></script>
+
+    <script src="js/app.js"></script>
 
 </html>

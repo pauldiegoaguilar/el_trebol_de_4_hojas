@@ -3,9 +3,9 @@
 
 ?>
 
-<div class="container px-0">
+<div class="container">
     <div class="row mb-3 mb-md-0">
-        <div class="col-md-6">
+        <div class="col-md-6 px-3 px-md-0">
             <p class="text-muted fw-light m-0"><a href="?sec=home" class="text-muted fw-light text-decoration-none">Inicio</a> / <a class="text-black fw-bold text-decoration-none">Resultados de búsqueda para "<?php echo $search; ?>"</a></p>
         </div>
         

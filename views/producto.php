@@ -99,32 +99,5 @@
 </div>
 
 <script>
-
     window.top.document.title = '<?php echo trim($producto["titulo"]) . " - El Trebol de 4 Hojas" ?>';
-
-    var portada_contenedor = document.getElementById('portada-contenedor');
-    var portada = portada_contenedor.querySelector('#portada');
-
-    portada_contenedor.addEventListener('mousemove', (e) => {
-        if (window.innerWidth < 768) { return; }
-
-        var offsetX = e.offsetX ? e.offsetX : 0;
-        var offsetY = e.offsetY ? e.offsetY : 0;
-        var x = offsetX / portada.offsetWidth * 100;
-        var y = offsetY / portada.offsetHeight * 100;
-
-        portada.style.backgroundPosition = x + '% ' + y + '%';
-        portada.style.backgroundSize = "120%";
-        portada.style.cursor = "zoom-in";
-    })
-
-    portada_contenedor.addEventListener('mouseout', () => {
-        if (window.innerWidth < 768) { return; }
-
-        portada.style.backgroundPosition = '50% 50%';
-        portada.style.backgroundSize = "contain";
-        portada.style.cursor = "default";
-    })
-
-
 </script>

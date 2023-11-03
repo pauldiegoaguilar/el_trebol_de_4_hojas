@@ -1,9 +1,9 @@
 <?php
     /* --------- PENDIENTE: FUNCIONALIDAD DE "ORDENAR POR:" ---------- */
 
-    if(!empty($_GET['search'])){
-        $search = str_replace("%20", " ", $_GET['search']);
-    }
+    //if(!empty($_GET['search'])){
+        $search = str_replace("%20", " ", $_GET['q']);
+    //}
 
 
     $sql = "SELECT *, productos.id AS 'prodId'
