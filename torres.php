@@ -157,7 +157,7 @@
                         </div>
                     </div>
                 </div>
-                <a class="nav-item nav-link link-body-emphasis mx-5 <?php if($_GET["sec"] == "local"){ echo "active text-success";} ?>" href="?sec=local">Carrito</a>
+                <a class="nav-item nav-link link-body-emphasis mx-5 <?php if($_GET["sec"] == "local"){ echo "active text-success";} ?>" href="?sec=local">CARRITO</a>
             </nav>
         </div>
     </div>

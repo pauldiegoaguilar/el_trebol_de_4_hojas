@@ -4,7 +4,7 @@
 ?>
 
 <div class="container">
-    <p class="text-muted fw-light"><a href="?sec=home" class="text-muted fw-light text-decoration-none">Inicio</a> / <a href="?sec=categorias&categ=<?php echo ($producto['nombreCate']); ?>" class="text-muted fw-light text-decoration-none"><?php echo ucwords($producto['nombreCate']); ?></a> / <a href="#" class="text-muted fw-light text-decoration-none"><?php echo ucwords($producto['nombreEdit']); ?></a> / <a class="text-black fw-bold text-decoration-none"><?php echo $producto['titulo']; ?></a></p>
+    <p class="text-muted fw-light"><a href="?sec=home" class="text-muted fw-light text-decoration-none">Inicio</a> / <a href="?sec=categorias&categ=<?php echo ($producto['nombreCate']); ?>" class="text-muted fw-light text-decoration-none"><?php echo ucwords($producto['nombreCate']); ?></a> / <a href="?sec=categorias&categ=<?php echo ($producto['nombreCate']) . '&sub_categ=' . $producto['nombreEdit']; ?>" class="text-muted fw-light text-decoration-none"><?php echo ucwords($producto['nombreEdit']); ?></a> / <a class="text-black fw-bold text-decoration-none"><?php echo $producto['titulo']; ?></a></p>
 </div>
 
 <div class="album pt-2">

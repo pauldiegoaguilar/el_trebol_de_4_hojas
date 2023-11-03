@@ -1,72 +1,78 @@
 <!-- Categorias & Filtro de Precio -->
 
-<div class="col-md-3">
-    <div class="contact-form-area fix mtb-30 d-none d-md-block">
-        <?php
-        if ($_GET['sec'] == 'home' || $_GET['sec'] == 'productos') { ?>
-            <h4 class="mb-4" style="font-weight: 700;">Categorias principales</h4>
-            <p style="text-decoration: none;">
-                <a class="anchor_links2" href="?sec=categorias&categ=dc_comics">DC Comics</a>
-                <a class="anchor_links2" href="?sec=categorias&categ=revista">Revista</a>
-                <a class="anchor_links2" href="?sec=categorias&categ=manga">Manga</a>
-                <a class="anchor_links2" href="?sec=categorias&categ=marvel">Marvel</a>
-                <a class="anchor_links2" href="?sec=categorias&categ=pre_ventas">Pre Ventas</a>
-                <a class="anchor_links2" href="?sec=categorias&categ=trading_cards">Trading cards</a>
-            </p>
-            <?php } else if ($_GET['sec'] == 'categorias') {
-            if (!empty($_GET['categ'])) { ?>
-                <?php if ($_GET['categ'] == 'manga' && empty($_GET['sub_categ'])) { ?>
-                    <h4 class="mb-4" style="font-weight: 700;">Categorias</h4>
-                    <p style="text-decoration: none;">
-                        <a class="anchor_links2" href="?sec=categorias&categ=manga&sub_categ=ivrea">Ivrea</a>
-                        <a class="anchor_links2" href="?sec=categorias&categ=manga&sub_categ=panini">Panini</a>
-                        <a class="anchor_links2" href="?sec=categorias&categ=manga&sub_categ=ovni_press">Ovni Press</a>
-                        <a class="anchor_links2" href="?sec=categorias&categ=manga&sub_categ=distrito_manga">Distrito Manga</a>
-                        <a class="anchor_links2" href="?sec=categorias&categ=manga&sub_categ=planeta_comic">Planeta Comic</a>
-                        <a class="anchor_links2" href="?sec=categorias&categ=manga&sub_categ=kemuri">Kemuri</a>
-                    </p>
-                <?php } else if ($_GET['categ'] == 'revista' && empty($_GET['sub_categ'])) { ?>
-                    <p style="text-decoration: none;">
-                        <a class="anchor_links2" href="?sec=categorias&categ=revista&sub_categ=fierro">Fierro</a>
-                        <a class="anchor_links2" href="?sec=categorias&categ=revista&sub_categ=ohla la">Ohla la</a>
-                        <a class="anchor_links2" href="?sec=categorias&categ=manga&sub_categ=lugares">Lugares</a>
-                    </p>
-                <?php }
-                ?>
-        <?php
-            }
-        } ?>
+<?php
+if (!empty($productos)) { ?>
+    <div class="col-md-3">
+        <div class="contact-form-area fix mtb-30 d-none d-md-block">
+            <?php
+            if ($_GET['sec'] == 'home' || $_GET['sec'] == 'productos') { ?>
+                <h4 class="mb-3 fw-bold">Categorias principales</h4>
+                <p style="text-decoration: none;">
+                    <a class="anchor_links2" href="?sec=categorias&categ=dc_comics">DC Comics</a>
+                    <a class="anchor_links2" href="?sec=categorias&categ=revista">Revista</a>
+                    <a class="anchor_links2" href="?sec=categorias&categ=manga">Manga</a>
+                    <a class="anchor_links2" href="?sec=categorias&categ=marvel">Marvel</a>
+                    <a class="anchor_links2" href="?sec=categorias&categ=pre_ventas">Pre Ventas</a>
+                    <a class="anchor_links2" href="?sec=categorias&categ=trading_cards">Trading cards</a>
+                </p>
+                <?php } else if ($_GET['sec'] == 'categorias') {
+                if (!empty($_GET['categ'])) { ?>
+                    <h4 class="mb-3 fw-bold">Categorias</h4>
+                    <?php if ($_GET['categ'] == 'manga' && empty($_GET['sub_categ'])) { ?>
+                        <p style="text-decoration: none;">
+                            <a class="anchor_links2" href="?sec=categorias&categ=manga&sub_categ=ivrea">Ivrea</a>
+                            <a class="anchor_links2" href="?sec=categorias&categ=manga&sub_categ=panini">Panini</a>
+                            <a class="anchor_links2" href="?sec=categorias&categ=manga&sub_categ=ovni_press">Ovni Press</a>
+                            <a class="anchor_links2" href="?sec=categorias&categ=manga&sub_categ=distrito_manga">Distrito Manga</a>
+                            <a class="anchor_links2" href="?sec=categorias&categ=manga&sub_categ=planeta_comic">Planeta Comic</a>
+                            <a class="anchor_links2" href="?sec=categorias&categ=manga&sub_categ=kemuri">Kemuri</a>
+                        </p>
+                    <?php } else if ($_GET['categ'] == 'revista' && empty($_GET['sub_categ'])) { ?>
+                        <p style="text-decoration: none;">
+                            <a class="anchor_links2" href="?sec=categorias&categ=revista&sub_categ=fierro">Fierro</a>
+                            <a class="anchor_links2" href="?sec=categorias&categ=revista&sub_categ=ohla la">Ohla la</a>
+                            <a class="anchor_links2" href="?sec=categorias&categ=manga&sub_categ=lugares">Lugares</a>
+                        </p>
+                    <?php }
+                    ?>
+            <?php
+                }
+            } ?>
 
-        <?php 
-        if($_GET['sec'] != 'home'){ ?>
-            <h4 class="fw-bold">Precio</h4>
-            <div class="d-flex flex-row w-100">
-                <div class="d-flex flex-column justify-content-between">
-                    <p>Desde</p>
-                    <input type="number" placeholder="0" min="0" max="1000000" class="form-control border-dark border-2" >
+            <?php
+            if ($_GET['sec'] != 'home') { ?>
+                <h4 class="fw-bold mt-5">Precio</h4>
+                <div class="d-flex flex-row w-100">
+                    <div class="d-flex flex-column justify-content-between">
+                        <p>Desde</p>
+                        <input type="number" placeholder="0" min="0" max="1000000" class="form-control border-dark border-2">
+                    </div>
+                    <div class="d-flex flex-column mx-2 justify-content-between">
+                        <p>Hasta</p>
+                        <input type="number" placeholder="0" min="0" max="1000000" class="form-control border-dark border-2">
+                    </div>
                 </div>
-                <div class="d-flex flex-column mx-2 justify-content-between">
-                    <p>Hasta</p>
-                    <input type="number" placeholder="0" min="0" max="1000000" class="form-control border-dark border-2" >
-                </div>
-            </div>
-        <?php }
-        ?>
+            <?php }
+            ?>
+        </div>
+        <p class="d-md-none fw-bold mx-2 my-0">Categorias principales</p>
+        <div class="d-md-none d-flex slider-container mb-4">
+            <div class="d-md-none d-flex cuadrado my-2"><a class="anchor_links" href="?sec=categorias&categ=dc_comics">DC Comics</a></div>
+            <div class="d-md-none d-flex cuadrado my-2"><a class="anchor_links" href="?sec=categorias&categ=historietas">Revista</a></div>
+            <div class="d-md-none d-flex cuadrado my-2"><a class="anchor_links" href="?sec=categorias&categ=manga">Manga</a> </div>
+            <div class="d-md-none d-flex cuadrado my-2"><a class="anchor_links" href="?sec=categorias&categ=marvel">Marvel</a> </div>
+            <div class="d-md-none d-flex cuadrado my-2"><a class="anchor_links" href="?sec=categorias&categ=pre_ventas">Pre Ventas</a></div>
+            <div class="d-md-none d-flex cuadrado my-2"><a class="anchor_links" href="?sec=categorias&categ=trading_cards">Trading cards</a></div>
+        </div>
     </div>
-    <p class="d-md-none fw-bold mx-2 my-0">Categorias principales</p>
-    <div class="d-md-none d-flex slider-container mb-4">
-        <div class="d-md-none d-flex cuadrado my-2"><a class="anchor_links" href="?sec=categorias&categ=dc_comics">DC Comics</a></div>
-        <div class="d-md-none d-flex cuadrado my-2"><a class="anchor_links" href="?sec=categorias&categ=historietas">Revista</a></div>
-        <div class="d-md-none d-flex cuadrado my-2"><a class="anchor_links" href="?sec=categorias&categ=manga">Manga</a> </div>
-        <div class="d-md-none d-flex cuadrado my-2"><a class="anchor_links" href="?sec=categorias&categ=marvel">Marvel</a> </div>
-        <div class="d-md-none d-flex cuadrado my-2"><a class="anchor_links" href="?sec=categorias&categ=pre_ventas">Pre Ventas</a></div>
-        <div class="d-md-none d-flex cuadrado my-2"><a class="anchor_links" href="?sec=categorias&categ=trading_cards">Trading cards</a></div>
-    </div>
-</div>
+<?php }
+?>
+
+
 
 <!-- Publicaciones -->
 
-<div class="col-md-9">
+<div class="<?php echo empty($productos) ? 'col-md-12' : 'col-md-9'; ?>">
     <div class="album">
         <div class="container">
             <div class="row <?php echo empty($productos) ? '' : 'row-cols-2 row-cols-sm-3 row-cols-lg-4 g-3'; ?>">
@@ -82,7 +88,7 @@
                                                 <path id="path4" d="M191.700 45.476 C 192.085 45.576,192.715 45.576,193.100 45.476 C 193.485 45.375,193.170 45.293,192.400 45.293 C 191.630 45.293,191.315 45.375,191.700 45.476 M206.900 45.476 C 207.285 45.576,207.915 45.576,208.300 45.476 C 208.685 45.375,208.370 45.293,207.600 45.293 C 206.830 45.293,206.515 45.375,206.900 45.476 M330.800 63.310 C 330.800 63.371,332.195 64.766,333.900 66.410 L 337.000 69.400 334.010 66.300 C 331.233 63.421,330.800 63.017,330.800 63.310 M306.000 87.325 C 306.000 87.394,306.585 87.979,307.300 88.625 L 308.600 89.800 307.425 88.500 C 306.330 87.288,306.000 87.016,306.000 87.325 M311.200 92.600 C 311.946 93.370,312.647 94.000,312.757 94.000 C 312.867 94.000,312.346 93.370,311.600 92.600 C 310.854 91.830,310.153 91.200,310.043 91.200 C 309.933 91.200,310.454 91.830,311.200 92.600 M122.191 105.300 L 119.000 108.600 122.300 105.409 C 125.365 102.446,125.782 102.000,125.491 102.000 C 125.430 102.000,123.945 103.485,122.191 105.300 M126.000 102.125 C 126.000 102.194,126.585 102.779,127.300 103.425 L 128.600 104.600 127.425 103.300 C 126.330 102.088,126.000 101.816,126.000 102.125 M242.591 105.300 L 239.400 108.600 242.700 105.409 C 244.515 103.655,246.000 102.170,246.000 102.109 C 246.000 101.818,245.554 102.235,242.591 105.300 M246.400 102.125 C 246.400 102.194,246.985 102.779,247.700 103.425 L 249.000 104.600 247.825 103.300 C 246.730 102.088,246.400 101.816,246.400 102.125 M147.991 107.100 L 144.600 110.600 148.100 107.209 C 151.351 104.059,151.782 103.600,151.491 103.600 C 151.431 103.600,149.856 105.175,147.991 107.100 M268.391 107.100 L 265.000 110.600 268.500 107.209 C 270.425 105.344,272.000 103.769,272.000 103.709 C 272.000 103.418,271.541 103.849,268.391 107.100 M162.000 110.600 C 163.860 112.470,165.472 114.000,165.582 114.000 C 165.692 114.000,164.260 112.470,162.400 110.600 C 160.540 108.730,158.928 107.200,158.818 107.200 C 158.708 107.200,160.140 108.730,162.000 110.600 M282.400 110.600 C 284.260 112.470,285.872 114.000,285.982 114.000 C 286.092 114.000,284.660 112.470,282.800 110.600 C 280.940 108.730,279.328 107.200,279.218 107.200 C 279.108 107.200,280.540 108.730,282.400 110.600 M104.200 129.200 C 105.950 130.960,107.471 132.400,107.581 132.400 C 107.691 132.400,106.350 130.960,104.600 129.200 C 102.850 127.440,101.329 126.000,101.219 126.000 C 101.109 126.000,102.450 127.440,104.200 129.200 M224.600 129.200 C 226.350 130.960,227.871 132.400,227.981 132.400 C 228.091 132.400,226.750 130.960,225.000 129.200 C 223.250 127.440,221.729 126.000,221.619 126.000 C 221.509 126.000,222.850 127.440,224.600 129.200 M169.191 134.700 L 165.800 138.200 169.300 134.809 C 172.551 131.659,172.982 131.200,172.691 131.200 C 172.631 131.200,171.056 132.775,169.191 134.700 M289.591 134.700 L 286.200 138.200 289.700 134.809 C 291.625 132.944,293.200 131.369,293.200 131.309 C 293.200 131.018,292.741 131.449,289.591 134.700 M175.800 152.800 C 176.659 153.680,177.452 154.400,177.562 154.400 C 177.672 154.400,177.059 153.680,176.200 152.800 C 175.341 151.920,174.548 151.200,174.438 151.200 C 174.328 151.200,174.941 151.920,175.800 152.800 M296.200 152.800 C 297.059 153.680,297.852 154.400,297.962 154.400 C 298.072 154.400,297.459 153.680,296.600 152.800 C 295.741 151.920,294.948 151.200,294.838 151.200 C 294.728 151.200,295.341 151.920,296.200 152.800 M170.791 161.500 L 167.400 165.000 170.900 161.609 C 174.151 158.459,174.582 158.000,174.291 158.000 C 174.231 158.000,172.656 159.575,170.791 161.500 M291.191 161.500 L 287.800 165.000 291.300 161.609 C 293.225 159.744,294.800 158.169,294.800 158.109 C 294.800 157.818,294.341 158.249,291.191 161.500 M113.600 167.000 C 115.460 168.870,117.072 170.400,117.182 170.400 C 117.292 170.400,115.860 168.870,114.000 167.000 C 112.140 165.130,110.528 163.600,110.418 163.600 C 110.308 163.600,111.740 165.130,113.600 167.000 M234.000 167.000 C 235.860 168.870,237.472 170.400,237.582 170.400 C 237.692 170.400,236.260 168.870,234.400 167.000 C 232.540 165.130,230.928 163.600,230.818 163.600 C 230.708 163.600,232.140 165.130,234.000 167.000 M388.893 191.600 C 388.893 192.370,388.975 192.685,389.076 192.300 C 389.176 191.915,389.176 191.285,389.076 190.900 C 388.975 190.515,388.893 190.830,388.893 191.600 M354.501 194.600 C 354.505 195.480,354.587 195.793,354.683 195.295 C 354.779 194.798,354.775 194.078,354.675 193.695 C 354.575 193.313,354.496 193.720,354.501 194.600 M354.501 205.400 C 354.505 206.280,354.587 206.593,354.683 206.095 C 354.779 205.598,354.775 204.878,354.675 204.495 C 354.575 204.113,354.496 204.520,354.501 205.400 M45.293 207.600 C 45.293 208.370,45.375 208.685,45.476 208.300 C 45.576 207.915,45.576 207.285,45.476 206.900 C 45.375 206.515,45.293 206.830,45.293 207.600 M388.901 208.200 C 388.905 209.080,388.987 209.393,389.083 208.895 C 389.179 208.398,389.175 207.678,389.075 207.295 C 388.975 206.913,388.896 207.320,388.901 208.200 M87.200 306.125 C 87.200 306.194,87.785 306.779,88.500 307.425 L 89.800 308.600 88.625 307.300 C 87.530 306.088,87.200 305.816,87.200 306.125 M92.400 311.400 C 93.146 312.170,93.847 312.800,93.957 312.800 C 94.067 312.800,93.546 312.170,92.800 311.400 C 92.054 310.630,91.353 310.000,91.243 310.000 C 91.133 310.000,91.654 310.630,92.400 311.400 M63.200 330.910 C 63.200 330.971,64.595 332.366,66.300 334.010 L 69.400 337.000 66.410 333.900 C 63.633 331.021,63.200 330.617,63.200 330.910 M193.905 354.683 C 194.402 354.779,195.122 354.775,195.505 354.675 C 195.887 354.575,195.480 354.496,194.600 354.501 C 193.720 354.505,193.407 354.587,193.905 354.683 M204.705 354.683 C 205.202 354.779,205.922 354.775,206.305 354.675 C 206.687 354.575,206.280 354.496,205.400 354.501 C 204.520 354.505,204.207 354.587,204.705 354.683 M191.700 389.091 C 192.525 389.178,193.875 389.178,194.700 389.091 C 195.525 389.005,194.850 388.934,193.200 388.934 C 191.550 388.934,190.875 389.005,191.700 389.091 M205.300 389.091 C 206.125 389.178,207.475 389.178,208.300 389.091 C 209.125 389.005,208.450 388.934,206.800 388.934 C 205.150 388.934,204.475 389.005,205.300 389.091 " stroke="none" fill="#d4d4d4" fill-rule="evenodd"></path>
                                             </g>
                                         </svg>
-                                        <p class="text-muted fs-4">NO SE ENCONTRARON PRODUCTOS<br>PARA ESTA CATEGORIA</p>
+                                        <p class="text-muted fs-4">NO SE ENCONTRARON RESULTADOS</p>
                                     </div>');
                 } else {
                     foreach ($productos as $producto) { ?>

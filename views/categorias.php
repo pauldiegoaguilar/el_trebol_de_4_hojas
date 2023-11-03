@@ -6,7 +6,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-            <p class="text-muted fw-light m-0"><a href="?sec=home" class="text-muted fw-light text-decoration-none">Inicio</a> / <a class="text-black fw-bold text-decoration-none"><?php echo ucwords(str_replace("_", " ",$_GET['categ'])); ?></a></p>
+            <p class="text-muted fw-light m-0"><a href="?sec=home" class="text-muted fw-light text-decoration-none">Inicio</a> / <a <?php echo !empty($_GET['sub_categ']) ? 'href="?sec=categorias&categ=' . $_GET['categ'] . '"' : ''; ?> class="<?php echo !empty($_GET['sub_categ']) ? 'text-muted fw-light' : 'text-black fw-bold'; ?> text-decoration-none"><?php echo ucwords(str_replace("_", " ",$_GET['categ'])); ?></a><?php echo !empty($_GET['sub_categ']) ? ' / <a class="text-black fw-bold text-decoration-none">' . ucwords(str_replace("_", " ",$_GET['sub_categ'])) . '</a>' : ''; ?></p>
         </div>
         
         <div class="col-md-6 d-flex justify-content-md-end align-items-center mt-4 m-md-0">
