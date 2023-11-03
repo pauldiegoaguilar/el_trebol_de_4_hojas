@@ -17,8 +17,8 @@ if (!empty($productos)) { ?>
                 </p>
                 <?php } else if ($_GET['sec'] == 'categorias') {
                 if (!empty($_GET['categ'])) { ?>
-                    <h4 class="mb-3 fw-bold">Categorias</h4>
                     <?php if ($_GET['categ'] == 'manga' && empty($_GET['sub_categ'])) { ?>
+                        <h4 class="mb-3 fw-bold">Manga</h4>
                         <p style="text-decoration: none;">
                             <a class="anchor_links2" href="?sec=categorias&categ=manga&sub_categ=ivrea">Ivrea</a>
                             <a class="anchor_links2" href="?sec=categorias&categ=manga&sub_categ=panini">Panini</a>
@@ -28,6 +28,7 @@ if (!empty($productos)) { ?>
                             <a class="anchor_links2" href="?sec=categorias&categ=manga&sub_categ=kemuri">Kemuri</a>
                         </p>
                     <?php } else if ($_GET['categ'] == 'revista' && empty($_GET['sub_categ'])) { ?>
+                        <h4 class="mb-3 fw-bold">Revista</h4>
                         <p style="text-decoration: none;">
                             <a class="anchor_links2" href="?sec=categorias&categ=revista&sub_categ=fierro">Fierro</a>
                             <a class="anchor_links2" href="?sec=categorias&categ=revista&sub_categ=ohla la">Ohla la</a>
@@ -55,15 +56,17 @@ if (!empty($productos)) { ?>
             <?php }
             ?>
         </div>
-        <p class="d-md-none fw-bold mx-2 my-0">Categorias principales</p>
+
+        <!--
+        <p class="d-md-none fw-bold px-1 my-0">Categorias principales</p>
         <div class="d-md-none d-flex slider-container mb-4">
-            <div class="d-md-none d-flex cuadrado my-2"><a class="anchor_links" href="?sec=categorias&categ=dc_comics">DC Comics</a></div>
-            <div class="d-md-none d-flex cuadrado my-2"><a class="anchor_links" href="?sec=categorias&categ=historietas">Revista</a></div>
-            <div class="d-md-none d-flex cuadrado my-2"><a class="anchor_links" href="?sec=categorias&categ=manga">Manga</a> </div>
-            <div class="d-md-none d-flex cuadrado my-2"><a class="anchor_links" href="?sec=categorias&categ=marvel">Marvel</a> </div>
-            <div class="d-md-none d-flex cuadrado my-2"><a class="anchor_links" href="?sec=categorias&categ=pre_ventas">Pre Ventas</a></div>
-            <div class="d-md-none d-flex cuadrado my-2"><a class="anchor_links" href="?sec=categorias&categ=trading_cards">Trading cards</a></div>
-        </div>
+            <div class="d-md-none d-flex cuadrado my-1"><a class="anchor_links" href="?sec=categorias&categ=dc_comics">DC Comics</a></div>
+            <div class="d-md-none d-flex cuadrado my-1"><a class="anchor_links" href="?sec=categorias&categ=historietas">Revista</a></div>
+            <div class="d-md-none d-flex cuadrado my-1"><a class="anchor_links" href="?sec=categorias&categ=manga">Manga</a> </div>
+            <div class="d-md-none d-flex cuadrado my-1"><a class="anchor_links" href="?sec=categorias&categ=marvel">Marvel</a> </div>
+            <div class="d-md-none d-flex cuadrado my-1"><a class="anchor_links" href="?sec=categorias&categ=pre_ventas">Pre Ventas</a></div>
+            <div class="d-md-none d-flex cuadrado my-1"><a class="anchor_links" href="?sec=categorias&categ=trading_cards">Trading cards</a></div>
+        </div> -->
     </div>
 <?php }
 ?>

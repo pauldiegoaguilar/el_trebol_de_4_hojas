@@ -44,7 +44,7 @@
                 </div>
 
                 <div class="col-md-4 text-center justify-content-center">
-                    <a href="?sec=home">
+                    <a href="?sec=home" class="me-3">
                         <svg class="w-50 bg-success rounded-circle" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="60 40 355 355" preserveAspectRatio="xMidYMid meet">
                             <g transform="translate(58,38) scale(0.36,0.36)"><path style="opacity:1" fill="#23552f" d="M 463.5,9.5 C 612.534,1.88141 740.367,49.5481 847,152.5C 952.418,262.389 999.418,393.723 988,546.5C 970.274,699.368 898.774,819.535 773.5,907C 663.02,978.965 542.52,1004.13 412,982.5C 274.171,954.975 166.171,883.309 88,767.5C 18.9218,658.316 -4.91155,539.816 16.5,412C 47.1793,260.056 129.513,145.723 263.5,69C 326.115,35.1842 392.782,15.3508 463.5,9.5 Z"/></g>
                             <g transform="translate(58,38) scale(0.36,0.36)"><path style="opacity:1" fill="#1a8939" d="M 469.5,24.5 C 641.46,19.2454 779.626,84.2454 884,219.5C 968.733,340.876 994.067,473.876 960,618.5C 919.589,761.56 832.756,865.727 699.5,931C 580.19,983.582 458.856,988.582 335.5,946C 200.73,893.563 106.896,800.063 54,665.5C 3.82278,521.774 16.8228,384.107 93,252.5C 170.395,130.491 280.562,56.3242 423.5,30C 438.932,27.7381 454.266,25.9048 469.5,24.5 Z"/></g>
@@ -108,8 +108,8 @@
                 </div>
 
                 <div class="col-md-4 d-flex justify-content-center align-items-center">
-                    <a class="btn btn btn-outline-secondary border-3 mx-2" href="?sec=sing-up">Registrarse</a>
-                    <a class="btn btn btn-outline-success border-3 mx-2" href="?sec=login">Iniciar Sesion</a>
+                    <a class="btn btn-outline-secondary border-3 mx-0 me-sm-1" href="?sec=sing-up">Registrarse</a>
+                    <a class="btn btn-outline-success border-3 mx-0" href="?sec=login">Iniciar Sesion</a>
                 </div>
 
                 <div class="d-md-none col-md-4 justify-content-center mt-2">
@@ -129,7 +129,7 @@
 
         <div class="nav-scroller py-1 mb-3 border-bottom">
             <nav class="nav flex-column flex-sm-row align-items-center nav-underline justify-content-center">
-                <a class="nav-item nav-link link-body-emphasis mx-5 <?php if($_GET["sec"] == "home"){ echo "active text-success";} ?>" href="?sec=home">INICIO</a>
+                <a class="nav-item nav-link link-body-emphasis <?php if($_GET["sec"] == "home"){ echo "active text-success";} ?>" href="?sec=home">INICIO</a>
                 <div class="dropdown">
                     <a class="nav-item nav-link link-body-emphasis mx-5 <?php if($_GET["sec"] == "productos" || $_GET["sec"] == "producto" || $_GET["sec"] == "categorias"){ echo "active text-success";} ?>" href="?sec=productos">PRODUCTOS</a>
                     <div class="dropdown-content">
@@ -157,7 +157,7 @@
                         </div>
                     </div>
                 </div>
-                <a class="nav-item nav-link link-body-emphasis mx-5 <?php if($_GET["sec"] == "local"){ echo "active text-success";} ?>" href="?sec=local">CARRITO</a>
+                <a class="nav-item nav-link link-body-emphasis <?php if($_GET["sec"] == "local"){ echo "active text-success";} ?>" href="?sec=local">CARRITO</a>
             </nav>
         </div>
     </div>
