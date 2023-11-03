@@ -4,14 +4,14 @@ require_once "modelos/categorias.php";
 ?>
 
 <div class="container">
-    <div class="row">
+    <div class="row mb-3 mb-md-0">
         <div class="col-md-6 px-3 px-md-0">
             <p class="text-muted fw-light m-0"><a href="?sec=home" class="text-muted fw-light text-decoration-none">Inicio</a> / <a <?php echo !empty($_GET['sub_categ']) ? 'href="?sec=categorias&categ=' . $_GET['categ'] . '"' : ''; ?> class="<?php echo !empty($_GET['sub_categ']) ? 'text-muted fw-light' : 'text-black fw-bold'; ?> text-decoration-none"><?php echo ucwords(str_replace("_", " ", $_GET['categ'])); ?></a><?php echo !empty($_GET['sub_categ']) ? ' / <a class="text-black fw-bold text-decoration-none">' . ucwords(str_replace("_", " ", $_GET['sub_categ'])) . '</a>' : ''; ?></p>
         </div>
 
-        <div class="col-8 col-md-6 d-flex flex-column flex-md-row align-items-start justify-content-md-end align-items-center mt-4 m-md-0 px-3 px-md-0">
+        <div class="col-8 col-md-6 d-flex flex-column flex-md-row align-items-start justify-content-md-end align-items-md-center mt-4 m-md-0 px-3 px-md-0">
             <p class="m-0">Ordenar por:</p>
-            <select class="mx-2 form-select-sm" aria-label=".form-select-sm example" name="orderSelector" id="orderSelector">
+            <select class="mx-md-2 form-select-sm" aria-label=".form-select-sm example" name="orderSelector" id="orderSelector">
                 <option value="0" selected>Aleatorio</option>
                 <option value="1">Precio: Menor a Mayor</option>
                 <option value="2">Precio: Mayor a Menor</option>
@@ -24,8 +24,8 @@ require_once "modelos/categorias.php";
 
         <?php
         if ($_GET['sec'] != 'home') { ?>
-            <div class="col-4 d-md-none d-flex justify-content-end mt-4 m-md-0 px-3 px-md-0">
-                <button class="btn border-black border-2 d-flex mx-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+            <div class="col-4 d-md-none d-flex align-items-end justify-content-end mt-4 m-md-0 px-3 px-md-0">
+                <button class="btn border-black border-1 d-flex m-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#filtros" aria-controls="offcanvasRight">
                     FILTRAR
                     <span class="material-symbols-outlined">
                         chevron_right
@@ -33,7 +33,7 @@ require_once "modelos/categorias.php";
                 </button>
             </div>
 
-            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="filtros" aria-labelledby="offcanvasRightLabel">
                 <div class="offcanvas-header border-bottom border-3">
                     <button type="button" class="border-0 bg-transparent m-0" data-bs-dismiss="offcanvas" aria-label="Close">
                         <span class="material-symbols-outlined">
@@ -94,8 +94,6 @@ require_once "modelos/categorias.php";
             </div>
         <?php }
         ?>
-
-
     </div>
 </div>
 
@@ -104,10 +102,8 @@ require_once "modelos/categorias.php";
 <div class="album pb-3 pt-3 pt-md-5">
     <div class="container">
         <div class="row">
-
-
             <?php
-            require_once "views/lista_productos.php";
+                require_once "views/lista_productos.php";
             ?>
         </div>
     </div>

@@ -15,28 +15,28 @@ if (!empty($productos)) { ?>
                     <a class="anchor_links2" href="?sec=categorias&categ=pre_ventas">Pre Ventas</a>
                     <a class="anchor_links2" href="?sec=categorias&categ=trading_cards">Trading cards</a>
                 </p>
-                <?php } else if ($_GET['sec'] == 'categorias') {
+            <?php } else if ($_GET['sec'] == 'categorias') {
                 if (!empty($_GET['categ'])) { ?>
                     <?php if ($_GET['categ'] == 'manga' && empty($_GET['sub_categ'])) { ?>
-                        <h4 class="mb-3 fw-bold">Manga</h4>
-                        <p style="text-decoration: none;">
-                            <a class="anchor_links2" href="?sec=categorias&categ=manga&sub_categ=ivrea">Ivrea</a>
-                            <a class="anchor_links2" href="?sec=categorias&categ=manga&sub_categ=panini">Panini</a>
-                            <a class="anchor_links2" href="?sec=categorias&categ=manga&sub_categ=ovni_press">Ovni Press</a>
-                            <a class="anchor_links2" href="?sec=categorias&categ=manga&sub_categ=distrito_manga">Distrito Manga</a>
-                            <a class="anchor_links2" href="?sec=categorias&categ=manga&sub_categ=planeta_comic">Planeta Comic</a>
-                            <a class="anchor_links2" href="?sec=categorias&categ=manga&sub_categ=kemuri">Kemuri</a>
-                        </p>
+                            <h4 class="mb-3 fw-bold">Manga</h4>
+                            <p style="text-decoration: none;">
+                                <a class="anchor_links2" href="?sec=categorias&categ=manga&sub_categ=ivrea">Ivrea</a>
+                                <a class="anchor_links2" href="?sec=categorias&categ=manga&sub_categ=panini">Panini</a>
+                                <a class="anchor_links2" href="?sec=categorias&categ=manga&sub_categ=ovni_press">Ovni Press</a>
+                                <a class="anchor_links2" href="?sec=categorias&categ=manga&sub_categ=distrito_manga">Distrito Manga</a>
+                                <a class="anchor_links2" href="?sec=categorias&categ=manga&sub_categ=planeta_comic">Planeta Comic</a>
+                                <a class="anchor_links2" href="?sec=categorias&categ=manga&sub_categ=kemuri">Kemuri</a>
+                            </p>
                     <?php } else if ($_GET['categ'] == 'revista' && empty($_GET['sub_categ'])) { ?>
-                        <h4 class="mb-3 fw-bold">Revista</h4>
-                        <p style="text-decoration: none;">
-                            <a class="anchor_links2" href="?sec=categorias&categ=revista&sub_categ=fierro">Fierro</a>
-                            <a class="anchor_links2" href="?sec=categorias&categ=revista&sub_categ=ohla la">Ohla la</a>
-                            <a class="anchor_links2" href="?sec=categorias&categ=manga&sub_categ=lugares">Lugares</a>
-                        </p>
+                                <h4 class="mb-3 fw-bold">Revista</h4>
+                                <p style="text-decoration: none;">
+                                    <a class="anchor_links2" href="?sec=categorias&categ=revista&sub_categ=fierro">Fierro</a>
+                                    <a class="anchor_links2" href="?sec=categorias&categ=revista&sub_categ=ohla la">Ohla la</a>
+                                    <a class="anchor_links2" href="?sec=categorias&categ=manga&sub_categ=lugares">Lugares</a>
+                                </p>
                     <?php }
                     ?>
-            <?php
+                    <?php
                 }
             } ?>
 
@@ -57,16 +57,24 @@ if (!empty($productos)) { ?>
             ?>
         </div>
 
-        <!--
-        <p class="d-md-none fw-bold px-1 my-0">Categorias principales</p>
-        <div class="d-md-none d-flex slider-container mb-4">
-            <div class="d-md-none d-flex cuadrado my-1"><a class="anchor_links" href="?sec=categorias&categ=dc_comics">DC Comics</a></div>
-            <div class="d-md-none d-flex cuadrado my-1"><a class="anchor_links" href="?sec=categorias&categ=historietas">Revista</a></div>
-            <div class="d-md-none d-flex cuadrado my-1"><a class="anchor_links" href="?sec=categorias&categ=manga">Manga</a> </div>
-            <div class="d-md-none d-flex cuadrado my-1"><a class="anchor_links" href="?sec=categorias&categ=marvel">Marvel</a> </div>
-            <div class="d-md-none d-flex cuadrado my-1"><a class="anchor_links" href="?sec=categorias&categ=pre_ventas">Pre Ventas</a></div>
-            <div class="d-md-none d-flex cuadrado my-1"><a class="anchor_links" href="?sec=categorias&categ=trading_cards">Trading cards</a></div>
-        </div> -->
+        <?php
+        if ($_GET['sec'] == 'home') { ?>
+            <p class="d-md-none fw-bold px-1 my-0">Categorias principales</p>
+            <div class="d-md-none d-flex slider-container mb-4">
+                <div class="d-md-none d-flex cuadrado my-1"><a class="anchor_links" href="?sec=categorias&categ=dc_comics">DC
+                        Comics</a></div>
+                <div class="d-md-none d-flex cuadrado my-1"><a class="anchor_links"
+                        href="?sec=categorias&categ=historietas">Revista</a></div>
+                <div class="d-md-none d-flex cuadrado my-1"><a class="anchor_links" href="?sec=categorias&categ=manga">Manga</a>
+                </div>
+                <div class="d-md-none d-flex cuadrado my-1"><a class="anchor_links"
+                        href="?sec=categorias&categ=marvel">Marvel</a> </div>
+                <div class="d-md-none d-flex cuadrado my-1"><a class="anchor_links" href="?sec=categorias&categ=pre_ventas">Pre
+                        Ventas</a></div>
+                <div class="d-md-none d-flex cuadrado my-1"><a class="anchor_links"
+                        href="?sec=categorias&categ=trading_cards">Trading cards</a></div>
+            </div>
+        <?php } ?>
     </div>
 <?php }
 ?>
@@ -99,22 +107,30 @@ if (!empty($productos)) { ?>
                             <div class="card border-0">
                                 <div class="linea-superior"></div>
                                 <a href="#">
-                                    <img class="bd-placeholder-img img-fluid" src="<?php echo $producto["portada"] . "1.png"; ?>" alt="manga">
+                                    <img class="bd-placeholder-img img-fluid"
+                                        src="<?php echo $producto["portada"] . "1.png"; ?>" alt="manga">
                                 </a>
                                 <div class="card-body">
                                     <p class="card-text text-center">
-                                        <a href="?sec=producto&prodId=<?php echo $producto["prodId"] ?>" class="no-deco" style="font-size: 14.5px;"><?php echo $producto["titulo"]; ?></a>
+                                        <a href="?sec=producto&prodId=<?php echo $producto["prodId"] ?>" class="no-deco"
+                                            style="font-size: 14.5px;">
+                                            <?php echo $producto["titulo"]; ?>
+                                        </a>
                                         <br>
                                         <?php echo "$" . $producto["precio"]; ?>
                                         <br>
-                                        <button class="btn <?php echo $producto['stock'] <= 0 ? 'btn-danger' : 'btn-success'; ?> btn-block" style="font-size: 11.2px;" <?php echo $producto['stock'] <= 0 ? 'disabled' : ''; ?>> <?php echo $producto['stock'] <= 0 ? 'SIN STOCK' : 'AGREGAR AL CARRITO'; ?></button>
+                                        <button
+                                            class="btn <?php echo $producto['stock'] <= 0 ? 'btn-danger' : 'btn-success'; ?> btn-block"
+                                            style="font-size: 11.2px;" <?php echo $producto['stock'] <= 0 ? 'disabled' : ''; ?>>
+                                            <?php echo $producto['stock'] <= 0 ? 'SIN STOCK' : 'AGREGAR AL CARRITO'; ?>
+                                        </button>
                                     </p>
                                     <div class="d-flex justify-content-between align-items-center">
                                     </div>
                                 </div>
                             </div>
                         </div>
-                <?php }
+                    <?php }
                 }
                 ?>
             </div>
