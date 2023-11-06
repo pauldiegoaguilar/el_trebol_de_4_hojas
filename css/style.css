@@ -316,6 +316,11 @@ input::placeholder {
     cursor: pointer;
 }
 
+/*----------------*/
+
+.move{
+    margin-top: -35px;
+}
 
 /*-----Footer------*/
 
