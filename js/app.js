@@ -31,7 +31,7 @@ try {
 
 
 
-/* --------------- PRODUCTO - IMAEGEN ZOOM --------------- */
+/* --------------- PRODUCTO - BUSQUEDA --------------- */
 
 function buscar(input){
     var buscador = document.getElementById(`buscador${input}`);
@@ -49,3 +49,8 @@ function enter(e){
     }
 }
 
+/* --------------- REGISTRO - VERIFICACION --------------- */
+
+function verifRegistro(){
+    var name = 
+}

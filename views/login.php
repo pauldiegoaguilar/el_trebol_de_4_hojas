@@ -13,7 +13,7 @@
                 </div>
                 <?php if(isset($_GET["error"])){?><p class="text-danger mt-2">Correo o contraseña incorrectos.</p> <?php } ?>
                 <button class="btn btn-dark" type="submit" aria-expanded="false">INICIA SESION</button>
-                <p class="mt-3">¿No tenés cuenta? <a href="#" class="delate-a">Crear cuenta</a></p>
+                <p class="mt-3">¿No tenés cuenta? <a href="?sec=sing-up" class="delate-a">Crear cuenta</a></p>
             </form>
         </div>
     </div>
