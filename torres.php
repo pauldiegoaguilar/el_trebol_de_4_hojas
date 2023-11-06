@@ -134,7 +134,7 @@
                 <div class="dropdown">
                     <a class="nav-item nav-link link-body-emphasis mx-5 <?php if($_GET["sec"] == "productos" || $_GET["sec"] == "producto" || $_GET["sec"] == "categorias"){ echo "active text-success";} ?>" href="?sec=productos">PRODUCTOS</a>
                     <div class="dropdown-content">
-                        <a class="no-deco" href="#">Hentai</a>
+                        <a class="no-deco" href="?sec=publicar">Hentai</a>
                         <div class="sub-dropdown-active d-flex align-items-center justify-content-between">
                             <a class="no-deco" href="#">Mangas</a><span class="material-symbols-outlined">keyboard_arrow_right</span>
                             <div class="sub-dropdown">
