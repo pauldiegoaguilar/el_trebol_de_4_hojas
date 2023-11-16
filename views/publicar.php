@@ -1,57 +1,76 @@
-<div class="container">
-    <p class="text-start">Inicio / Publicaciones</p>
-    <div class="row justify-content-center">
-        <div class="col-5">
-            <div class=" d-flex justify-content-center align-items-center position-relative" style="max-width: 1000px; min-height: 330px;" id="fileDisplayer">
-                <input id="fileSelector" name="fileSelector" type="file" class="opacity-0 w-75 h-50" onchange="previousView(this);" accept="image/*" required>
-                <label for="fileSelector" class="position-absolute text-center rounded border border-dark w-100 h-75">
-                    <p class="display-2 my-4 text-muted">+</p>
-                    <p class="text-dark">Seleccione una imagen</p>
-                </label>
-            </div>
-            <div class="move">
-                <div class="d-block align-items-center">
-                    <p class="my-2 mx-2">PRODUCTO</p>
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>Revista</option>
-                        <option value="1">Manga</option>
-                        <option value="2">Libro</option>
-                        <option value="3">Cuento</option>
-                        <option value="4">Comics</option>
-                    </select>
-                </div>
-                <div class="d-block align-items-center my-3">
-                    <p class="my-2 mx-2">EDITORIAL</p>
-                    <input type="text" class="form-control border-dark border-2">
-                </div>
-            </div>
-        </div>
-        <div class="col-5">
-            <div class="d-block">
-                <div class="d-block my-4">
-                    <p class="my-1">TITULO</p>
-                    <input type="text" class="form-control border-dark border-2">
-                </div>
-                <div class="d-block my-4">
-                    <p class="my-1">PRECIO</p>
-                    <input type="number" placeholder="0" min="0" max="1000000" class="form-control border-dark border-2">
-                </div>
-                <div class="d-block my-4">
-                    <p class="my-1">STOCKS</p>
-                    <input type="number" placeholder="0" min="0" max="1000000" class="form-control border-dark border-2">
-                </div>
-                <div class="form-group">
-                    <p class="my-1">DESCRIPCION</p>
-                    <textarea name="descripcion" class="form-control" rows="5" placeholder="TANJIRO FUE UN NORTEÑO QUE LE GUSTA SU HERMANA [...]"></textarea>
-                </div>
+<div class="container"><!--
+    <p class="text-muted fw-light"><a href="?sec=home" class="text-muted fw-light text-decoration-none">Inicio</a> / <a href="?sec=categorias&categ=<?php echo ($producto['nombreCate']); ?>" class="text-muted fw-light text-decoration-none"><?php echo ucwords($producto['nombreCate']); ?></a> / <a href="?sec=categorias&categ=<?php echo ($producto['nombreCate']) . '&sub_categ=' . $producto['nombreEdit']; ?>" class="text-muted fw-light text-decoration-none"><?php echo ucwords($producto['nombreEdit']); ?></a> / <a class="text-black fw-bold text-decoration-none"><?php echo $producto['titulo']; ?></a></p>
+-->
+</div>
 
+<div class="album pt-2">
+    <div class="container">
+        <div class="row">
+            <div id="portada-contenedor" style="max-height: 550px; min-height: 400px;" class="col-md-7 d-flex p-0 px-md-3">
+                <div id="portada" class="w-100 portada" style="background-repeat: no-repeat; background-size:contain; background-position: 50% 50%;">
+                    <input type="file" class="d-none" name="imgUploader" id="imgUploader" accept="image/png, image/gif, image/jpeg">
+                </div>
+            </div>
+
+            <div class="col-md-5">
+                <div class="album">
+                    <div class="row">
+                        <div style="max-height: 550px; min-height: 400px;">
+                            <div class="mt-4 mt-md-0">
+                                <h6 class="fw-lighter">TITULO:</h6>
+                                <input type="text" class="form-control" name="titulo" id="titulo" placeholder="KIMETSU NO YAIBA VOL.01">
+                                <br>
+                                <h6 class="fw-lighter">PRECIO:</h6>
+                                <div class="input-group">
+                                    <span class="input-group-text text-success">$</span>
+                                    <input type="number" class="form-control text-success" name="precio" id="precio" min="1" placeholder="3000">
+                                </div>
+                                <br>
+                                <h6 class="fw-lighter">CATEGORIA:</h6>
+                                <select class="form-select" id="categSelector">
+                                    <option value="0" selected>Seleccione una categoria...</option>
+                                    <option value="1" class="optionSelect">Manga</option>
+                                    <option value="2" class="optionSelect">Revista</option>
+                                    <option value="3" class="optionSelect">Marvel</option>
+                                    <option value="4" class="optionSelect">DC Comics</option>
+                                    <option value="5" class="optionSelect">Trading Cards</option>
+                                    <option value="6" class="optionSelect">Pre-ventas</option>
+                                </select>
+                                <br>
+                                <h6 class="fw-lighter">EDITORIAL:</h6>
+                                <select class="form-select" id="editSelector">
+                                    <option value="0" selected>Seleccione una editorial...</option>
+                                    <option value="1" class="optionSelect">Ivrea</option>
+                                    <option value="2" class="optionSelect">Ovni Press</option>
+                                    <option value="3" class="optionSelect">Panini</option>
+                                    <option value="4" class="optionSelect">Kemuri</option>
+                                    <option value="5" class="optionSelect">Planeta</option>
+                                    <option value="6" class="optionSelect">Distrito Manga</option>
+                                    <option value="7" class="optionSelect">Utopia</option>
+                                    <option value="8" class="optionSelect">Ohlala!</option>
+                                    <option value="9" class="optionSelect">Cosa</option>
+                                    <option value="10" class="optionSelect">Fierro</option>
+                                    <option value="11" class="optionSelect">Lugares</option>
+                                    <option value="12" class="optionSelect">Rolling Stone</option>
+                                </select>
+                                <br>
+                                <h6 class="fw-lighter">STOCK:</h6>
+                                <input type="number" name="cantidad" id="cantidad" class="form-control" min="1" value="1" placeholder="0" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="d-flex my-4 align-items-center">
-            <button type="button" class="btn btn-success">PUBLICAR</button>
-            <button type="button" class="btn btn-danger">CANCELAR</button>
+        <div class="row">
+            <div class="mt-4">
+                <h4 class="fw-bold">Descripcion:</h4>
+                <textarea class="form-control fw-lighter" placeholder="Descripcion" style="resize: none;" id="descripcion" maxlength="2000" rows="13"></textarea>
+            </div>
+            <div class="my-3 d-flex justify-content-center">
+                <input type="button" class="mx-3 btn rounded btn-secondary" value="CANCELAR">
+                <input type="button" class="mx-3 btn rounded btn-success" value="PUBLICAR">
+            </div>
         </div>
     </div>
-
-
 </div>
