@@ -58,6 +58,55 @@ try {
     console.log("no esta agregando/editando un producto");
 }
 
+/* --------------- AGREGAR/EDITAR PRODUCTO - SELECTOR DE CATEGORIA Y EDITORIAL --------------- */
+
+
+const categSelector = document.getElementById('categSelector');
+const editSelector = document.getElementById('editSelector');
+
+categSelector.addEventListener('change', () => {
+
+    editSelector.removeAttribute('disabled');
+    //console.log("cambio de categ");
+    //console.log(categSelector.value);
+    let categ = parseInt(categSelector.value);
+
+    switch(categ){
+        case 1:
+            console.log("Manga");
+            mangaOptHTML = '<option value="1" class="optionSelect">Ivrea</option>';
+            mangaOptHTML =+ '<option value="2" class="optionSelect">Ovni Press</option>';
+            mangaOptHTML =+ '<option value="3" class="optionSelect">Panini</option>';
+            mangaOptHTML =+ '<option value="4" class="optionSelect">Kemuri</option>';
+            mangaOptHTML =+ '<option value="5" class="optionSelect">Planeta</option>';
+            mangaOptHTML =+ '<option value="6" class="optionSelect">Distrito Manga</option>';
+            mangaOptHTML =+ '<option value="7" class="optionSelect">Utopia</option>';
+
+            editSelector.append(mangaOptHTML);
+
+            break;
+        case 2:
+            console.log("Revista");
+            break;
+        case 3:
+            console.log("Marvel");
+            break;
+        case 4:
+            console.log("DC Comics");
+            break;
+        case 5:
+            console.log("Trading Cards");
+            break;
+        case 6:
+            console.log("Pre-ventas");
+            break;
+        default:
+            console.log("Nada");
+            break;
+    }
+
+})
+
 
 /* --------------- PRODUCTO - BUSQUEDA --------------- */
 

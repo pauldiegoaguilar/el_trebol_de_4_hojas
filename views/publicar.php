@@ -38,20 +38,8 @@
                                 </select>
                                 <br>
                                 <h6 class="fw-lighter">EDITORIAL:</h6>
-                                <select class="form-select" id="editSelector">
+                                <select class="form-select" id="editSelector" disabled>
                                     <option value="0" selected>Seleccione una editorial...</option>
-                                    <option value="1" class="optionSelect">Ivrea</option>
-                                    <option value="2" class="optionSelect">Ovni Press</option>
-                                    <option value="3" class="optionSelect">Panini</option>
-                                    <option value="4" class="optionSelect">Kemuri</option>
-                                    <option value="5" class="optionSelect">Planeta</option>
-                                    <option value="6" class="optionSelect">Distrito Manga</option>
-                                    <option value="7" class="optionSelect">Utopia</option>
-                                    <option value="8" class="optionSelect">Ohlala!</option>
-                                    <option value="9" class="optionSelect">Cosa</option>
-                                    <option value="10" class="optionSelect">Fierro</option>
-                                    <option value="11" class="optionSelect">Lugares</option>
-                                    <option value="12" class="optionSelect">Rolling Stone</option>
                                 </select>
                                 <br>
                                 <h6 class="fw-lighter">STOCK:</h6>
