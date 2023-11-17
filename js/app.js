@@ -64,44 +64,82 @@ try {
 const categSelector = document.getElementById('categSelector');
 const editSelector = document.getElementById('editSelector');
 
+function removeList(options){
+    options.forEach(option => {
+        option.remove();
+    });
+}
+
+function fillList(options){
+    for(index in options) {
+        editSelector.options[index] = new Option(options[index], index);
+        editSelector.options[index].classList.add("optionSelect");
+    }
+}
+
 categSelector.addEventListener('change', () => {
-
     editSelector.removeAttribute('disabled');
-    //console.log("cambio de categ");
-    //console.log(categSelector.value);
-    let categ = parseInt(categSelector.value);
 
-    switch(categ){
+    let categVal = parseInt(categSelector.value);
+
+    switch(categVal){
         case 1:
             console.log("Manga");
-            mangaOptHTML = '<option value="1" class="optionSelect">Ivrea</option>';
-            mangaOptHTML =+ '<option value="2" class="optionSelect">Ovni Press</option>';
-            mangaOptHTML =+ '<option value="3" class="optionSelect">Panini</option>';
-            mangaOptHTML =+ '<option value="4" class="optionSelect">Kemuri</option>';
-            mangaOptHTML =+ '<option value="5" class="optionSelect">Planeta</option>';
-            mangaOptHTML =+ '<option value="6" class="optionSelect">Distrito Manga</option>';
-            mangaOptHTML =+ '<option value="7" class="optionSelect">Utopia</option>';
+            removeList(editSelector.querySelectorAll('.optionSelect'));
 
-            editSelector.append(mangaOptHTML);
+            let manga_array = {
+                1 : 'Ivrea',
+                2 : 'Ovni Press',
+                3 : 'Panini',
+                4 : 'Kemuri',
+                5 : 'Planeta',
+                6 : 'Distrito',
+                7 : 'Utopia'
+            };
+
+            fillList(manga_array);
 
             break;
         case 2:
             console.log("Revista");
+            removeList(editSelector.querySelectorAll('.optionSelect'));
+
+            let revista_array = {
+                1 : 'Ohlala!',
+                2 : 'Cosa',
+                3 : 'Fierro',
+                4 : 'Lugares',
+                5 : 'Rolling Stone'
+            };
+            
+            fillList(revista_array);
+
             break;
         case 3:
             console.log("Marvel");
+            removeList(editSelector.querySelectorAll('.optionSelect'));
+
             break;
         case 4:
             console.log("DC Comics");
+            removeList(editSelector.querySelectorAll('.optionSelect'));
+
             break;
         case 5:
             console.log("Trading Cards");
+            removeList(editSelector.querySelectorAll('.optionSelect'));
+
             break;
         case 6:
             console.log("Pre-ventas");
+            removeList(editSelector.querySelectorAll('.optionSelect'));
+
             break;
         default:
             console.log("Nada");
+            removeList(editSelector.querySelectorAll('.optionSelect'));
+            editSelector.setAttribute('disabled', true);
+
             break;
     }
 
