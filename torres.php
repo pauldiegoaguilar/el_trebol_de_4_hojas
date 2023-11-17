@@ -1,5 +1,9 @@
 <?php
     require_once 'includes/config.php';
+
+    session_start();
+
+    require_once 'modelos/current_user.php';
 ?>
 
 <!DOCTYPE html>
@@ -109,8 +113,26 @@
                 </div>
 
                 <div class="col-md-4 d-flex justify-content-center align-items-center">
+                <?php
+                    if (isset($_SESSION['USER'])) { ?>
+                    <a class="btn btn-outline-secondary border-3 mx-0 me-sm-1" href="?sec=sing-up">CARRITO: $0</a>
+                    <div class="dropdown">
+                        <button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <?php echo strtoupper($_SESSION['USER'][0]['nombre'] . " " . $_SESSION['USER'][0]['apellido'][0] . "."); ?>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#">Mi Cuenta</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Cerrar Sesion</a></li>
+                        </ul>
+                    </div>
+                <?php } else{ ?>
                     <a class="btn btn-outline-secondary border-3 mx-0 me-sm-1" href="?sec=sing-up">Registrarse</a>
                     <a class="btn btn-outline-success border-3 mx-0" href="?sec=login">Iniciar Sesion</a>
+                <?php }
+
+                ?>
                 </div>
 
                 <div class="d-md-none col-md-4 justify-content-center mt-2">

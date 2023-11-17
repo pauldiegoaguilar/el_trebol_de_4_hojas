@@ -11,7 +11,7 @@
                     <input type="password" class="form-control" id="password" minlength="8" name="pass" required>
                     <a href="?sec=rec_cuenta" class="delate-a">¿Olvidaste tu Contraseña?</a>
                 </div>
-                <?php if(isset($_GET["error"])){?><p class="text-danger mt-2">Correo o contraseña incorrectos.</p> <?php } ?>
+                <?php if(isset($_GET["error"])){?><p class="text-danger mt-2">ESTOS DATOS NO SON CORRECTOS. ¿CHEQUEASTE QUE ESTÉN BIEN ESCRITOS?</p> <?php } ?>
                 <button class="btn btn-dark" type="submit" aria-expanded="false">INICIA SESION</button>
                 <p class="mt-3">¿No tenés cuenta? <a href="?sec=sing-up" class="delate-a">Crear cuenta</a></p>
             </form>
