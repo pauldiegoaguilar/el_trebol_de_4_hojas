@@ -64,14 +64,14 @@ try {
 const categSelector = document.getElementById('categSelector');
 const editSelector = document.getElementById('editSelector');
 
-function removeList(options){
+function removeList(options) {
     options.forEach(option => {
         option.remove();
     });
 }
 
-function fillList(options){
-    for(index in options) {
+function fillList(options) {
+    for (index in options) {
         editSelector.options[index] = new Option(options[index], index);
         editSelector.options[index].classList.add("optionSelect");
     }
@@ -82,19 +82,19 @@ categSelector.addEventListener('change', () => {
 
     let categVal = parseInt(categSelector.value);
 
-    switch(categVal){
+    switch (categVal) {
         case 1:
             console.log("Manga");
             removeList(editSelector.querySelectorAll('.optionSelect'));
 
             let manga_array = {
-                1 : 'Ivrea',
-                2 : 'Ovni Press',
-                3 : 'Panini',
-                4 : 'Kemuri',
-                5 : 'Planeta',
-                6 : 'Distrito',
-                7 : 'Utopia'
+                1: 'Ivrea',
+                2: 'Ovni Press',
+                3: 'Panini',
+                4: 'Kemuri',
+                5: 'Planeta',
+                6: 'Distrito',
+                7: 'Utopia'
             };
 
             fillList(manga_array);
@@ -105,13 +105,13 @@ categSelector.addEventListener('change', () => {
             removeList(editSelector.querySelectorAll('.optionSelect'));
 
             let revista_array = {
-                1 : 'Ohlala!',
-                2 : 'Cosa',
-                3 : 'Fierro',
-                4 : 'Lugares',
-                5 : 'Rolling Stone'
+                1: 'Ohlala!',
+                2: 'Cosa',
+                3: 'Fierro',
+                4: 'Lugares',
+                5: 'Rolling Stone'
             };
-            
+
             fillList(revista_array);
 
             break;
@@ -167,5 +167,48 @@ function enter(e) {
 /* --------------- REGISTRO - VERIFICACION --------------- */
 
 function verifRegistro() {
-    var name = '';
+    function verifEmail(texto) {// verifica si el email contiene solo un "@" y termine con ".com"
+        var expresionRegular = /^.*@.*\.com$/;
+        var contadorArroba = (texto.match(/@/g) || []).length;
+        return contadorArroba === 1 && expresionRegular.test(texto);
+    }
+    function phoneFormat(texto) {//verifica el formato del numero de telefono
+        if(texto === ""){
+            return true;
+        }
+        var expresionRegular = /^\d{2} \d{4}-\d{4}$/;
+        return expresionRegular.test(texto);
+    }
+    function verifPass(texto) {//verifica la contraseña
+        const requisitos = /^(?=.*[A-Z])(?=.*[0-9])(?=.*[-!@#$%^&*()_+|~=`{}\[\]:";'<>?,.\/]).{8,}$/;
+        return requisitos.test(texto);
+    }
+    var email = document.getElementById("emailSign").value;
+    var phone = document.getElementById("phoneSign").value;
+    var pass = document.getElementById("passSign").value;
+    var passVerif = document.getElementById("passVerifSign").value;
+    if (verifEmail(email) && phoneFormat(phone) && verifPass(pass) && pass === passVerif) {
+        document.getElementById("formSignUp").submit();
+    }else{
+        if(!verifEmail(email)){
+            document.getElementById("errorEmail").removeAttribute("hidden");
+        }else{
+            document.getElementById("errorEmail").setAttribute("hidden", true);
+        }
+        if(!phoneFormat(phone)){
+            document.getElementById("errorPhone").removeAttribute("hidden");
+        }else{
+            document.getElementById("errorPhone").setAttribute("hidden", true);
+        }
+        if(!verifPass(pass)){
+            document.getElementById("errorPassFormat").removeAttribute("hidden");
+        }else{
+            document.getElementById("errorPassFormat").setAttribute("hidden", true);
+        }
+        if(pass !== passVerif){
+            document.getElementById("errorVerifPass").removeAttribute("hidden");
+        }else{
+            document.getElementById("errorVerifPass").setAttribute("hidden", true);
+        }
+    }
 }

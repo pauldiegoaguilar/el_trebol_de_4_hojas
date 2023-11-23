@@ -4,7 +4,7 @@
     $email = $_POST["email"];
     $pass = sha1($_POST["pass"]);
 
-    $login = "../torres.php?sec=login&error";
+    $login = "../torres.php?sec=login&error=" . $email;
     $home = "../torres.php?sec=home";
 
     $sql = 'SELECT * FROM usuarios WHERE email = "'. $email .'" AND contraseña = "'. $pass .'"';

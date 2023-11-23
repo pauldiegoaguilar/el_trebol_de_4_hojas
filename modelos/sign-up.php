@@ -1,8 +1,35 @@
 <?php
 require_once '../includes/config.php';
 $name = $_POST["name"];
+$lastName = $_POST["lastName"];
 $email = $_POST["email"];
-$tel = $_POST["tel"] != NULL ? $_POST["tel"] : NULL;
-$pass = $_POST["pass"];
-$passVerif = $_POST["passVerif"];
+$tel = $_POST["tel"] != NULL ? (str_replace(['-', ' '], '', $_POST["tel"])) : NULL;
+$pass = sha1($_POST["pass"]);
+$signUp = "../torres.php?sec=sing-up&error";
+$home = "../torres.php?sec=home";
+//Verificacion cliente repetido
+$sql = 'SELECT * FROM usuarios WHERE email = "' . $email . '"';
+$query = mysqli_query($conn, $sql);
+if (!$query) {
+    die('Hubo un error en la consulta: ' . mysqli_error($conn));
+} 
+if (mysqli_num_rows($query) > 0) {
+    header("Location: $signUp");
+    die();
+}
+//Ingreso de nuevo cliente
+$sqlInsert = "INSERT INTO `usuarios` (`nombre`, `apellido`, `email`, `contraseña`, `telefono`) VALUES ('" . $name . "', '" . $lastName . "', '" . $email . "', '" . $pass . "', '" . $tel . "');";
+$queryVerif = mysqli_query($conn, $sqlInsert);
+if (!$queryVerif) {
+    die('Hubo un error en la consulta: ' . mysqli_error($conn));
+}
+//parte del Señor Jefe Paul 😎(lo copie del login.php 🥶)
+// session_start();
+// $_SESSION['USER'] = $name;
+
+//for($i = 0; $i < count($user); $i++){
+// echo $_SESSION['USER'][0]['nombre'];
+//}
+header("Location: $home");
+    die();
 ?>
