@@ -117,14 +117,19 @@
                     if (isset($_SESSION['USER'])) { ?>
                     <a class="btn btn-outline-secondary border-3 mx-0 me-sm-1" href="?sec=sing-up">CARRITO: $0</a>
                     <div class="dropdown">
-                        <button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button class="btn py-2 btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <?php echo strtoupper($_SESSION['USER'][0]['nombre'] . " " . $_SESSION['USER'][0]['apellido'][0] . "."); ?>
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item" href="#">Mi Cuenta</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="?sec=mi_cuenta">Mi Cuenta</a></li>
+                            <?php
+                            if($_SESSION['USER'][0]['rol'] == '1'){ ?>
+                            
+                            <li><a class="my-2 dropdown-item" href="#">Administración</a></li>
+                            <?php }
+                            ?>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Cerrar Sesion</a></li>
+                            <li><a class="dropdown-item" href="modelos/logout.php">Cerrar Sesion</a></li>
                         </ul>
                     </div>
                 <?php } else{ ?>
@@ -210,16 +215,32 @@
                                     </div>
                                     <hr class="h-color hola mx-2 ">
                                     <div class="offcanvas-body">
-                                        <a class="nav-item nav-link link-body-emphasis mx-5 <?php if($_GET["sec"] == "local"){ echo "active text-success";} ?>" href="?sec=local">LOCAL</a>
-
+                                        <?php
+                                        if(isset($_SESSION['USER'])){ ?>
+                                            <a class="nav-item nav-link link-body-emphasis mx-5 <?php if($_GET["sec"] == "mi_cuenta"){ echo "active text-success";} ?>" href="?sec=local">- MI CUENTA</a>
+                                        <?php }
+                                        ?>
+                                        <a class="nav-item nav-link link-body-emphasis my-2 mx-5 <?php if($_GET["sec"] == "local"){ echo "active text-success";} ?>" href="?sec=local">- LOCAL</a>
                                     </div>
 
                                     <hr class="h-color mx-2  ">
 
                                     <div class="d-flex my-2 justify-content-center align-items-center">
+                                        <?php
+                                        if(isset($_SESSION['USER'])){ ?>
+                                        <p class="p-2 pe-none bg-success text-white rounded-start border-3 mx-0 mb-2"> <?php echo strtoupper($_SESSION['USER'][0]['nombre'] . " " . $_SESSION['USER'][0]['apellido'][0] . ".")?></p>
+                                        <a style="padding: 5px;" class="text-decoration-none bg-white border-success text-success rounded-end border border-3 mx-0 mb-2" href="modelos/logout.php">CERRAR SESIÓN</a>
+                                            <?php
+                                            if($_SESSION['USER'][0]['rol'] == 1){ ?>
+                                            <a style="padding: 5px;" class="text-decoration-none bg-white border-secondary text-secondary rounded border border-3 mx-2 mb-2" href="#">ADMINISTRACIÓN</a>
+                                            <?php }
+                                            ?>
+                                        <?php }else{ ?>
                                         <i class="bi bi-person-circle persona"></i>
-                                        <a class="btn btn btn-outline-secondary border-3 mx-2" href="?sec=sing-up">Registrarse</a>
-                                        <a class="btn btn btn-outline-success border-3 mx-2" href="?sec=login">Iniciar Sesion</a>
+                                        <a class="btn btn-outline-secondary border-3 mx-2" href="?sec=sing-up">Registrarse</a>
+                                        <a class="btn btn-outline-success border-3 mx-2" href="?sec=login">Iniciar Sesion</a>
+                                        <?php }
+                                        ?>
                                     </div>
                                 </div>
                             </div>

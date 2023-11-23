@@ -8,7 +8,7 @@
         <div class="row">
             <div id="portada-contenedor" style="max-height: 550px; min-height: 400px;" class="col-md-7 d-flex p-0 px-md-3">
                 <div id="portada" class="w-100 portada" style="background-repeat: no-repeat; background-size:contain; background-position: 50% 50%;">
-                    <input type="file" class="d-none" name="imgUploader" id="imgUploader" accept="image/png, image/gif, image/jpeg">
+                    <input type="file" class="d-none" name="imgUploader" id="imgUploader" accept="image/png, image/gif, image/jpeg, image/webp">
                 </div>
             </div>
 

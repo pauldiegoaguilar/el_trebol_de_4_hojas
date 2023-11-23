@@ -7,7 +7,7 @@
     $login = "../torres.php?sec=login&error=" . $email;
     $home = "../torres.php?sec=home";
 
-    $sql = 'SELECT * FROM usuarios WHERE email = "'. $email .'" AND contraseña = "'. $pass .'"';
+    $sql = 'SELECT id, nombre, apellido, edad, DNI, email, direccion, telefono, rol FROM usuarios WHERE email = "'. $email .'" AND contraseña = "'. $pass .'"';
 
     $query = mysqli_query($conn, $sql);  
     if(!$query){

@@ -53,7 +53,7 @@
     </div>
 </div>
 
-<!-- OFERTAS  -->
+<!-- OFERTAS  
 
 <div class="container">
     <div class="row ">
@@ -125,4 +125,4 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->

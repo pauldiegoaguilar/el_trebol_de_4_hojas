@@ -4,6 +4,6 @@
     session_destroy();
 
 
-    header('Location: ../main.php?sec=login');
+    header('Location: ../torres.php?sec=home');
     exit;
 ?>

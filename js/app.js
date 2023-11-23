@@ -61,9 +61,6 @@ try {
 /* --------------- AGREGAR/EDITAR PRODUCTO - SELECTOR DE CATEGORIA Y EDITORIAL --------------- */
 
 
-const categSelector = document.getElementById('categSelector');
-const editSelector = document.getElementById('editSelector');
-
 function removeList(options) {
     options.forEach(option => {
         option.remove();
@@ -77,73 +74,81 @@ function fillList(options) {
     }
 }
 
-categSelector.addEventListener('change', () => {
-    editSelector.removeAttribute('disabled');
-
-    let categVal = parseInt(categSelector.value);
-
-    switch (categVal) {
-        case 1:
-            console.log("Manga");
-            removeList(editSelector.querySelectorAll('.optionSelect'));
-
-            let manga_array = {
-                1: 'Ivrea',
-                2: 'Ovni Press',
-                3: 'Panini',
-                4: 'Kemuri',
-                5: 'Planeta',
-                6: 'Distrito',
-                7: 'Utopia'
-            };
-
-            fillList(manga_array);
-
-            break;
-        case 2:
-            console.log("Revista");
-            removeList(editSelector.querySelectorAll('.optionSelect'));
-
-            let revista_array = {
-                1: 'Ohlala!',
-                2: 'Cosa',
-                3: 'Fierro',
-                4: 'Lugares',
-                5: 'Rolling Stone'
-            };
-
-            fillList(revista_array);
-
-            break;
-        case 3:
-            console.log("Marvel");
-            removeList(editSelector.querySelectorAll('.optionSelect'));
-
-            break;
-        case 4:
-            console.log("DC Comics");
-            removeList(editSelector.querySelectorAll('.optionSelect'));
-
-            break;
-        case 5:
-            console.log("Trading Cards");
-            removeList(editSelector.querySelectorAll('.optionSelect'));
-
-            break;
-        case 6:
-            console.log("Pre-ventas");
-            removeList(editSelector.querySelectorAll('.optionSelect'));
-
-            break;
-        default:
-            console.log("Nada");
-            removeList(editSelector.querySelectorAll('.optionSelect'));
-            editSelector.setAttribute('disabled', true);
-
-            break;
-    }
-
-})
+try {
+    const categSelector = document.getElementById('categSelector');
+    const editSelector = document.getElementById('editSelector');
+    
+    categSelector.addEventListener('change', () => {
+        editSelector.removeAttribute('disabled');
+    
+        let categVal = parseInt(categSelector.value);
+    
+        switch (categVal) {
+            case 1:
+                console.log("Manga");
+                removeList(editSelector.querySelectorAll('.optionSelect'));
+    
+                let manga_array = {
+                    1: 'Ivrea',
+                    2: 'Ovni Press',
+                    3: 'Panini',
+                    4: 'Kemuri',
+                    5: 'Planeta',
+                    6: 'Distrito',
+                    7: 'Utopia'
+                };
+    
+                fillList(manga_array);
+    
+                break;
+            case 2:
+                console.log("Revista");
+                removeList(editSelector.querySelectorAll('.optionSelect'));
+    
+                let revista_array = {
+                    1: 'Ohlala!',
+                    2: 'Cosa',
+                    3: 'Fierro',
+                    4: 'Lugares',
+                    5: 'Rolling Stone'
+                };
+    
+                fillList(revista_array);
+    
+                break;
+            case 3:
+                console.log("Marvel");
+                removeList(editSelector.querySelectorAll('.optionSelect'));
+    
+                break;
+            case 4:
+                console.log("DC Comics");
+                removeList(editSelector.querySelectorAll('.optionSelect'));
+    
+                break;
+            case 5:
+                console.log("Trading Cards");
+                removeList(editSelector.querySelectorAll('.optionSelect'));
+    
+                break;
+            case 6:
+                console.log("Pre-ventas");
+                removeList(editSelector.querySelectorAll('.optionSelect'));
+    
+                break;
+            default:
+                console.log("Nada");
+                removeList(editSelector.querySelectorAll('.optionSelect'));
+                editSelector.setAttribute('disabled', true);
+    
+                break;
+        }
+    
+    })
+    
+} catch (error) {
+    console.log("no se agrega producto");
+}
 
 
 /* --------------- PRODUCTO - BUSQUEDA --------------- */
