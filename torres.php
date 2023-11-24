@@ -699,7 +699,7 @@ if (isset($_SESSION['USER'])) {
     <div class="text-white bg-success" style="background-color: #303436;">
         <div class="container">
             <footer class="py-5">
-                <div class="row pb-3">
+                <div class="row pb-3 justify-content-around">
                     <div class="col-6 col-md-2">
                         <h5>Navegacion</h5>
                         <ul class="nav flex-column">
