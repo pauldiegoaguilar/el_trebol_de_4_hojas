@@ -4,6 +4,8 @@ $name = $_POST["name"];
 $lastName = $_POST["lastName"];
 $email = $_POST["email"];
 $tel = $_POST["tel"] != NULL ? (str_replace(['-', ' '], '', $_POST["tel"])) : NULL;
+$age = $_POST["age"];
+$dni = $_POST["dni"];
 $pass = sha1($_POST["pass"]);
 $signUp = "../torres.php?sec=sing-up&error";
 $home = "../torres.php?sec=home";
@@ -18,7 +20,7 @@ if (mysqli_num_rows($query) > 0) {
     die();
 }
 //Ingreso de nuevo cliente
-$sqlInsert = "INSERT INTO `usuarios` (`nombre`, `apellido`, `email`, `contraseña`, `telefono`) VALUES ('" . $name . "', '" . $lastName . "', '" . $email . "', '" . $pass . "', '" . $tel . "');";
+$sqlInsert = "INSERT INTO `usuarios` (`nombre`, `apellido`, `email`, `contraseña`, `telefono`, `DNI`, `edad`, `rol`) VALUES ('" . $name . "', '" . $lastName . "', '" . $email . "', '" . $pass . "', '" . $tel . "', '" . $dni . "', '" . $age . "', '0');";
 $queryVerif = mysqli_query($conn, $sqlInsert);
 if (!$queryVerif) {
     die('Hubo un error en la consulta: ' . mysqli_error($conn));

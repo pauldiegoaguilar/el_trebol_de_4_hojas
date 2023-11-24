@@ -336,8 +336,7 @@ input::placeholder {
     border-radius: 50%;
     user-select: none;
     cursor: pointer;
-
-
+    padding-top: 5px;
 }
 
 

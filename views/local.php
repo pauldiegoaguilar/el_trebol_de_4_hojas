@@ -1,4 +1,87 @@
 <div class="container">
+    <div class="row">
+
+        <div class="col-12 my-1">
+            <img src="img/sunset.png" alt="Imagen" class="w-100 rounded">
+        </div>
+
+        <div class="col-6">
+            <div class="my-2">
+                <label for="nombre" class="form-label">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" class="form-control border-dark border-2" required>
+            </div>
+            <div class="my-2">
+                <label for="email" class="form-label">Email:</label>
+                <input type="email" id="email" name="email" class="form-control border-dark border-2" required>
+            </div>
+            <div class="my-2">
+                <label for="telefono" class="form-label">Teléfono:</label>
+                <input type="tel" id="telefono" name="telefono" class="form-control border-dark border-2">
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div class="my-2">
+                <label for="comentarios" class="form-label">Comentarios:</label>
+                <textarea id="comentarios" name="comentarios" class="form-control border-dark border-2" rows="4" cols="50"></textarea>
+            </div>
+            Abierto de lunes a viernes de 10hs a 20hs, Sábados de 10hs a 18hs
+
+        </div>
+    </div>
+    <div class="justify-content-center">
+        <a class="btn btn-outline-success border-3 mx-0">Enviar</a>
+        
+        
+    </div>
+
+</div>
+
+<br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+<div class="container">
     <div class="">
         <img src="img/sunset.png" alt="Imagen" class="w-100 rounded">
     </div>
@@ -63,5 +146,5 @@
 
 
 
-    </div>
+    </div>-->
 </div>
