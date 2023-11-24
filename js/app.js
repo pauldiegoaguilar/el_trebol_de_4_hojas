@@ -169,6 +169,7 @@ function enter(e) {
     }
 }
 
+
 /* --------------- REGISTRO - VERIFICACION --------------- */
 
 function verifRegistro() {
@@ -216,4 +217,164 @@ function verifRegistro() {
             document.getElementById("errorVerifPass").setAttribute("hidden", true);
         }
     }
+}
+
+
+/* --------------- PRODUCTOS - AGREAR AL CARRITO --------------- */
+
+function agregarCarrito(idProd, idUser, cant){
+    $.ajax({
+        url: 'modelos/agregarCarrito.php',
+        data: {prodID: idProd, userID: idUser, cantProd: cant},
+        type: 'POST',
+        success: function(response){
+            if(response == 1){
+                showAlert("El producto fue añadido al carrito correctamente", 1);
+                actualizarCarrito();
+            }else if(response == 0){
+                errorAgregarCarrito();
+            }else if(response == 3){
+                showAlert("No fue posible agregar el producto al carrito por falta de stock", 2);
+            }else{
+                showAlert("Este producto ya fue añadido al carrito", 2);
+            }
+        },
+        error: function(){
+            errorAgregarCarrito();
+        }
+    })
+}
+
+function errorAgregarCarrito(){
+    showAlert("No fue posible agregar el producto al carrito, debe iniciar sesion", 2);
+}
+
+function showAlert(message, iconNum){
+    let contentModal = document.getElementById('contentModal');
+    let modal = $("#msgModal");
+    let HTMLmsg = "";
+
+    if(iconNum == 1){
+        HTMLmsg += `<span class="material-symbols-outlined text-success" style="font-size: 100px">check_circle</span><p class="text-success text-center fs-4">${message}</p>`;
+
+    }else{
+        HTMLmsg += `<span class="material-symbols-outlined text-warning" style="font-size: 100px">error</span><p class="text-warning text-center fs-4">${message}</p>`;
+    }
+
+    contentModal.innerHTML = HTMLmsg;
+
+    modal.modal("show");
+
+    setTimeout(() => {
+        modal.modal('hide');
+    }, 2500)
+
+}
+
+function actualizarCarrito(){
+    let cartContent = document.getElementById('cartBody');
+    
+    var offcanvasElement = document.getElementById("offcanvasScrollingCarrito"); 
+    var offcanvas = new bootstrap.Offcanvas(offcanvasElement);
+
+    let valor = 1;
+    
+    console.log('estoy actualizando el carrito');
+
+    $.ajax({
+        url: 'modelos/carrito.php',
+        data: {get: valor},
+        type: 'POST',
+        dataType: 'json',
+        success: function(cartProds){
+            console.log(cartProds);
+
+            let cartHTML = "";
+            let totalPrice = 0;
+
+            for (let i = 0; i < cartProds.length; i++) {
+                totalPrice += cartProds[i]['precio'] * cartProds[i]['cantidad'];
+
+                cartHTML += '<div class="row border border-1">';
+                    cartHTML += '<div class="col-4 p-0">';
+                        cartHTML += `<img class="w-100" src="${cartProds[i]['portada']}1.png">`;
+                    cartHTML += '</div>';
+                    cartHTML += '<div class="col-6">';
+                        cartHTML += '<div class="row h-50 p-3">';
+                            cartHTML += `<p class="p-0 m-0">${cartProds[i]['titulo']}</p>`;
+                        cartHTML += '</div>';
+                        cartHTML += '<div class="row h-50 align-items-end p-3">';
+                            cartHTML += '<div class="d-flex p-0 justify-content-start">';
+                                cartHTML += `<button type="button" ${cartProds[i]['cantidad'] < 2 ? '' : 'onclick="cambiarCantCarrito(-1, ' + cartProds[i]['cartId'] +')"'} class="px-2 py-1 bg-success text-white border-success rounded-start border border-3">-</button>`;
+                                    cartHTML += `<p class="px-2 py-1 m-0 border-success border border-start-0 border-end-0 border-3">${cartProds[i]['cantidad']}</p>`;
+                                cartHTML += `<button type="button" onclick="cambiarCantCarrito(1, ${cartProds[i]['cartId']})" class="px-2 py-1 bg-success text-white border-success rounded-end border border-3">+</button>`;
+                            cartHTML += '</div>';
+                        cartHTML += '</div>';
+                    cartHTML += '</div>';
+                    cartHTML += '<div class="col-2">';
+                        cartHTML += '<div class="row h-50 align-items-top p-3">';
+                            cartHTML += '<div class="d-flex p-0 justify-content-end">';
+                                cartHTML += `<button type="button" onclick="borrarProdCart(${cartProds[i]['cartId']})" class="bg-white border-0">`;
+                                    cartHTML += '<span class="material-symbols-outlined">delete</span>';
+                                cartHTML += '</button>';
+                            cartHTML += '</div>';
+                        cartHTML += '</div>';
+                        cartHTML += '<div class="row h-50 align-items-end p-3">';
+                            cartHTML += `<p class="p-0 m-0">$${(cartProds[i]['precio'] * cartProds[i]['cantidad'])}</p>`;
+                        cartHTML += '</div>';
+                    cartHTML += '</div>';
+                cartHTML += '</div>';
+            }
+
+            cartHTML += '<hr class="my-2">';
+            cartHTML += '<div class="row">';
+                cartHTML += '<div class="col-12 p-0">';
+                    cartHTML += '<div class="h-50 d-flex justify-content-between">';
+                        cartHTML += '<p class="fs-4">Total:</p>';
+                        cartHTML += `<p class="fs-4" id="totalPriceCart">$${totalPrice}</p>`;
+                    cartHTML += '</div>';
+                    cartHTML += '<div class="h-50">';
+                        cartHTML += '<button type="button" class="w-100 btn btn-dark btn-primary m-0">INICIAR COMPRA</button>';
+                    cartHTML += '</div>';
+                cartHTML += '</div>';
+            cartHTML += '</div>';
+
+            cartContent.innerHTML = cartHTML;
+            setTimeout(() => {
+                offcanvas.toggle();
+            }, 2500)
+            
+        },
+        error: function(){
+            console.log('Error de Consulta');
+        }
+    })
+
+    console.log("Carrito actualizado");
+}
+
+function cambiarCantCarrito(cantNum, cartId){
+    $.ajax({
+        url: 'modelos/cambiarCantCarrito.php',
+        data: {CANT: cantNum, CartID: cartId},
+        type: 'POST',
+        success: function(res){
+            if(res == 1){
+                actualizarCarrito();
+            }
+        }
+    })
+}
+
+function borrarProdCart(prodCartId){
+    $.ajax({
+        url: 'modelos/borrarProdCart.php',
+        data: {CARTID: prodCartId},
+        type: 'POST',
+        success: function(res){
+            if(res == 1){
+                actualizarCarrito();
+            }
+        }
+    })
 }

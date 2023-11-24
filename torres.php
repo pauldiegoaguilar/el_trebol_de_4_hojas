@@ -4,6 +4,10 @@
     session_start();
 
     require_once 'modelos/current_user.php';
+
+    if(isset($_SESSION['USER'])){
+        require_once 'modelos/carrito.php';
+    }
 ?>
 
 <!DOCTYPE html>
@@ -16,12 +20,14 @@
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link href="https://fonts.googleapis.com/css2?family=Chau+Philomene+One&display=swap" rel="stylesheet">
     <!-- Option 1: Include in HTML -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="https://drive.google.com/uc?export=view&id=1yTLwNiCZhIdCWolQldwq4spHQkgZDqkG">
+    <link rel="stylesheet" href="css/style2.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="img/logoTrebol.png" type="image/x-icon">
     <title>
@@ -115,7 +121,13 @@
                 <div class="col-md-4 d-flex justify-content-center align-items-center">
                 <?php
                     if (isset($_SESSION['USER'])) { ?>
-                    <a class="btn btn-outline-secondary border-3 mx-0 me-sm-1" href="?sec=sing-up">CARRITO: $0</a>
+                    <button class="btn btn-outline-secondary border-3 mx-0 me-sm-1 d-flex" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrollingCarrito" aria-controls="offcanvasScrolling">
+                        <span class="material-symbols-outlined">
+                        shopping_cart
+                        </span>
+                        CARRITO
+                    </button>
+
                     <div class="dropdown">
                         <button class="btn py-2 btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <?php echo strtoupper($_SESSION['USER'][0]['nombre'] . " " . $_SESSION['USER'][0]['apellido'][0] . "."); ?>
@@ -161,7 +173,7 @@
                 <div class="dropdown">
                     <a class="nav-item nav-link link-body-emphasis mx-5 <?php if($_GET["sec"] == "productos" || $_GET["sec"] == "producto" || $_GET["sec"] == "categorias"){ echo "active text-success";} ?>" href="?sec=productos">PRODUCTOS</a>
                     <div class="dropdown-content">
-                        <a class="no-deco" href="?sec=publicar">Hentai</a>
+                        <a class="no-deco" href="?sec=publicar">Trading Cards</a>
                         <div class="sub-dropdown-active d-flex align-items-center justify-content-between">
                             <a class="no-deco" href="#">Mangas</a><span class="material-symbols-outlined">keyboard_arrow_right</span>
                             <div class="sub-dropdown">
@@ -187,6 +199,74 @@
                 </div>
                 <a class="nav-item nav-link link-body-emphasis <?php if($_GET["sec"] == "local"){ echo "active text-success";} ?>" href="?sec=local">LOCAL</a>
             </nav>
+        </div>
+    </div>
+
+    <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrollingCarrito" aria-labelledby="offcanvasScrollingLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Carrito de Compras</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <hr class="h-color hola mx-2">
+        <div class="offcanvas-body">
+            <div id="cartBody">
+            <?php
+            if(isset($_SESSION['USER'])){
+                if($cartProds != null){
+                    $total = 0;
+                    foreach($cartProds as $cartProd){
+                        $total += $cartProd['precio'] * $cartProd['cantidad']; ?>
+                        <div class="row border border-1">
+                            <div class="col-4 p-0">
+                                <img class="w-100" src="<?php echo $cartProd['portada'] . '1.png'; ?>">
+                            </div>
+                            <div class="col-6">
+                                <div class="row h-50 p-3">
+                                    <p class="p-0 m-0"><?php echo $cartProd['titulo']; ?></p>
+                                </div>
+                                <div class="row h-50 align-items-end p-3">
+                                    <div class="d-flex p-0 justify-content-start" id="mod-cantidad">
+                                        <button type="button" <?php echo $cartProd['cantidad'] < 2 ? '' : 'onclick="cambiarCantCarrito(-1, '.$cartProd['cartId'].')"'; ?> class="px-2 py-1 bg-success text-white border-success rounded-start border border-3">-</button>
+                                        <p class="px-2 py-1 m-0 border-success border border-start-0 border-end-0 border-3"><?php echo $cartProd['cantidad']; ?></p>
+                                        <button type="button" onclick="cambiarCantCarrito(1, <?php echo $cartProd['cartId']; ?>)" class="px-2 py-1 bg-success text-white border-success rounded-end border border-3">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="row h-50 align-items-top p-3">
+                                    <div class="d-flex p-0 justify-content-end">
+                                        <button type="button" onclick="borrarProdCart(<?php echo $cartProd['cartId']; ?>)" class="bg-white border-0">
+                                            <span class="material-symbols-outlined">
+                                                delete
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="row h-50 align-items-end p-3">
+                                    <p class="p-0 m-0">$<?php echo $cartProd['precio'] * $cartProd['cantidad']; ?></p>
+                                </div>
+                            </div>
+                        </div>
+                    <?php } ?>
+                <hr class="my-2">
+                <div class="row">
+                    <div class="col-12 p-0">
+                        <div class="h-50 d-flex justify-content-between">
+                            <p class="fs-4">Total:</p>
+                            <p class="fs-4" id="totalPriceCart">$<?php echo $total;?></p>
+                        </div>
+                        <div class="h-50">
+                            <button type="button" class="w-100 btn btn-dark btn-primary m-0">INICIAR COMPRA</button>
+                        </div>
+                    </div>
+                </div>
+                <?php }else{?>
+                    <p class="text-warning text-center">EL CARRITO DE COMPRAS ESTÁ VACÍO</p>
+                <?php } ?>
+            <?php }else{ ?>
+                <p class="text-danger text-center">INICIA SESION PARA PODER AGREGAR PRODUCTOS AL CARRITO</p>
+            <?php } ?>
+            </div>
         </div>
     </div>
 
@@ -217,10 +297,10 @@
                                     <div class="offcanvas-body">
                                         <?php
                                         if(isset($_SESSION['USER'])){ ?>
-                                            <a class="nav-item nav-link link-body-emphasis mx-5 <?php if($_GET["sec"] == "mi_cuenta"){ echo "active text-success";} ?>" href="?sec=local">- MI CUENTA</a>
+                                            <a class="nav-item nav-link link-body-emphasis <?php if($_GET["sec"] == "mi_cuenta"){ echo "active text-success";} ?>" href="?sec=mi_cuenta">- MI CUENTA</a>
                                         <?php }
                                         ?>
-                                        <a class="nav-item nav-link link-body-emphasis my-2 mx-5 <?php if($_GET["sec"] == "local"){ echo "active text-success";} ?>" href="?sec=local">- LOCAL</a>
+                                        <a class="nav-item nav-link link-body-emphasis my-2 <?php if($_GET["sec"] == "local"){ echo "active text-success";} ?>" href="?sec=local">- LOCAL</a>
                                     </div>
 
                                     <hr class="h-color mx-2  ">
@@ -228,11 +308,11 @@
                                     <div class="d-flex my-2 justify-content-center align-items-center">
                                         <?php
                                         if(isset($_SESSION['USER'])){ ?>
-                                        <p class="p-2 pe-none bg-success text-white rounded-start border-3 mx-0 mb-2"> <?php echo strtoupper($_SESSION['USER'][0]['nombre'] . " " . $_SESSION['USER'][0]['apellido'][0] . ".")?></p>
-                                        <a style="padding: 5px;" class="text-decoration-none bg-white border-success text-success rounded-end border border-3 mx-0 mb-2" href="modelos/logout.php">CERRAR SESIÓN</a>
+                                        <p class="p-2 pe-none bg-success text-white border-success rounded-start border border-3 mx-0 mb-2"> <?php echo strtoupper($_SESSION['USER'][0]['nombre'] . " " . $_SESSION['USER'][0]['apellido'][0] . ".")?></p>
+                                        <a class="p-2 text-decoration-none bg-white text-success border-success rounded-end border border-3 mx-0 mb-2" href="modelos/logout.php">CERRAR SESIÓN</a>
                                             <?php
                                             if($_SESSION['USER'][0]['rol'] == 1){ ?>
-                                            <a style="padding: 5px;" class="text-decoration-none bg-white border-secondary text-secondary rounded border border-3 mx-2 mb-2" href="#">ADMINISTRACIÓN</a>
+                                            <a class="p-2 text-decoration-none bg-white border-secondary text-secondary rounded border border-3 mx-2 mb-2" href="#">ADMINISTRACIÓN</a>
                                             <?php }
                                             ?>
                                         <?php }else{ ?>
@@ -283,21 +363,24 @@
 
         <div class="nav-scroller py-1 mb-3 border-bottom">
             <nav class="nav flex-row align-items-center nav-underline justify-content-evenly">
-                    <a class="nav-item nav-link link-body-emphasis  <?php if($_GET["sec"] == "home"){ echo "active text-success";} ?>" href="?sec=home">INICIO</a>
-                    <div class="dropdown">
-                        <a class="nav-item nav-link link-body-emphasis  <?php if($_GET["sec"] == "productos" || $_GET["sec"] == "producto" || $_GET["sec"] == "categorias"){ echo "active text-success";} ?>" href="?sec=productos">PRODUCTOS</a>
-                        <div class="dropdown-content">
-                            <a href="#">Opción 1</a>
-                            <div class="sub-dropdown-active">
-                                <a href="#">Opción 2</a>
-                                <div class="sub-dropdown">
-                                    <a href="#">Sub-Opción 1</a>
-                                    <a href="#">Sub-Opción 2</a>
-                                </div>
+                <a class="nav-item nav-link link-body-emphasis  <?php if($_GET["sec"] == "home"){ echo "active text-success";} ?>" href="?sec=home">INICIO</a>
+                <div class="dropdown">
+                    <a class="nav-item nav-link link-body-emphasis  <?php if($_GET["sec"] == "productos" || $_GET["sec"] == "producto" || $_GET["sec"] == "categorias"){ echo "active text-success";} ?>" href="?sec=productos">PRODUCTOS</a>
+                    <div class="dropdown-content">
+                        <a href="#">Opción 1</a>
+                        <div class="sub-dropdown-active">
+                            <a href="#">Opción 2</a>
+                            <div class="sub-dropdown">
+                                <a href="#">Sub-Opción 1</a>
+                                <a href="#">Sub-Opción 2</a>
                             </div>
                         </div>
                     </div>
-                    <a class="nav-item nav-link link-body-emphasis  <?php if($_GET["sec"] == "local"){ echo "active text-success";} ?>" href="?sec=local">CARRITO</a>
+                </div>
+                <button class="nav-item nav-link link-body-emphasis d-flex" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrollingCarrito" aria-controls="offcanvasScrolling">
+                    CARRITO
+                </button>
+                
             </nav>
         </div>
     </div>
@@ -463,5 +546,10 @@
     crossorigin="anonymous"></script>
 
     <script src="js/app.js"></script>
+
+    <script>
+        //var element = document.getElementsByTagName('body');
+        //html2pdf(element[0]);
+    </script>
 
 </html>
