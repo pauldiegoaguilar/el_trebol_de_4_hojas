@@ -41,7 +41,7 @@ if (!empty($productos)) { ?>
             } ?>
 
             <?php
-            if ($_GET['sec'] != 'home') { ?>
+            /*if ($_GET['sec'] != 'home') { ?>
                 <h4 class="fw-bold mt-5">Precio</h4>
                 <div class="d-flex flex-row w-100">
                     <div class="d-flex flex-column justify-content-between">
@@ -53,7 +53,7 @@ if (!empty($productos)) { ?>
                         <input type="number" placeholder="0" min="0" max="1000000" class="form-control border-dark border-2">
                     </div>
                 </div>
-            <?php }
+            <?php }*/
             ?>
         </div>
 

@@ -378,3 +378,7 @@ function borrarProdCart(prodCartId){
         }
     })
 }
+
+function comprar(){
+    
+}

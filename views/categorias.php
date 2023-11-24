@@ -79,6 +79,7 @@ require_once "modelos/categorias.php";
                         }
                     } ?>
 
+                    <!--
                     <h4 class="fw-bold mt-5">Precio</h4>
                     <div class="d-flex flex-row w-100">
                         <div class="d-flex flex-column justify-content-between">
@@ -89,7 +90,7 @@ require_once "modelos/categorias.php";
                             <p>Hasta</p>
                             <input type="number" placeholder="0" min="0" max="1000000" class="form-control border-dark border-2">
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         <?php }
