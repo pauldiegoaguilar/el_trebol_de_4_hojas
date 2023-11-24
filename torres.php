@@ -256,7 +256,7 @@
                             <p class="fs-4" id="totalPriceCart">$<?php echo $total;?></p>
                         </div>
                         <div class="h-50">
-                            <button type="button" class="w-100 btn btn-dark btn-primary m-0">INICIAR COMPRA</button>
+                            <button type="button" onclick="comprar()" class="w-100 btn btn-dark btn-primary m-0">INICIAR COMPRA</button>
                         </div>
                     </div>
                 </div>

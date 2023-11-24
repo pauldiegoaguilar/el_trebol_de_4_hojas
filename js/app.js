@@ -292,52 +292,56 @@ function actualizarCarrito(){
             let cartHTML = "";
             let totalPrice = 0;
 
-            for (let i = 0; i < cartProds.length; i++) {
-                totalPrice += cartProds[i]['precio'] * cartProds[i]['cantidad'];
-
-                cartHTML += '<div class="row border border-1">';
-                    cartHTML += '<div class="col-4 p-0">';
-                        cartHTML += `<img class="w-100" src="${cartProds[i]['portada']}1.png">`;
-                    cartHTML += '</div>';
-                    cartHTML += '<div class="col-6">';
-                        cartHTML += '<div class="row h-50 p-3">';
-                            cartHTML += `<p class="p-0 m-0">${cartProds[i]['titulo']}</p>`;
+            if(cartProds != null){
+                for (let i = 0; i < cartProds.length; i++) {
+                    totalPrice += cartProds[i]['precio'] * cartProds[i]['cantidad'];
+    
+                    cartHTML += '<div class="row border border-1">';
+                        cartHTML += '<div class="col-4 p-0">';
+                            cartHTML += `<img class="w-100" src="${cartProds[i]['portada']}1.png">`;
                         cartHTML += '</div>';
-                        cartHTML += '<div class="row h-50 align-items-end p-3">';
-                            cartHTML += '<div class="d-flex p-0 justify-content-start">';
-                                cartHTML += `<button type="button" ${cartProds[i]['cantidad'] < 2 ? '' : 'onclick="cambiarCantCarrito(-1, ' + cartProds[i]['cartId'] +')"'} class="px-2 py-1 bg-success text-white border-success rounded-start border border-3">-</button>`;
-                                    cartHTML += `<p class="px-2 py-1 m-0 border-success border border-start-0 border-end-0 border-3">${cartProds[i]['cantidad']}</p>`;
-                                cartHTML += `<button type="button" onclick="cambiarCantCarrito(1, ${cartProds[i]['cartId']})" class="px-2 py-1 bg-success text-white border-success rounded-end border border-3">+</button>`;
+                        cartHTML += '<div class="col-6">';
+                            cartHTML += '<div class="row h-50 p-3">';
+                                cartHTML += `<p class="p-0 m-0">${cartProds[i]['titulo']}</p>`;
+                            cartHTML += '</div>';
+                            cartHTML += '<div class="row h-50 align-items-end p-3">';
+                                cartHTML += '<div class="d-flex p-0 justify-content-start">';
+                                    cartHTML += `<button type="button" ${cartProds[i]['cantidad'] < 2 ? '' : 'onclick="cambiarCantCarrito(-1, ' + cartProds[i]['cartId'] +')"'} class="px-2 py-1 bg-success text-white border-success rounded-start border border-3">-</button>`;
+                                        cartHTML += `<p class="px-2 py-1 m-0 border-success border border-start-0 border-end-0 border-3">${cartProds[i]['cantidad']}</p>`;
+                                    cartHTML += `<button type="button" onclick="cambiarCantCarrito(1, ${cartProds[i]['cartId']})" class="px-2 py-1 bg-success text-white border-success rounded-end border border-3">+</button>`;
+                                cartHTML += '</div>';
+                            cartHTML += '</div>';
+                        cartHTML += '</div>';
+                        cartHTML += '<div class="col-2">';
+                            cartHTML += '<div class="row h-50 align-items-top p-3">';
+                                cartHTML += '<div class="d-flex p-0 justify-content-end">';
+                                    cartHTML += `<button type="button" onclick="borrarProdCart(${cartProds[i]['cartId']})" class="bg-white border-0">`;
+                                        cartHTML += '<span class="material-symbols-outlined">delete</span>';
+                                    cartHTML += '</button>';
+                                cartHTML += '</div>';
+                            cartHTML += '</div>';
+                            cartHTML += '<div class="row h-50 align-items-end p-3">';
+                                cartHTML += `<p class="p-0 m-0">$${(cartProds[i]['precio'] * cartProds[i]['cantidad'])}</p>`;
                             cartHTML += '</div>';
                         cartHTML += '</div>';
                     cartHTML += '</div>';
-                    cartHTML += '<div class="col-2">';
-                        cartHTML += '<div class="row h-50 align-items-top p-3">';
-                            cartHTML += '<div class="d-flex p-0 justify-content-end">';
-                                cartHTML += `<button type="button" onclick="borrarProdCart(${cartProds[i]['cartId']})" class="bg-white border-0">`;
-                                    cartHTML += '<span class="material-symbols-outlined">delete</span>';
-                                cartHTML += '</button>';
-                            cartHTML += '</div>';
+                }
+    
+                cartHTML += '<hr class="my-2">';
+                cartHTML += '<div class="row">';
+                    cartHTML += '<div class="col-12 p-0">';
+                        cartHTML += '<div class="h-50 d-flex justify-content-between">';
+                            cartHTML += '<p class="fs-4">Total:</p>';
+                            cartHTML += `<p class="fs-4" id="totalPriceCart">$${totalPrice}</p>`;
                         cartHTML += '</div>';
-                        cartHTML += '<div class="row h-50 align-items-end p-3">';
-                            cartHTML += `<p class="p-0 m-0">$${(cartProds[i]['precio'] * cartProds[i]['cantidad'])}</p>`;
+                        cartHTML += '<div class="h-50">';
+                            cartHTML += '<button type="button" onclick="comprar()" class="w-100 btn btn-dark btn-primary m-0">INICIAR COMPRA</button>';
                         cartHTML += '</div>';
                     cartHTML += '</div>';
                 cartHTML += '</div>';
+            }else{
+                cartHTML += '<p class="text-warning text-center">EL CARRITO DE COMPRAS ESTÁ VACÍO</p>';
             }
-
-            cartHTML += '<hr class="my-2">';
-            cartHTML += '<div class="row">';
-                cartHTML += '<div class="col-12 p-0">';
-                    cartHTML += '<div class="h-50 d-flex justify-content-between">';
-                        cartHTML += '<p class="fs-4">Total:</p>';
-                        cartHTML += `<p class="fs-4" id="totalPriceCart">$${totalPrice}</p>`;
-                    cartHTML += '</div>';
-                    cartHTML += '<div class="h-50">';
-                        cartHTML += '<button type="button" class="w-100 btn btn-dark btn-primary m-0">INICIAR COMPRA</button>';
-                    cartHTML += '</div>';
-                cartHTML += '</div>';
-            cartHTML += '</div>';
 
             cartContent.innerHTML = cartHTML;
             setTimeout(() => {
@@ -380,5 +384,16 @@ function borrarProdCart(prodCartId){
 }
 
 function comprar(){
-    
+    console.log("compra iniciada pero no terminada");
+
+
+    $.ajax({
+        url: 'modelos/comprar.php',
+        success: function(res){
+            if(res == 1){
+                showAlert("Se ha realizado la compra con exito", 1);
+                document.getElementById("cartBody").innerHTML = '<p class="text-warning text-center">EL CARRITO DE COMPRAS ESTÁ VACÍO</p>';
+            }
+        }
+    })
 }
