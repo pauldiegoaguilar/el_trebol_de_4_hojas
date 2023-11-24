@@ -699,8 +699,8 @@ if (isset($_SESSION['USER'])) {
     <div class="text-white bg-success" style="background-color: #303436;">
         <div class="container">
             <footer class="py-5">
-                <div class="row">
-                    <div class="col-6 col-md-2 mb-3">
+                <div class="row pb-3">
+                    <div class="col-6 col-md-2">
                         <h5>Navegacion</h5>
                         <ul class="nav flex-column">
                             <li class="nav-item mb-2"><a href="?sec=home" class="nav-link p-0 text-body-secondary">Inicio</a></li>
@@ -709,7 +709,7 @@ if (isset($_SESSION['USER'])) {
                         </ul>
                     </div>
 
-                    <div class="col-6 col-md-2 mb-3">
+                    <div class="col-6 col-md-2">
                         <h5>Categorias</h5>
                         <ul class="nav flex-column">
                             <li class="nav-item mb-2"><a href="?sec=categorias&categ=dc_comics" class="nav-link p-0 text-body-secondary">DC Comics</a></li>
@@ -721,16 +721,16 @@ if (isset($_SESSION['USER'])) {
                         </ul>
                     </div>
 
-                    <div class="col-6 col-md-2 mb-3 ">
+                    <div class="col-6 col-md-2">
                         <h5>Contactenos</h5>
                         <ul class="nav flex-column">
-                            <li class="nav-item mb-2"><a href="mailto:augustotorres2006@gmail.com" class="nav-link p-0 text-body-secondary">augustotorres2006@gmail.com</a></li>
+                            <li class="nav-item mb-2"><a href="mailto:augustotorres2006@gmail.com" class="nav-link p-0 text-body-secondary">ejemplo@gmail.com</a></li>
                             <li class="nav-item mb-2"><a href="sms:+1164775839" class="nav-link p-0 text-body-secondary">11 6477-5839</a></li>
                             <li class="nav-item mb-2"><a href="https://www.google.com/maps/search/?api=1&query=Escuela Técnica Nº26 D.E.6 Confederación Suiza" target="_blank" class="nav-link p-0 text-body-secondary">Av. Jujuy 255</a></li>
                         </ul>
                     </div>
 
-                    <div class="col-6 col-md-2 mb-3 w-50">
+                    <div class="col-6 col-md-2">
                         <form>
                             <h5>Redes Sociales</h5>
                             <p class="my-3">
@@ -738,11 +738,6 @@ if (isset($_SESSION['USER'])) {
                                 <i class="bi bi-facebook icono-personalizado"></i>
                                 <i class="bi bi-twitch icono-personalizado"></i>
                             </p>
-                            <div class="d-flex flex-column flex-sm-row gap-2">
-                                <label for="newsletter1" class="visually-hidden">Email address</label>
-                                <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
-                                <button class="btn btn-primary m-0" type="button">Subscribe</button>
-                            </div>
                         </form>
                     </div>
                 </div>
