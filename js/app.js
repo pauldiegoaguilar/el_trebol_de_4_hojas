@@ -173,6 +173,12 @@ function enter(e) {
 /* --------------- REGISTRO - VERIFICACION --------------- */
 
 function verifRegistro() {
+    function verifAge(texto){
+        return parseInt(texto) > 12;
+    }
+    function verifDNI(texto){
+        return parseInt(texto) > 10000000 && parseInt(texto) < 99999999;
+    }
     function verifEmail(texto) {// verifica si el email contiene solo un "@" y termine con ".com"
         var expresionRegular = /^.*@.*\.com$/;
         var contadorArroba = (texto.match(/@/g) || []).length;
@@ -189,13 +195,30 @@ function verifRegistro() {
         const requisitos = /^(?=.*[A-Z])(?=.*[0-9])(?=.*[-!@#$%^&*()_+|~=`{}\[\]:";'<>?,.\/]).{8,}$/;
         return requisitos.test(texto);
     }
+    function SamePassVerif(pass1, pass2){
+        return pass1 === pass2;
+    }
+    var name = document.getElementById("nameSign").value
+    var lastName = document.getElementById("lastNameSign").value
     var email = document.getElementById("emailSign").value;
     var phone = document.getElementById("phoneSign").value;
+    var age = document.getElementById("ageSign").value;
+    var dni = document.getElementById("dniSign").value;
     var pass = document.getElementById("passSign").value;
     var passVerif = document.getElementById("passVerifSign").value;
-    if (verifEmail(email) && phoneFormat(phone) && verifPass(pass) && pass === passVerif) {
+    if (name !== "" && lastName !== "" && verifEmail(email) && phoneFormat(phone) && verifAge(age) && verifDNI(dni) && verifPass(pass) && SamePassVerif(pass, passVerif)) {
         document.getElementById("formSignUp").submit();
     }else{
+        if(name === ""){
+            document.getElementById("errorName").removeAttribute("hidden");
+        }else{
+            document.getElementById("errorName").setAttribute("hidden", true);
+        }
+        if(lastName === ""){
+            document.getElementById("errorLastName").removeAttribute("hidden");
+        }else{
+            document.getElementById("errorLastName").setAttribute("hidden", true);
+        }
         if(!verifEmail(email)){
             document.getElementById("errorEmail").removeAttribute("hidden");
         }else{
@@ -206,12 +229,17 @@ function verifRegistro() {
         }else{
             document.getElementById("errorPhone").setAttribute("hidden", true);
         }
-        if(!verifPass(pass)){
-            document.getElementById("errorPassFormat").removeAttribute("hidden");
+        if(!verifAge(age)){
+            document.getElementById("errorAge").removeAttribute("hidden");
         }else{
-            document.getElementById("errorPassFormat").setAttribute("hidden", true);
+            document.getElementById("errorAge").setAttribute("hidden", true);
         }
-        if(pass !== passVerif){
+        if(!verifDNI(dni)){
+            document.getElementById("errorDni").removeAttribute("hidden");
+        }else{
+            document.getElementById("errorDni").setAttribute("hidden", true);
+        }
+        if(!SamePassVerif(pass, passVerif)){
             document.getElementById("errorVerifPass").removeAttribute("hidden");
         }else{
             document.getElementById("errorVerifPass").setAttribute("hidden", true);
