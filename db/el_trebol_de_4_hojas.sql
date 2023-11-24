@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-11-2023 a las 11:48:21
+-- Tiempo de generación: 24-11-2023 a las 16:17:05
 -- Versión del servidor: 10.4.25-MariaDB
 -- Versión de PHP: 8.1.10
 
@@ -20,6 +20,38 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `el_trebol_de_4_hojas`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `carritos`
+--
+
+CREATE TABLE `carritos` (
+  `id` int(11) NOT NULL,
+  `producto_id` int(11) NOT NULL,
+  `usuario_id` int(11) NOT NULL,
+  `cantidad` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `carritos`
+--
+
+INSERT INTO `carritos` (`id`, `producto_id`, `usuario_id`, `cantidad`) VALUES
+(1, 9, 1, 2),
+(2, 10, 1, 1),
+(3, 4, 2, 5),
+(4, 1, 2, 1),
+(5, 7, 2, 1),
+(6, 6, 2, 2),
+(7, 2, 2, 1),
+(8, 3, 1, 1),
+(9, 8, 1, 1),
+(10, 1, 1, 1),
+(11, 2, 1, 1),
+(12, 6, 1, 1),
+(13, 4, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -139,12 +171,27 @@ CREATE TABLE `usuarios` (
   `email` varchar(200) NOT NULL,
   `contraseña` varchar(150) NOT NULL,
   `direccion` varchar(200) NOT NULL,
-  `telefono` int(11) NOT NULL
+  `telefono` int(11) NOT NULL,
+  `rol` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`id`, `nombre`, `apellido`, `edad`, `DNI`, `email`, `contraseña`, `direccion`, `telefono`, `rol`) VALUES
+(1, 'Paul', 'Diego Aguilar', 17, 12345678, 'diego.paul.et.n26@gmail.com', '35a07086b9f199a594fd716c33bba45e69081fe7', 'Direccion 1234', 1123563478, 1),
+(2, 'Augusto', 'Torres Plasencia', 17, 12345678, 'augusto.etn26@gmail.com', 'e125b4bb04bbd2ec7527bc75812479db10fda4cd', 'Direccion 1234', 1119323345, 0);
 
 --
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `carritos`
+--
+ALTER TABLE `carritos`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `categorias`
@@ -187,6 +234,12 @@ ALTER TABLE `usuarios`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `carritos`
+--
+ALTER TABLE `carritos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
@@ -220,7 +273,7 @@ ALTER TABLE `productos`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
