@@ -287,26 +287,26 @@ if (isset($_SESSION['USER'])) {
                                                                             echo "active text-success";
                                                                         } ?>" href="?sec=productos">PRODUCTOS</a>
                     <div class="dropdown-content">
-                        <a class="no-deco" href="?sec=publicar">Trading Cards</a>
+                        <a class="no-deco" href="?sec=categorias&categ=trading_cards">Trading Cards</a>
                         <div class="sub-dropdown-active d-flex align-items-center justify-content-between">
-                            <a class="no-deco" href="#">Mangas</a><span class="material-symbols-outlined">keyboard_arrow_right</span>
+                            <a class="no-deco" href="?sec=categorias&categ=manga">Mangas</a><span class="material-symbols-outlined">keyboard_arrow_right</span>
                             <div class="sub-dropdown">
-                                <a class="no-deco" href="#">Ivrea</a>
-                                <a class="no-deco" href="#">Ovni press</a>
+                                <a class="no-deco" href="?sec=categorias&categ=manga&sub_categ=ivrea">Ivrea</a>
+                                <a class="no-deco" href="?sec=categorias&categ=manga&sub_categ=ovni_press">Ovni press</a>
                             </div>
                         </div>
                         <div class="sub-dropdown-active3 d-flex align-items-center justify-content-between">
-                            <a class="no-deco" href="#">Comics</a><span class="material-symbols-outlined">keyboard_arrow_right</span>
+                            <a class="no-deco">Comics</a><span class="material-symbols-outlined">keyboard_arrow_right</span>
                             <div class="sub-dropdown3">
-                                <a class="no-deco" href="#">Marvel</a>
-                                <a class="no-deco" href="#">DC</a>
+                                <a class="no-deco" href="?sec=categorias&categ=marvel">Marvel</a>
+                                <a class="no-deco" href="?sec=categorias&categ=dc_comics">DC</a>
                             </div>
                         </div>
                         <div class="sub-dropdown-active4 d-flex align-items-center justify-content-between">
-                            <a class="no-deco" href="#">Revistas</a><span class="material-symbols-outlined">keyboard_arrow_right</span>
+                            <a class="no-deco" href="?sec=categorias&categ=revista">Revistas</a><span class="material-symbols-outlined">keyboard_arrow_right</span>
                             <div class="sub-dropdown4">
-                                <a class="no-deco" href="#">Lugares</a>
-                                <a class="no-deco" href="#">Oh-La-LA</a>
+                                <a class="no-deco" href="?sec=categorias&categ=revista&sub_categ=Lugares">Lugares</a>
+                                <a class="no-deco" href="?sec=categorias&categ=revista&sub_categ=ohlala">Oh-La-LA</a>
                             </div>
                         </div>
                     </div>
