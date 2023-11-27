@@ -4,12 +4,12 @@
             <form class="p-4 rounded mb-4" action="modelos/sign-up.php" id="formSignUp" method="POST">
                 <div class="form-group text-start">
                     <label for="nameSign">Nombre</label>
-                    <input type="text" class="form-control" id="nameSign" name="name" placeholder="Ej: TorreZ297">
+                    <input type="text" class="form-control" id="nameSign" name="name" placeholder="Augusto">
                     <p class="text-danger my-0" id="errorName" hidden>Campo vacio.</p>
                 </div>
-                <div class="form-group text-start">
+                <div class="form-group my-2 text-start">
                     <label for="lastNameSign">Apellido</label>
-                    <input type="text" class="form-control" id="lastNameSign" name="lastName" placeholder="Ej: PlasCencia">
+                    <input type="text" class="form-control" id="lastNameSign" name="lastName" placeholder="Torres">
                     <p class="text-danger my-0" id="errorLastName" hidden>Campo vacio.</p>
                 </div>
                 <div class="form-group my-2 text-start">
@@ -19,19 +19,19 @@
                 </div>
                 <div class="form-group my-2 text-start">
                     <label for="phoneSign">Telefono (Opcional)</label>
-                    <input type="tel" class="form-control rounded-0" id="phoneSign" name="tel" placeholder="Ejemplo: 11 6477-5839">
+                    <input type="tel" class="form-control rounded-0" id="phoneSign" name="tel" placeholder="11 6477-5839">
                     <p class="text-danger my-0" id="errorPhone" hidden>El numero de telefono esta en un formato incorrecto.</p>
                 </div>
                 <div class="form-group my-2 text-start">
                     <div class="row">
                         <div class="col-3">
                             <label for="ageSign">Edad</label>
-                            <input type="number" class="form-control rounded-0" id="ageSign" min="13" max="150" name="age">
+                            <input type="number" class="form-control rounded-0" id="ageSign" min="13" max="150" name="age" placeholder="13">
                             <p class="text-danger my-0" id="errorAge" hidden>Necesitas ser mayor de 13 años.</p>
                         </div>
                         <div class="col-9">
                             <label for="dniSign">DNI</label>
-                            <input type="number" class="form-control rounded-0" id="dniSign" min="10000000" max="99999999" placeholder="Ejemplo: 12345678" name="dni">
+                            <input type="number" class="form-control rounded-0" id="dniSign" min="10000000" max="99999999" placeholder="12345678" name="dni">
                             <p class="text-danger my-0" id="errorDni" hidden>DNI incorrecto.</p>
                         </div>
                     </div>

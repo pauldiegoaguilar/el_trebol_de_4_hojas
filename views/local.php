@@ -11,6 +11,10 @@
                 <input type="text" id="nombre" name="nombre" class="form-control border-dark border-2" required>
             </div>
             <div class="my-2">
+                <label for="nombre" class="form-label">Apellido:</label>
+                <input type="text" id="apellido" name="apellido" class="form-control border-dark border-2" required>
+            </div>
+            <div class="my-2">
                 <label for="email" class="form-label">Email:</label>
                 <input type="email" id="email" name="email" class="form-control border-dark border-2" required>
             </div>
@@ -30,9 +34,7 @@
         </div>
     </div>
     <div class="justify-content-center">
-        <a class="btn btn-outline-success border-3 mx-0">Enviar</a>
-        
-        
+        <button onclick="enviarMSG()" class="btn btn-outline-success border-3 mx-0">Enviar</button>
     </div>
 
 </div>

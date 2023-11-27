@@ -20,7 +20,6 @@ if (isset($_SESSION['USER'])) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link href="https://fonts.googleapis.com/css2?family=Chau+Philomene+One&display=swap" rel="stylesheet">
     <!-- Option 1: Include in HTML -->
@@ -246,8 +245,9 @@ if (isset($_SESSION['USER'])) {
                                 <li><a class="dropdown-item" href="?sec=mi_cuenta">Mi Cuenta</a></li>
                                 <?php
                                 if ($_SESSION['USER'][0]['rol'] == '1') { ?>
-
-                                    <li><a class="my-2 dropdown-item" href="#">Administración</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="my-2 dropdown-item" href="?sec=administracion">Administración</a></li>
+                                    <li><a class="my-2 dropdown-item" href="?sec=publicar">Agregar Producto</a></li>
                                 <?php }
                                 ?>
                                 <li>
@@ -372,7 +372,7 @@ if (isset($_SESSION['USER'])) {
                                     <p class="fs-4" id="totalPriceCart">$<?php echo $total; ?></p>
                                 </div>
                                 <div class="h-50">
-                                    <button type="button" class="w-100 btn btn-dark btn-primary m-0">INICIAR COMPRA</button>
+                                    <button type="button" onclick="comprar();" class="w-100 btn btn-dark btn-primary m-0">INICIAR COMPRA</button>
                                 </div>
                             </div>
                         </div>
@@ -694,11 +694,17 @@ if (isset($_SESSION['USER'])) {
         ?>
     </div>
 
+    <div id="msgModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="d-flex flex-column align-items-center bg-white rounded" id="contentModal"></div>
+        </div>
+    </div>
+
 
     <!-- ------------------------ Footer ------------------------ -->
     <div class="text-white bg-success" style="background-color: #303436;">
         <div class="container">
-            <footer class="py-5">
+            <footer class="pt-5">
                 <div class="row pb-3 justify-content-around">
                     <div class="col-6 col-md-2">
                         <h5>Navegacion</h5>
@@ -742,9 +748,8 @@ if (isset($_SESSION['USER'])) {
                     </div>
                 </div>
 
-                <div class="d-flex flex-column flex-sm-row justify-content-between border-top">
-                    <p class="m-0">©2023 El Trebol de 4 Hojas. All rights reserved.</p>
-                   
+                <div class="d-flex flex-column flex-sm-row justify-content-center border-top">
+                    <p class="my-3" style="font-size: 14px;">©2023 EL TREBOL DE 4 HOJAS. TODOS LOS DERECHOS RESERVADOS.</p>
                 </div>
             </footer>
         </div>
@@ -757,9 +762,6 @@ if (isset($_SESSION['USER'])) {
 
 <script src="js/app.js"></script>
 
-<script>
-    //var element = document.getElementsByTagName('body');
-    //html2pdf(element[0]);
-</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 </html>

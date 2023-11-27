@@ -262,9 +262,9 @@ function agregarCarrito(idProd, idUser, cant){
             }else if(response == 0){
                 errorAgregarCarrito();
             }else if(response == 3){
-                showAlert("No fue posible agregar el producto al carrito por falta de stock", 2);
+                showAlert("No fue posible agregar el producto al carrito por falta de stock", 3);
             }else{
-                showAlert("Este producto ya fue añadido al carrito", 2);
+                showAlert("Este producto ya fue añadido al carrito", 3);
             }
         },
         error: function(){
@@ -274,7 +274,7 @@ function agregarCarrito(idProd, idUser, cant){
 }
 
 function errorAgregarCarrito(){
-    showAlert("No fue posible agregar el producto al carrito, debe iniciar sesion", 2);
+    showAlert("No fue posible agregar el producto al carrito, debe iniciar sesion", 3);
 }
 
 function showAlert(message, iconNum){
@@ -285,8 +285,10 @@ function showAlert(message, iconNum){
     if(iconNum == 1){
         HTMLmsg += `<span class="material-symbols-outlined text-success" style="font-size: 100px">check_circle</span><p class="text-success text-center fs-4">${message}</p>`;
 
+    }else if(iconNum == 2){
+        HTMLmsg += `<span class="material-symbols-outlined text-warning" style="font-size: 100px;">error</span><p class="text-warning text-center fs-4">${message}</p>`
     }else{
-        HTMLmsg += `<span class="material-symbols-outlined text-warning" style="font-size: 100px">error</span><p class="text-warning text-center fs-4">${message}</p>`;
+        HTMLmsg += `<span class="material-symbols-outlined text-danger" style="font-size: 100px">cancel</span><p class="text-danger text-center fs-4">${message}</p>`;
     }
 
     contentModal.innerHTML = HTMLmsg;
@@ -320,7 +322,7 @@ function actualizarCarrito(){
             let cartHTML = "";
             let totalPrice = 0;
 
-            if(cartProds != null){
+            if(cartProds != ''){
                 for (let i = 0; i < cartProds.length; i++) {
                     totalPrice += cartProds[i]['precio'] * cartProds[i]['cantidad'];
     
@@ -417,11 +419,256 @@ function comprar(){
 
     $.ajax({
         url: 'modelos/comprar.php',
+        dataType: 'json',
         success: function(res){
-            if(res == 1){
+            //let element = document.getElementById('cartBody');
+
+            console.log(res);
+            if(res[0] == 1 && res[1] == true){
                 showAlert("Se ha realizado la compra con exito", 1);
-                document.getElementById("cartBody").innerHTML = '<p class="text-warning text-center">EL CARRITO DE COMPRAS ESTÁ VACÍO</p>';
+                //html2pdf(element);
+
+                //setTimeout(() => {
+                    document.getElementById("cartBody").innerHTML = '<p class="text-warning text-center">EL CARRITO DE COMPRAS ESTÁ VACÍO</p>';
+                //}, 5000)
+            }else if(res[0] == 1 && res[1] == false){
+                showAlert("Algunos productos comprados con éxito, otros sin stock.", 2);
+                //html2pdf(element);
+
+                //setTimeout(() => {
+                    actualizarCarrito();
+                //}, 5000)
+                
+            }else{
+                showAlert("No se pudo completar la compra", 3);
             }
         }
     })
+}
+
+
+/* --------------- ADMINISTRACION - BANEAR & DESBANEAR USUARIOS --------------- */
+
+function userFunc(action, user){
+    $.ajax({
+        url: 'modelos/userFunc.php',
+        data: {ACT: action, USERID: user},
+        type: 'POST',
+        success: function(res){
+            if(res == 1){
+                let msg = action == 1 ? 'El usuario fue bloqueado correctamente' : 'El usuario fue desbloqueado correctamente';
+                showAlert(msg, 1);
+                actualizarListaUsuarios();
+            }else{
+                showAlert("Ha ocurrido un error", 3);
+            }
+        }
+    })
+}
+
+function actualizarListaUsuarios(){
+    let listUsersContent = document.getElementById('listaItems');
+
+    $.ajax({
+        url: 'modelos/admin_users.php',
+        data: {get: 1},
+        type: 'POST',
+        dataType: 'json',
+        success: function(users){
+            let usersHTML = "";
+
+            for (let i = 0; i < users.length; i++) {
+                usersHTML += `<tr ${users[i]['fecha_baja'] == null ? '' : 'class="table-secondary"'}>`;
+                    usersHTML += `<th scope="row" class="align-middle" style="user-select: none;"><p style="padding: 5px 2px 5px 2px;" class="bg-dark text-white h6 text-center rounded-circle m-0">${users[i]['nombre'][0] + users[i]['apellido'][0]}</p></th>`;
+                    usersHTML += `<td class="align-middle">${users[i]['nombre'] + " " + users[i]['apellido'] }</td>`;
+                    usersHTML += `<td class="align-middle">${users[i]['email'] }</td>`;
+                    usersHTML += `<td class="align-middle">${users[i]['telefono'] }</td>`;
+                    usersHTML += `<td class="align-middle">${users[i]['DNI'] }</td>`;
+                    usersHTML += '<td class="text-white" style="user-select: none; --bs-text-opacity: .0;">Column content</td>';
+                    usersHTML += '<td class="align-middle">';
+                        usersHTML += `<button type="button" onclick="userFunc(${users[i]['fecha_baja'] == null ? 1 : 0}, ${users[i]['id']})" class="borber border-0 bg-success bg-opacity-25 text-dark m-0 p-2 rounded">${users[i]['fecha_baja'] == null ? 'Bloquear' : 'Desbloquear'}</button>`;
+                    usersHTML += '</td>';
+                usersHTML += '</tr>';
+            }
+
+            listUsersContent.innerHTML = usersHTML;
+        }
+    })
+}
+
+function actualizarListaPosts(){
+    let listPostContent = document.getElementById('listaItems');
+
+    $.ajax({
+        url: 'modelos/admin_post.php',
+        dataType: 'json',
+        success: function(posts){
+            let postsHTML = "";
+
+            for (let i = 0; i < posts.length; i++) {
+                postsHTML += '<tr>';
+                    postsHTML += '<th scope="row" class="align-middle" style="user-select: none;">';
+                        postsHTML += `<img style="width: 100px;" src="${posts[i]['portada']}1.png">`;
+                    postsHTML += '</th>';
+                    postsHTML += `<td class="align-middle" style="width: 180px;">${posts[i]['titulo']}</td>`;
+                    postsHTML += `<td style="width: 300px;" class="align-middle">${posts[i]['descripcion'].substr(0, 250) + "..."}</td>`;
+                    postsHTML += `<td style="width: 100px;" class="align-middle">$${posts[i]['precio']}</td>`;
+                    postsHTML += `<td class="align-middle">${posts[i]['stock']}</td>`;
+                    postsHTML += '<td class="text-white" style="user-select: none; --bs-text-opacity: .0;">Column content</td>';
+                    postsHTML += '<td class="align-middle">';
+                        postsHTML += '<button type="button" class="borber border-0 bg-success bg-opacity-25 text-dark m-0 p-2 rounded">Editar</button>';
+                    postsHTML += '</td>';
+                postsHTML += '</tr>';
+            }
+
+            listPostContent.innerHTML = postsHTML;
+        }
+    })
+}
+
+function actualizarListaMensajes(){
+    let listMsgContent = document.getElementById('listaItems');
+
+    $.ajax({
+        url: 'modelos/admin_msgs.php',
+        dataType: 'json',
+        success: function(msgs){
+            let msgHTML = "";
+
+            for (let i = 0; i < msgs.length; i++) {
+                msgHTML += '<tr>';
+                    msgHTML += '<th scope="row" class="align-middle" style="user-select: none;">';
+                        msgHTML += `<p style="padding: 5px 2px 5px 2px;" class="bg-dark text-white h6 text-center rounded-circle m-0">${msgs[i]['nombre'][0] + msgs[i]['apellido'][0]}</p>`;
+                    msgHTML += '</th>';
+                    msgHTML += `<td class="align-middle">${msgs[i]['nombre'] + " " + msgs[i]['apellido'] }</td>`;
+                    msgHTML += `<td class="align-middle">${msgs[i]['email'] }</td>`;
+                    msgHTML += `<td class="align-middle">${msgs[i]['telefono'] }</td>`;
+                    msgHTML += `<td class="align-middle" style="width: 200px;">${msgs[i]['comentario'].substr(0, 50) + "..." }</td>`;
+                    msgHTML += '<td class="text-white" style="user-select: none; --bs-text-opacity: .0;">Column content</td>';
+                    msgHTML += '<td class="align-middle">';
+                        msgHTML += '<button type="button" class="borber border-0 bg-success bg-opacity-25 text-dark m-0 p-2 rounded">Ver</button>';
+                    msgHTML += '</td>';
+                msgHTML += '</tr>';
+            }
+
+            listMsgContent.innerHTML = msgHTML;
+        }
+    })
+}
+
+function changePage(from){
+    let user_button = document.getElementById('user_button');
+    let post_button = document.getElementById('post_button');
+    let msgs_button = document.getElementById('msgs_button');
+
+    let caption = document.getElementById('caption');
+    let titulos = document.getElementById('listaTitulos');
+
+    if(from == 1){
+        actualizarListaUsuarios();
+
+        caption.innerHTML = "Lista de usuarios";
+
+        let usuariosTitles = '';
+
+        usuariosTitles += '<tr class="table-success">';
+            usuariosTitles += '<th scope="col"></th>';
+            usuariosTitles += '<th scope="col">Nombre y Apellido</th>';
+            usuariosTitles += '<th scope="col">Correo Electronico</th>';
+            usuariosTitles += '<th scope="col">Telefono</th>';
+            usuariosTitles += '<th scope="col">DNI</th>';
+            usuariosTitles += '<th scope="col"></th>';
+            usuariosTitles += '<th scope="col">Acciones</th>';
+        usuariosTitles += '</tr>';
+
+        titulos.innerHTML = usuariosTitles;
+
+        user_button.removeAttribute('onclick');
+        post_button.setAttribute('onclick', 'changePage(2)');
+        msgs_button.setAttribute('onclick', 'changePage(3)');
+
+        user_button.setAttribute('class', 'borber border-0 bg-success bg-opacity-25 text-dark m-0 p-2');
+        post_button.setAttribute('class', 'border border-top-0 border-bottom-0 border-success border-opacity-25 border-3 bg-secondary bg-opacity-10 text-dark m-0 p-2');
+        msgs_button.setAttribute('class', 'borber border-0 bg-secondary bg-opacity-10 text-dark m-0 p-2');
+    }else if(from == 2){
+        actualizarListaPosts();
+
+        caption.innerText = "Lista de productos";
+
+        let postTitles = '';
+
+        postTitles += '<tr class="table-success">';
+            postTitles += '<th scope="col">Portada</th>';
+            postTitles += '<th scope="col">Titulo</th>';
+            postTitles += '<th scope="col">Descripcion</th>';
+            postTitles += '<th scope="col">Precio</th>';
+            postTitles += '<th scope="col">Stock</th>';
+            postTitles += '<th scope="col"></th>';
+            postTitles += '<th scope="col"></th>';
+        postTitles += '</tr>';
+
+        titulos.innerHTML = postTitles;
+
+        user_button.setAttribute('onclick', 'changePage(1)');
+        post_button.removeAttribute('onclick');
+        msgs_button.setAttribute('onclick', 'changePage(3)');
+
+        user_button.setAttribute('class', 'borber border-0 bg-secondary bg-opacity-10 text-dark m-0 p-2');
+        post_button.setAttribute('class', 'border border-top-0 border-bottom-0 border-success border-opacity-25 border-3 bg-success bg-opacity-25 text-dark m-0 p-2');
+        msgs_button.setAttribute('class', 'borber border-0 bg-secondary bg-opacity-10 text-dark m-0 p-2');
+    }else{
+        actualizarListaMensajes();
+
+        caption.innerHTML = "Lista de mensajes";
+
+        let msgsTitles = '';
+
+        msgsTitles += '<tr class="table-success">';
+            msgsTitles += '<th scope="col"></th>';
+            msgsTitles += '<th scope="col">Nombre y Apellido</th>';
+            msgsTitles += '<th scope="col">Correo Electronico</th>';
+            msgsTitles += '<th scope="col">Telefono</th>';
+            msgsTitles += '<th scope="col">Comentarios</th>';
+            msgsTitles += '<th scope="col"></th>';
+            msgsTitles += '<th scope="col">Acciones</th>';
+        msgsTitles += '</tr>';
+
+        titulos.innerHTML = msgsTitles;
+
+        user_button.setAttribute('onclick', 'changePage(1)');
+        post_button.setAttribute('onclick', 'changePage(2)');
+        msgs_button.removeAttribute('onclick');
+
+        user_button.setAttribute('class', 'borber border-0 bg-secondary bg-opacity-10 text-dark m-0 p-2');
+        post_button.setAttribute('class', 'border border-top-0 border-bottom-0 border-success border-opacity-25 border-3 bg-secondary bg-opacity-10 text-dark m-0 p-2');
+        msgs_button.setAttribute('class', 'borber border-0 bg-success bg-opacity-25 text-dark m-0 p-2');
+    }
+}
+
+
+/* --------------- LOCAL - ENVIAR MENSAJE --------------- */
+
+function enviarMSG(){
+    let nombre = document.getElementById('nombre').value;
+    let apellido = document.getElementById('apellido').value;
+    let email = document.getElementById('email').value;
+    let telefono = document.getElementById('telefono').value;
+    let comentario = document.getElementById('comentarios').value;
+
+    if(nombre != '' || apellido != '' || email != '' || telefono != '' || comentario != ''){
+        $.ajax({
+            url: 'modelos/enviarMSG.php',
+            data: {NOMBRE: nombre, APELLIDO: apellido, EMAIL: email, TELEFONO: telefono, COMENTARIO: comentario},
+            type: 'POST',
+            success: function(res){
+                if(res == 1){
+                    showAlert("Se mando el mensaje correctamente", 1);
+                }else{
+                    showAlert("Hubo un problema al mandar el mensaje", 3);
+                }
+            }
+        })
+    }else{
+        showAlert("Complete el formulario correctamente", 2);
+    }
 }

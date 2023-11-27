@@ -1,4 +1,5 @@
 <?php
+    /* -- Loged -- */
 
     if (isset($_SESSION["USER"]) && $_GET["sec"] == "login") {
         header("Location: ?sec=home");
@@ -7,6 +8,26 @@
     if (isset($_SESSION["USER"]) && $_GET["sec"] == "sing-up") {
         header("Location: ?sec=home");
     }
+
+
+    /* -- No Loged -- */
+
+    if(!isset($_SESSION['USER']) && $_GET['sec'] == 'mi_cuenta'){
+        header("Location: ?sec=login");
+    }
+    
+    /* -- Not Allowed -- */
+    
+    if(!isset($_SESSION['USER']) && $_GET['sec'] == 'administracion'){
+        header("Location: ?sec=401");
+    }
+
+    if(isset($_SESSION['USER']) && $_SESSION['USER'][0]['rol'] != 1 && $_GET['sec'] == 'administracion'){
+        header("Location: ?sec=401");
+    }
+
+
+
 
     /*$user;
 

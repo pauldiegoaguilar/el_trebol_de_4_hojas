@@ -146,9 +146,3 @@ if (!empty($productos)) { ?>
         <?php } ?>
     </div>
 </div>
-
-<div id="msgModal" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-        <div class="d-flex flex-column align-items-center bg-white rounded" id="contentModal"></div>
-    </div>
-</div>

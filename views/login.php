@@ -4,7 +4,7 @@
             <form class="p-4 rounded mb-4" action="modelos/login.php" method="post">
                 <div class="form-group my-4 text-start">
                     <label for="email">Correo Electrónico</label>
-                    <input type="email" class="form-control" id="email" placeholder="Correo Electrónico" <?php if(isset($_GET["error"])){ ?> value="<?php echo $_GET["error"]; ?>" <?php } ?>name="email" required>
+                    <input type="email" class="form-control" id="email" placeholder="email@email.com" <?php if(isset($_GET["error"])){ ?> value="<?php echo $_GET["error"]; ?>" <?php } ?>name="email" required>
                 </div>
                 <div class="form-group text-start">
                     <label for="password">Contraseña</label>
