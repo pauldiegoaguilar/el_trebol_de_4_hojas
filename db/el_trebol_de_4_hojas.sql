@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-11-2023 a las 16:17:05
--- Versión del servidor: 10.4.25-MariaDB
--- Versión de PHP: 8.1.10
+-- Tiempo de generación: 27-11-2023 a las 19:17:29
+-- Versión del servidor: 10.4.28-MariaDB
+-- Versión de PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -32,7 +32,7 @@ CREATE TABLE `carritos` (
   `producto_id` int(11) NOT NULL,
   `usuario_id` int(11) NOT NULL,
   `cantidad` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `carritos`
@@ -51,7 +51,9 @@ INSERT INTO `carritos` (`id`, `producto_id`, `usuario_id`, `cantidad`) VALUES
 (10, 1, 1, 1),
 (11, 2, 1, 1),
 (12, 6, 1, 1),
-(13, 4, 1, 1);
+(13, 4, 1, 1),
+(14, 5, 1, 1),
+(15, 7, 1, 5);
 
 -- --------------------------------------------------------
 
@@ -62,7 +64,7 @@ INSERT INTO `carritos` (`id`, `producto_id`, `usuario_id`, `cantidad`) VALUES
 CREATE TABLE `categorias` (
   `id` int(11) NOT NULL,
   `nombre` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `categorias`
@@ -85,7 +87,7 @@ CREATE TABLE `compras` (
   `medio_pago` varchar(50) NOT NULL,
   `cantidad` int(11) NOT NULL,
   `fecha_compra` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -96,7 +98,7 @@ CREATE TABLE `compras` (
 CREATE TABLE `editoriales` (
   `id` int(11) NOT NULL,
   `nombre` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `editoriales`
@@ -111,16 +113,24 @@ INSERT INTO `editoriales` (`id`, `nombre`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `personajes`
+-- Estructura de tabla para la tabla `mensajes`
 --
 
-CREATE TABLE `personajes` (
+CREATE TABLE `mensajes` (
   `id` int(11) NOT NULL,
-  `producto_id` int(11) NOT NULL,
-  `nombre` int(11) NOT NULL,
-  `apellido` int(11) NOT NULL,
-  `stock` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `nombre` varchar(100) NOT NULL,
+  `apellido` varchar(100) NOT NULL,
+  `email` varchar(150) NOT NULL,
+  `telefono` int(11) NOT NULL,
+  `comentario` varchar(500) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `mensajes`
+--
+
+INSERT INTO `mensajes` (`id`, `nombre`, `apellido`, `email`, `telefono`, `comentario`) VALUES
+(1, 'Augusto', 'Torres', 'augus.etn26@gmail.com', 1123456789, 'Tienen buenos precio.');
 
 -- --------------------------------------------------------
 
@@ -138,7 +148,7 @@ CREATE TABLE `productos` (
   `descripcion` varchar(2000) NOT NULL,
   `stock` int(11) NOT NULL,
   `descuento` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `productos`
@@ -172,16 +182,18 @@ CREATE TABLE `usuarios` (
   `contraseña` varchar(150) NOT NULL,
   `direccion` varchar(200) NOT NULL,
   `telefono` int(11) NOT NULL,
-  `rol` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `rol` int(11) NOT NULL,
+  `fecha_alta` datetime NOT NULL,
+  `fecha_baja` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `nombre`, `apellido`, `edad`, `DNI`, `email`, `contraseña`, `direccion`, `telefono`, `rol`) VALUES
-(1, 'Paul', 'Diego Aguilar', 17, 12345678, 'diego.paul.et.n26@gmail.com', '35a07086b9f199a594fd716c33bba45e69081fe7', 'Direccion 1234', 1123563478, 1),
-(2, 'Augusto', 'Torres Plasencia', 17, 12345678, 'augusto.etn26@gmail.com', 'e125b4bb04bbd2ec7527bc75812479db10fda4cd', 'Direccion 1234', 1119323345, 0);
+INSERT INTO `usuarios` (`id`, `nombre`, `apellido`, `edad`, `DNI`, `email`, `contraseña`, `direccion`, `telefono`, `rol`, `fecha_alta`, `fecha_baja`) VALUES
+(1, 'Paul', 'Diego', 17, 12345678, 'diego.paul.et.n26@gmail.com', '35a07086b9f199a594fd716c33bba45e69081fe7', '', 1123456789, 1, '2023-11-27 13:27:27', NULL),
+(2, 'Augusto', 'Torres', 17, 12345678, 'augusto.etn26@gmail.com', 'e125b4bb04bbd2ec7527bc75812479db10fda4cd', '', 1123456789, 0, '2023-11-27 13:27:27', NULL);
 
 --
 -- Índices para tablas volcadas
@@ -212,9 +224,9 @@ ALTER TABLE `editoriales`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `personajes`
+-- Indices de la tabla `mensajes`
 --
-ALTER TABLE `personajes`
+ALTER TABLE `mensajes`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -237,7 +249,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `carritos`
 --
 ALTER TABLE `carritos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `categorias`
@@ -258,10 +270,10 @@ ALTER TABLE `editoriales`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT de la tabla `personajes`
+-- AUTO_INCREMENT de la tabla `mensajes`
 --
-ALTER TABLE `personajes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `mensajes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
