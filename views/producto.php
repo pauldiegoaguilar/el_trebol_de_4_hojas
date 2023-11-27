@@ -32,7 +32,7 @@
                                 <p>CANTIDAD</p>
                                 <form action="" class="d-flex flex-column">
                                     <input type="number" name="cantidad" id="cantidad" class="w-25 form-control border-success" min="1" value="1" placeholder="0" required>
-                                    <input type="button" onclick="let cant = document.getElementById('cantidad').value; agregarCarrito(<?php echo $producto['id']; ?>, <?php echo $_SESSION['USER'][0]['id'] ?>, cant);" class="w-100 btn <?php echo $producto['stock'] <= 0 ? 'btn-danger' : 'btn-success'; ?> rounded-0" <?php echo $producto['stock'] <= 0 ? 'disabled' : ''; ?> value="<?php echo $producto['stock'] <= 0 ? 'SIN STOCK' : 'AGREGAR AL CARRITO'; ?>">
+                                    <input type="button" onclick="let cant = document.getElementById('cantidad').value; agregarCarrito(<?php echo $producto['id']; ?>, <?php echo isset($_SESSION['USER'][0]['id']) ?  $_SESSION['USER'][0]['id'] : ''; ?>, cant);" class="w-100 btn <?php echo $producto['stock'] <= 0 ? 'btn-danger' : 'btn-success'; ?> rounded-0" <?php echo $producto['stock'] <= 0 ? 'disabled' : ''; ?> value="<?php echo $producto['stock'] <= 0 ? 'SIN STOCK' : 'AGREGAR AL CARRITO'; ?>">
                                 </form>
                                 <br>
                                 <div class="d-flex">
@@ -83,7 +83,7 @@
                                             <br>
                                             $<?php echo $prodRel['precio'] ?>
                                             <br>
-                                            <button type="button" onclick="agregarCarrito(<?php echo $prodRel['id']; ?>, <?php echo $_SESSION['USER'][0]['id'] ?>, 1);" class="btn btn-success btn-block">Agregar al Carrito</button>
+                                            <button type="button" onclick="agregarCarrito(<?php echo $prodRel['id']; ?>, <?php echo isset($_SESSION['USER'][0]['id']) ? $_SESSION['USER'][0]['id'] : ''; ?>, 1);" class="btn btn-success btn-block">Agregar al Carrito</button>
                                         </p>
                                         <div class="d-flex justify-content-between align-items-center">
                                         </div>
