@@ -516,7 +516,7 @@ function actualizarListaPosts(){
                     postsHTML += `<td class="align-middle">${posts[i]['stock']}</td>`;
                     postsHTML += '<td class="text-white" style="user-select: none; --bs-text-opacity: .0;">Column content</td>';
                     postsHTML += '<td class="align-middle">';
-                        postsHTML += '<button type="button" class="borber border-0 bg-success bg-opacity-25 text-dark m-0 p-2 rounded">Editar</button>';
+                        postsHTML += `<a href="?sec=publicar&prodID=${posts[i]['id']}" class="text-decoration-none borber border-0 bg-success bg-opacity-25 text-dark m-0 p-2 rounded">Editar</a>`;
                     postsHTML += '</td>';
                 postsHTML += '</tr>';
             }
@@ -672,3 +672,38 @@ function enviarMSG(){
         showAlert("Complete el formulario correctamente", 2);
     }
 }
+
+
+/* --------------- PUBLICAR - PUBLICAR PRODUCTI --------------- */
+
+function publicarProd(prodID){
+    let titulo = document.getElementById('titulo').value;
+    let precio = document.getElementById('precio').value;
+    let categoria = document.getElementById('categSelector').value;
+    let editorial = document.getElementById('editSelector').value;
+    let stock = document.getElementById('cantidad').value;
+    let descripcion = document.getElementById('descripcion').value;
+    let portada = document.getElementById("imgUploader").value;
+
+    console.log(portada);
+
+
+    if(titulo != '' || precio != '' || categoria != '' || editorial != '' || stock != '' || descripcion != ''){
+        $.ajax({
+            url: 'modelos/publicarProd.php',
+            data: {TITULO: titulo, PRECIO: precio, CATEGORIA: categoria, EDITORIAL: editorial, STOCK: stock, DESCRIPCION: descripcion, PRODID: prodID},
+            type: 'POST',
+            success: function(res){
+                if(res == 1){
+                    showAlert("Se publico el producto con exito", 1);
+                }else{
+                    showAlert("Esta en proceso de elaboracion el poder publicar/editar los productos", 2);
+                }
+            }
+        })
+    }else{
+        showAlert("Rellene el formulario antes de enviarlo", 3);
+    }
+    
+}
+

@@ -20,7 +20,7 @@ if (mysqli_num_rows($query) > 0) {
     die();
 }
 //Ingreso de nuevo cliente
-$sqlInsert = "INSERT INTO `usuarios` (`nombre`, `apellido`, `email`, `contraseña`, `telefono`, `DNI`, `edad`, `rol`) VALUES ('" . $name . "', '" . $lastName . "', '" . $email . "', '" . $pass . "', '" . $tel . "', '" . $dni . "', '" . $age . "', '0');";
+$sqlInsert = "INSERT INTO `usuarios` (`nombre`, `apellido`, `email`, `contraseña`, `telefono`, `DNI`, `edad`, `rol`, `fecha_alta`, `fecha_baja`) VALUES ('" . $name . "', '" . $lastName . "', '" . $email . "', '" . $pass . "', '" . $tel . "', '" . $dni . "', '" . $age . "', '0', NOW(), null);";
 $queryVerif = mysqli_query($conn, $sqlInsert);
 if (!$queryVerif) {
     die('Hubo un error en la consulta: ' . mysqli_error($conn));
